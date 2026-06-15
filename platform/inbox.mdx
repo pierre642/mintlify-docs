@@ -1,0 +1,168 @@
+---
+title: "Skult Inbox: triage and act on scored buying signals"
+sidebarTitle: "Inbox"
+description: "The Skult Inbox delivers scored, actionable buying signals from public sector documents. Learn to triage, prioritise, and act on every alert."
+---
+
+The Skult Inbox is your central workspace for reviewing and acting on buying signals detected by your AI agents. Every time Skult identifies a relevant procurement intent in a French municipal document — a budget vote, a deliberation, a council minutes report — a new signal card appears here, scored and ready for triage. You can manage the full lifecycle of each opportunity without ever leaving the Inbox.
+
+## Signal cards at a glance
+
+Each signal in the Inbox is represented as a card showing the key information you need to decide whether to act.
+
+<CardGroup cols={2}>
+  <Card title="Score" icon="circle-dashed">
+    A relevance score from **0 to 10** indicates how closely the signal matches your configured AI agent. Higher scores reflect stronger procurement intent and tighter keyword alignment.
+  </Card>
+  <Card title="Collectivité" icon="building-columns">
+    The name of the public organisation (commune, intercommunalité, département) where the signal was detected, along with its geographic location.
+  </Card>
+  <Card title="Signal type" icon="tag">
+    The category of source document: **budget voté**, **délibération**, **fin de contrat**, **DOB** (Débat d'Orientation Budgétaire), **plan pluriannuel d'investissement**, and more.
+  </Card>
+  <Card title="Status badge" icon="circle-check">
+    The current workflow status of the signal: **New**, **To Process**, **In Progress**, or **Closed**. Color-coded for instant recognition.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Sort your Inbox by score descending when you first open it each morning. This surfaces your highest-confidence opportunities before anything else.
+</Tip>
+
+---
+
+## Inside a signal: the full detail view
+
+Click any signal card to open its detail panel. This view contains everything you need to understand the opportunity and take the first step.
+
+<Steps>
+  <Step title="Opportunity description">
+    A plain-language summary of what the collectivité appears to be planning, derived from the underlying official document. This contextualises the raw source text into an actionable insight.
+  </Step>
+  <Step title="Verbatim quote">
+    The exact passage extracted from the official document — deliberation text, budget line, or council minutes — so you can verify the signal and reference it in your outreach.
+  </Step>
+  <Step title="Interpretation">
+    Skult's reasoning about why this passage constitutes a buying signal: what procurement need it implies, how mature the intent appears, and what budget cycle it likely relates to.
+  </Step>
+  <Step title="Suggested approach angle">
+    A recommended opening for your outreach, tailored to the specific opportunity and the type of decision-maker identified. This is a starting point — adapt it to your voice and offer.
+  </Step>
+  <Step title="Session metadata">
+    The date of the council session, the originating document type, and the geographic context (commune, département, région) so you can plan your calendar around known council cycles.
+  </Step>
+  <Step title="Decision-maker contacts">
+    Verified contacts directly linked to this collectivité. See the [Contacts](/platform/contacts) page for full details on what each contact record contains.
+  </Step>
+</Steps>
+
+---
+
+## Managing signal status
+
+Move each signal through the workflow as your prospecting progresses. Status changes are saved in real time and reflected across your team.
+
+| Status | Meaning |
+|---|---|
+| **New** | Signal has been detected and not yet reviewed. |
+| **To Process** | You have reviewed the signal and flagged it for action. |
+| **In Progress** | Outreach or qualification is underway. |
+| **Closed** | The opportunity has been won, lost, or dismissed. |
+
+To update a status, open the signal detail view, click the **Status** dropdown, and select the new value. You can also bulk-update statuses from the Inbox list view by selecting multiple cards.
+
+<Note>
+  The Pipeline view aggregates your signals by status and gives you a count-based overview of your prospecting funnel. See [Pipeline](/platform/pipeline) for details.
+</Note>
+
+---
+
+## Setting priority tiers
+
+Assign a priority tier to each signal to help your team focus on the highest-value opportunities first.
+
+<CardGroup cols={3}>
+  <Card title="Tier 1 — High" icon="fire">
+    Strong signal score, large collectivité, or a contact already identified. Requires action within 24–48 hours.
+  </Card>
+  <Card title="Tier 2 — Medium" icon="minus">
+    Relevant but less urgent. Schedule outreach within the week and monitor for further signals from the same collectivité.
+  </Card>
+  <Card title="Tier 3 — Low" icon="arrow-down">
+    Weak match or early-stage intent. Keep it on your radar but do not invest significant time until more signals confirm the opportunity.
+  </Card>
+</CardGroup>
+
+Set the tier from the signal detail panel using the **Priority** selector. Tier is independent of status — a Tier 1 signal can be in any workflow stage.
+
+---
+
+## Adding notes to a signal
+
+Document your actions, call outcomes, and next steps directly on the signal so nothing is lost between sessions or team members.
+
+<Steps>
+  <Step title="Open the signal detail view">
+    Click the signal card to expand the full detail panel.
+  </Step>
+  <Step title="Navigate to the Notes section">
+    Scroll to the **Notes** tab at the bottom of the detail panel.
+  </Step>
+  <Step title="Write your note">
+    Type your note in the text field. Notes support plain text. Every note is automatically timestamped with the date and time of creation.
+  </Step>
+  <Step title="Save">
+    Click **Add note**. The note appears in the chronological thread below the input field, visible to all team members with access to the signal.
+  </Step>
+</Steps>
+
+<Tip>
+  Use notes to log every outreach attempt, including the channel (email, phone, LinkedIn), the contact reached, and the outcome. This creates an audit trail that is invaluable for long B2G cycles lasting 6 to 18 months.
+</Tip>
+
+---
+
+## Filtering and sorting the Inbox
+
+Use filters to focus on the slice of your pipeline that needs attention right now.
+
+<AccordionGroup>
+  <Accordion title="Filter by status">
+    Select one or more status values — **New**, **To Process**, **In Progress**, **Closed** — to hide signals outside your current focus. A common workflow is to filter to **New** at the start of each day for rapid triage.
+  </Accordion>
+  <Accordion title="Filter by priority tier">
+    Narrow the list to Tier 1, Tier 2, or Tier 3 signals. Combine with a status filter (e.g. Tier 1 + In Progress) to see your hottest active opportunities.
+  </Accordion>
+  <Accordion title="Filter by geography">
+    Select one or more régions or départements to view signals from specific territories. Useful when your team has regional coverage responsibilities.
+  </Accordion>
+  <Accordion title="Filter by signal date">
+    Set a date range to view signals detected within a specific window. Use this when you return from leave or want to review a particular council session period.
+  </Accordion>
+  <Accordion title="Sort by score">
+    Sort the list by score (high to low) to prioritise the most relevant signals across all statuses. Sort by date (newest first) to stay current with freshly detected opportunities.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Tips for effective inbox triage
+
+<CardGroup cols={2}>
+  <Card title="Triage daily, not weekly" icon="calendar-day">
+    Public sector councils meet on regular cycles. Reviewing signals daily ensures you act before competitors spot the same deliberation.
+  </Card>
+  <Card title="Dismiss fast, qualify thoroughly" icon="forward">
+    Move irrelevant signals to **Closed** immediately. Spending time on low-quality signals costs you focus on the ones that matter.
+  </Card>
+  <Card title="Read the verbatim" icon="quote-left">
+    The verbatim quote is your proof point. Read it before any outreach so you can reference the exact document in your message — it signals to the decision-maker that you understand their context.
+  </Card>
+  <Card title="Use the suggested approach as a draft" icon="pen">
+    The suggested angle is generated specifically for each signal. Personalise it, but do not start from scratch — it already encodes the right framing for the procurement context.
+  </Card>
+</CardGroup>
+
+<Warning>
+  Signals older than the current budget year may no longer be actionable. Check the session date in the signal detail view and cross-reference with the collectivité's fiscal calendar before investing significant time.
+</Warning>

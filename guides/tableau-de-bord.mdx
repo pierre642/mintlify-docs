@@ -1,0 +1,41 @@
+---
+title: "Tableau de bord"
+sidebarTitle: "Tableau de bord"
+description: "Suivez votre activité d'un coup d'œil : volume d'alertes, score moyen, taux de traitement et d'enrichissement."
+icon: "chart-line"
+---
+
+Le **Tableau de bord** offre une vue d'ensemble chiffrée de votre activité sur Skult. C'est le premier écran pour prendre le pouls de votre pipeline avant de plonger dans la [Boîte de réception](/guides/boite-de-reception).
+
+## Les indicateurs clés
+
+<CardGroup cols={2}>
+  <Card title="Volume d'alertes" icon="bell">
+    Le nombre d'alertes reçues sur les dernières périodes (7 et 30 jours).
+  </Card>
+
+  <Card title="Score moyen" icon="gauge">
+    La pertinence moyenne des alertes reçues.
+  </Card>
+
+  <Card title="Taux de traitement" icon="circle-check">
+    La part d'alertes qui ont été prises en charge plutôt que laissées au statut Nouveau.
+  </Card>
+
+  <Card title="Taux d'enrichissement" icon="address-book">
+    La part d'alertes pour lesquelles un contact a été trouvé ou enrichi.
+  </Card>
+</CardGroup>
+
+## Les graphiques
+
+- **Activité dans le temps** : l'évolution du nombre d'alertes détectées semaine après semaine.
+- **Répartition par statut** : la distribution de vos alertes entre les différents statuts, pour visualiser l'état de votre pipeline.
+
+## Exporter les données
+
+Un bouton **Exporter** vous permet de télécharger les indicateurs au format CSV, pour les réutiliser dans un tableur ou un reporting.
+
+<Tip>
+  Consultez le Tableau de bord en début de semaine pour repérer une baisse de volume ou de score, puis ouvrez la Boîte de réception pour traiter les alertes prioritaires.
+</Tip>

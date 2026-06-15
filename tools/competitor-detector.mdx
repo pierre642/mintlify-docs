@@ -1,0 +1,83 @@
+---
+title: "Competitor Detector: Map Any Company's Public Contracts"
+sidebarTitle: "Competitor Detector"
+description: "Search any company by name or SIRET to see every public contract they've won — buyers, amounts, sectors, and dates — then export to CSV for CRM use."
+---
+
+In the private sector, competitive intelligence requires significant effort — revenue figures are opaque, customer lists are secret, and account structures are inferred. In the public sector, the rules are different: every awarded contract is a matter of public record. The Competitor Detector makes that data instantly accessible. Enter any company's name or SIRET, and you get a complete picture of their public sector activity — which buyers they serve, what they charge, which sectors they dominate, and how long they've held each account.
+
+## How to use it
+
+<Steps>
+  <Step title="Open the tool">
+    Go to [outils.skult.ai/detecteur-marches-publics](https://outils.skult.ai/detecteur-marches-publics). No account or login is needed.
+  </Step>
+  <Step title="Enter the company name or SIRET">
+    Type the full legal name of the company you want to research (its *dénomination sociale*) or its 14-digit SIRET number. Using a SIRET is more precise for companies with common names or multiple subsidiaries — it ensures you retrieve results for the exact legal entity.
+  </Step>
+  <Step title="Select a geographic scope">
+    Choose a specific region to focus your results, or leave the selector on **France entière** to see all contracts nationwide. Filtering by region is useful when you're expanding into a new territory and want to understand how well-established a competitor is in that market.
+  </Step>
+  <Step title="Review the contract history">
+    The results table shows every public contract awarded to that company: the buyer's name, the contract amount (HT), the notification date, the contract object, and the sector. Scroll through the full history to build a picture of the company's public sector footprint.
+  </Step>
+  <Step title="Identify strategic targets">
+    Look for buyers where the competitor has held a contract for 2 years or more — these are accounts where the renewal window is either open or approaching. Also note buyers where contract amounts are growing: an incumbent on an expanding budget is harder to displace, but also a more valuable win.
+  </Step>
+  <Step title="Export to CSV">
+    Click the export button to download the full results as a CSV file. Import this directly into your CRM to create a targeted prospect list, set renewal-date reminders, or build a sequenced outreach campaign around the competitor's most vulnerable accounts.
+  </Step>
+</Steps>
+
+## Using the Detector for competitive intelligence
+
+### Identify which accounts your competitor holds
+
+The most direct use case: type in a competitor's name and get their complete public sector client list. You'll see every municipality, department, region, hospital, or public institution that has awarded them a contract — along with the contract value and date. This is the ground truth of their public sector presence, with no estimation required.
+
+### Spot upcoming renewal opportunities
+
+Once you have the competitor's contract history, cross-reference notification dates and contract durations to estimate when each account will go back out to tender. A contract awarded in March 2022 with a 3-year duration is likely to renew around Q1 2025. These are your highest-priority accounts: the buyer already has budget, has already bought a solution in your category, and will need to make a procurement decision at a predictable point in the future.
+
+<Tip>
+  Combine the Competitor Detector with the [Contract Radar](/tools/contract-radar) for the most precise timing. Use the Detector to identify *which* accounts a competitor holds, and the Radar to confirm *when* those contracts expire — then plan your first contact 3 to 6 months before that date.
+</Tip>
+
+### Find sectors where a competitor is weak
+
+If a competitor has a strong presence in one region but sparse results in another, that gap represents an opportunity. Similarly, if their contract history clusters in one sector (e.g. IT services) but is thin in adjacent sectors (e.g. training or consulting), that's where you may face less entrenched competition for the same buyer.
+
+### Build a CRM prospecting list from exported data
+
+The CSV export includes all buyer names, contract amounts, dates, and contract objects. Import this into your CRM (Salesforce, HubSpot, Pipedrive, or similar) to:
+
+- Create a dedicated list of *competitor accounts* as a prospecting segment
+- Tag accounts by estimated renewal year
+- Assign account owners for outreach sequencing
+- Set reminders 6 months before estimated contract expiry
+
+<Info>
+  The Competitor Detector draws from the DECP (Données Essentielles de la Commande Publique) dataset — approximately 940,000 contracts published on data.gouv.fr. It covers all categories of public buyers across France. Data reflects what buyers are legally required to publish; very small contracts (below the publication threshold) may not appear.
+</Info>
+
+## Frequently asked questions
+
+<Accordion title="Is the Competitor Detector free?">
+  Yes, completely free with no account required and no usage restrictions. Access it at [outils.skult.ai/detecteur-marches-publics](https://outils.skult.ai/detecteur-marches-publics).
+</Accordion>
+
+<Accordion title="What data source does the tool use?">
+  The Detector queries the DECP (Données Essentielles de la Commande Publique), the official open dataset maintained on data.gouv.fr. This is the authoritative source of French public contract award notices, covering approximately 940,000 contracts across all buyer categories.
+</Accordion>
+
+<Accordion title="Can I export the results?">
+  Yes. Once you've run a search, a CSV export button lets you download the complete results. The CSV includes buyer name, contract amount, notification date, contract object, CPV sector code, and the company's SIRET — everything you need to build a structured prospecting list.
+</Accordion>
+
+<Accordion title="How quickly do results appear?">
+  Results typically appear within a few seconds of submitting your search. For very large companies with extensive public sector histories, loading the full result set may take a moment longer.
+</Accordion>
+
+<Accordion title="How current is the data?">
+  The DECP dataset is updated in real time as public buyers publish new contract award notices. Buyers are legally required to publish within two months of contract signature. Major public buyers typically publish much faster; smaller municipalities may use the full two-month window.
+</Accordion>

@@ -1,0 +1,61 @@
+---
+title: "Contacts & enrichissement"
+sidebarTitle: "Contacts & enrichissement"
+description: "Comment Skult trouve automatiquement les bons interlocuteurs et complète leurs coordonnées (e-mail, téléphone)."
+icon: "address-book"
+---
+
+Pour chaque alerte, Skult cherche à identifier les **bons interlocuteurs** au sein de la collectivité, puis à compléter leurs coordonnées. Vous gagnez ainsi le temps habituellement passé à chercher « qui contacter ».
+
+## La recherche automatique de contacts
+
+Dès qu'une alerte est créée, Skult lance automatiquement une recherche des interlocuteurs pertinents pour votre activité (par exemple DGS, directeur d'un service, élu en charge du sujet). Les contacts trouvés apparaissent au fil de l'eau sur l'alerte.
+
+Selon l'avancement, l'alerte affiche l'un de ces états :
+
+| État | Ce que ça signifie |
+| --- | --- |
+| **Recherche en cours** | Skult recherche les contacts. Patientez quelques instants. |
+| **Contacts trouvés** | Un ou plusieurs interlocuteurs sont disponibles sur l'alerte. |
+| **Aucun contact trouvé** | La recherche n'a rien donné ; vous pouvez ajouter un contact manuellement. |
+| **Erreur** | La recherche a échoué ; un bouton **Réessayer** permet de la relancer. |
+
+<Info>
+  Si la recherche automatique n'a pas été lancée, un bouton **Trouver le contact** vous permet de la déclencher manuellement depuis l'alerte.
+</Info>
+
+## Enrichir un contact (e-mail & téléphone)
+
+Un contact identifié n'a pas toujours son e-mail ou son téléphone renseigné d'emblée. Deux boutons permettent de les rechercher à la demande :
+
+<Steps>
+  <Step title="Ouvrez l'alerte">
+    Affichez le détail de l'alerte pour voir ses contacts.
+  </Step>
+  <Step title="Lancez l'enrichissement">
+    Cliquez sur **Enrichir email** ou **Enrichir tél.** sur le contact concerné.
+  </Step>
+  <Step title="Récupérez la coordonnée">
+    Une fois trouvée, la coordonnée s'affiche sur le contact. La recherche peut prendre quelques instants.
+  </Step>
+</Steps>
+
+<Note>
+  Lorsqu'une coordonnée est trouvée, elle est automatiquement appliquée aux autres contacts identiques (même personne) au sein de votre organisation : vous n'avez pas à relancer la recherche partout.
+</Note>
+
+## Provenance des données
+
+Les contacts sont identifiés à partir de sources professionnelles publiques (profils LinkedIn, annuaires et publications officiels). Il s'agit de coordonnées **professionnelles** de personnes exerçant une fonction publique, destinées à une prise de contact commerciale légitime.
+
+## Et ensuite ?
+
+<CardGroup cols={2}>
+  <Card title="Traiter vos alertes" icon="inbox" href="/guides/boite-de-reception">
+    Toutes les actions disponibles sur une alerte, contacts compris.
+  </Card>
+
+  <Card title="Comprendre une alerte" icon="bell" href="/concepts/alertes">
+    Ce que contient une alerte et son score.
+  </Card>
+</CardGroup>

@@ -1,0 +1,88 @@
+{
+  "projectType": "saas",
+  "projectName": "Skult",
+  "projectDescription": "Skult is a B2G sales intelligence platform that detects public sector buying signals from municipal deliberations, budgets, and meeting minutes — 6 to 18 months before official tender publication.",
+  "theme": "luma",
+  "primaryColor": "#e61f16",
+  "lightColor": "#06245c",
+  "darkColor": "#7c7c7c",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "how-it-works"
+            ]
+          },
+          {
+            "group": "Platform",
+            "pages": [
+              "platform/inbox",
+              "platform/ai-agents",
+              "platform/contacts",
+              "platform/pipeline"
+            ]
+          },
+          {
+            "group": "Free Tools",
+            "pages": [
+              "tools/overview",
+              "tools/procurement-explorer",
+              "tools/email-finder",
+              "tools/contract-radar",
+              "tools/competitor-detector",
+              "tools/go-no-go"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/crm",
+              "integrations/mcp"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "resources/faq",
+              "resources/case-studies",
+              "resources/b2g-glossary"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Real-time buying signal detection from 35,000+ French local government sources",
+    "Custom AI agents calibrated per industry vertical and target geography",
+    "Verified decision-maker contact enrichment (email, phone, LinkedIn)",
+    "Opportunity scoring on a 10-point scale with natural language justification",
+    "CRM integrations (HubSpot, Salesforce, Pipedrive, Sellsy, Attio, Zoho, Odoo)",
+    "MCP server for AI agent access to alerts, contacts, and pipeline data",
+    "Go/No-Go AI analysis of procurement documents (CCTP/RC)",
+    "Contract expiry radar for upcoming renewals (6–12 month horizon)",
+    "Public procurement explorer powered by DECP (data.gouv.fr)",
+    "Competitor market analysis via SIRET/company name lookup"
+  ],
+  "publicApiSurface": [
+    "MCP server: https://mcp.skult.ai",
+    "MCP tool: get_alerts (list alerts with filters)",
+    "MCP tool: get_alert_detail (full alert details with verbatim, contacts, notes)",
+    "MCP tool: get_pipeline_stats (pipeline overview by status)",
+    "MCP tool: search_contacts (search enriched contacts)",
+    "MCP tool: update_alert_status (change alert status)",
+    "MCP tool: update_alert_tier (modify priority 1–3)",
+    "MCP tool: add_alert_note (add dated note to alert)",
+    "Free tool: outils.skult.ai/commande-publique",
+    "Free tool: outils.skult.ai/email-finder",
+    "Free tool: outils.skult.ai/radar-marches",
+    "Free tool: outils.skult.ai/detecteur-marches-publics",
+    "Free tool: outils.skult.ai/analyse-go-no-go"
+  ]
+}

@@ -1,0 +1,123 @@
+---
+title: "How Skult Works — From Raw Documents to Scored Signals"
+sidebarTitle: "How It Works"
+description: "From raw municipal deliberations to scored, actionable buying signals with verified contacts — how Skult's AI pipeline works end-to-end."
+---
+
+Every buying signal Skult delivers starts life as a line in a public document — a vote in a municipal council meeting, a budget envelope in a preliminary financial document, a project reference in a deliberation. Skult's pipeline ingests these documents at scale, extracts intent, scores relevance against your profile, and delivers a qualified opportunity with verified contacts — all before any tender is published. Here is how each stage works.
+
+<Note>
+  Skult operates exclusively on official French public data sources: deliberations, procès-verbaux (PV), débats d'orientation budgétaire (DOB), budgets primitifs, and DECP (Données Essentielles de la Commande Publique). All processing is RGPD (GDPR) compliant. No private or non-public data is collected or stored.
+</Note>
+
+## The signal detection pipeline
+
+<Steps>
+
+  <Step title="Data collection — monitoring 35,000+ sources">
+    Skult's ingestion layer continuously monitors more than 35,000 French local government sources, 24 hours a day, 7 days a week. Coverage includes every level of territorial governance:
+
+    | Source type | What it contains |
+    |---|---|
+    | **Délibérations** | Council votes to approve, fund, or launch projects |
+    | **Procès-verbaux (PV)** | Full meeting minutes capturing discussions before formal votes |
+    | **Débats d'Orientation Budgétaire (DOB)** | Budget planning sessions signalling investment priorities 6–18 months out |
+    | **Budgets primitifs** | Adopted annual budgets with line-level appropriations |
+    | **DECP** | Essential public procurement data for concluded contracts |
+
+    Documents are retrieved directly from official publication channels — municipal websites, préfecture portals, and national open data repositories — as soon as they are made available. The ingestion pipeline normalises formats across all sources, handling PDF, HTML, and structured XML.
+
+    <Info>
+      Because Skult monitors DOBs and preliminary budget sessions, it detects project intent at the earliest possible stage — often a full fiscal year before a procurement process begins.
+    </Info>
+  </Step>
+
+  <Step title="AI analysis — segmentation, entity extraction, and intent detection">
+    Each ingested document is processed by Skult's AI analysis layer, powered by Mistral AI. The analysis runs in three passes:
+
+    **Segmentation** — The document is split into thematic segments: infrastructure, IT, services, works, energy, mobility, and others. This allows precise targeting even in long, multi-topic council minutes.
+
+    **Entity extraction** — Named entities are identified and structured: collectivité name, SIREN, budget envelope amounts, project names, referenced vendors, regulatory frameworks, and timeline indicators.
+
+    **Intent signal detection** — Segments are evaluated for buying intent indicators: budget allocation language, procurement vocabulary, project commissioning references, feasibility study announcements, and explicit technology or service category mentions.
+
+    The output of this stage is a structured signal record: a specific passage from a specific document, tied to a specific collectivité, with extracted entities and intent type classified.
+  </Step>
+
+  <Step title="Scoring — relevance, justification, and ICP matching">
+    Raw signal records are scored against your AI agent's configuration — your sectors, geographies, and keywords — to produce a relevance score from 0 to 10.
+
+    Each score is accompanied by a **natural language justification** that explains precisely why the signal was rated as it was. For example:
+
+    > *"Score 8/10 — The deliberation explicitly allocates €240,000 for the renewal of the municipality's video surveillance infrastructure, with a project launch scheduled for Q2. This matches your target sector (security systems) and your geographic focus (Hauts-de-France region)."*
+
+    Scoring factors include:
+    - **Sector match** — how closely the project category aligns with your defined sectors
+    - **Geographic match** — whether the collectivité is within your target territories
+    - **Budget signal strength** — whether a specific budget envelope is mentioned
+    - **Timeline proximity** — how close the project appears to an active procurement phase
+    - **Keyword density** — frequency and specificity of your target keywords in context
+
+    <Tip>
+      Signals scoring 7 and above typically represent projects with a confirmed budget and a named project owner. These are your highest-priority outreach targets.
+    </Tip>
+  </Step>
+
+  <Step title="Delivery — inbox, verbatim quote, and decision-maker contacts">
+    Qualified signals are delivered to your inbox at [app.skult.ai](https://app.skult.ai) in real time. Each signal card is a self-contained prospecting brief:
+
+    <CardGroup cols={2}>
+      <Card title="Verbatim source quote" icon="quote-left">
+        The exact passage from the official document that triggered the signal — unedited, with source reference (collectivité, document type, publication date).
+      </Card>
+      <Card title="Relevance score & justification" icon="star">
+        A 0–10 score with a plain-language explanation of the match against your ICP configuration.
+      </Card>
+      <Card title="Suggested outreach angle" icon="bullseye">
+        An AI-generated recommendation for how to frame your first contact based on the document content and project stage.
+      </Card>
+      <Card title="Decision-maker contacts" icon="address-book">
+        Verified name, role, email address, phone number, and LinkedIn profile for the relevant elected official or technical director.
+      </Card>
+    </CardGroup>
+
+    Signals are delivered on average **6 to 18 months before the equivalent tender appears on the BOAMP** — giving you a significant relationship-building window ahead of any formal competition.
+  </Step>
+
+  <Step title="Action — CRM export, pipeline management, and MCP integration">
+    Skult is built to fit into your existing sales workflow, not replace it. From any signal card, you can:
+
+    **Push to CRM** — Export the signal as a new deal or update an existing one in HubSpot, Salesforce, Pipedrive, Attio, Zoho, Odoo, or Sellsy. Signal metadata (collectivité, score, verbatim, contacts) is mapped to your CRM's native fields automatically.
+
+    **Manage pipeline status** — Mark signals as Active, In Progress, Won, Lost, or Archived directly in Skult. Status changes sync back to your connected CRM.
+
+    **Refine your agent** — Flag signals as Not Relevant to train your AI agent. Over time, the agent's precision improves based on your feedback.
+
+    **Access via MCP** — For teams using AI-native workflows, Skult exposes a full MCP (Model Context Protocol) server at [mcp.skult.ai](https://mcp.skult.ai). Connect any MCP-compatible AI agent or tool to query your signal inbox, retrieve verbatim quotes, and trigger CRM actions programmatically.
+
+    <AccordionGroup>
+      <Accordion title="What is the MCP server used for?">
+        The Skult MCP server allows AI agents and developer tools that support the Model Context Protocol to interact with your Skult data programmatically. Use cases include: building custom alerting workflows, integrating Skult signals into internal AI assistants, querying signals by score or geography in natural language, and automating CRM pipeline updates without manual review. Connect at [mcp.skult.ai](https://mcp.skult.ai).
+      </Accordion>
+    </AccordionGroup>
+  </Step>
+
+</Steps>
+
+## End-to-end timing
+
+From document publication to signal delivery, the typical latency is under 24 hours. For new accounts, Skult also performs a **retrospective scan** of recent documents at agent activation — which is why most customers receive their first signals within 48 hours of setup, not days later.
+
+The table below summarises the full timeline from buying intent to your outreach:
+
+| Stage | Timing |
+|---|---|
+| Public document published by collectivité | Day 0 |
+| Document ingested and analysed by Skult | Within 24 hours |
+| Signal scored and delivered to your inbox | Within 24–48 hours |
+| Equivalent BOAMP tender published | 6 to 18 months later |
+| Your outreach window | From signal delivery to tender publication |
+
+<Warning>
+  The earlier you act on a signal, the more influence you have over project specifications. Decision-makers are most accessible — and most open to input — in the period between budget approval and procurement launch. Waiting until the tender is published significantly reduces your ability to shape the opportunity.
+</Warning>

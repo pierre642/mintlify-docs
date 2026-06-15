@@ -1,0 +1,139 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "almond",
+  "name": "Skult",
+  "description": "Documentation produit Skult : guide d'utilisation de la plateforme de détection d'opportunités commerciales dans les documents publics des collectivités.",
+  "colors": {
+    "primary": "#e61f16",
+    "light": "#06245c",
+    "dark": "#7c7c7c"
+  },
+  "favicon": "https://media.brand.dev/9d021362-423c-448c-8c2d-1887a1a47133.png",
+  "icons": {
+    "library": "lucide"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "contextual": {
+    "options": ["copy", "view", "assistant", "mcp", "add-mcp"]
+  },
+  "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Accueil",
+          "icon": "house",
+          "href": "/introduction"
+        }
+      ]
+    },
+    "directory": "card",
+    "groups": [
+      {
+        "group": "Prise en main",
+        "icon": "rocket",
+        "expanded": true,
+        "pages": [
+          "introduction",
+          "quickstart"
+        ]
+      },
+      {
+        "group": "Concepts clés",
+        "icon": "lightbulb",
+        "pages": [
+          "concepts/alertes",
+          "concepts/statuts",
+          "concepts/contacts"
+        ]
+      },
+      {
+        "group": "Guides",
+        "icon": "compass",
+        "expanded": true,
+        "pages": [
+          "guides/tableau-de-bord",
+          "guides/boite-de-reception",
+          "guides/pipeline",
+          "guides/retours",
+          "guides/activite-equipe",
+          "guides/parametres"
+        ]
+      },
+      {
+        "group": "Référence",
+        "icon": "book",
+        "expanded": false,
+        "pages": [
+          "reference/glossaire",
+          "reference/faq"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "data:image/png;base64,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",
+    "dark": "data:image/png;base64,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"
+  },
+  "navbar": {
+    "links": [],
+    "primary": {
+      "type": "button",
+      "label": "Get Started",
+      "href": "https://app.skult.ai"
+    }
+  },
+  "footer": {
+    "socials": {
+      "linkedin": "https://www.linkedin.com/company/skultt"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/platform/inbox",
+      "destination": "/guides/boite-de-reception",
+      "permanent": true
+    },
+    {
+      "source": "/platform/ai-agents",
+      "destination": "/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/platform/contacts",
+      "destination": "/concepts/contacts",
+      "permanent": true
+    },
+    {
+      "source": "/platform/pipeline",
+      "destination": "/guides/pipeline",
+      "permanent": true
+    },
+    {
+      "source": "/how-it-works",
+      "destination": "/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/resources/faq",
+      "destination": "/reference/faq",
+      "permanent": true
+    },
+    {
+      "source": "/resources/case-studies",
+      "destination": "/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/resources/b2g-glossary",
+      "destination": "/reference/glossaire",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "destination": "/introduction",
+      "permanent": false
+    }
+  ]
+}

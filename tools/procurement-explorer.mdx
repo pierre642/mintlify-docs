@@ -1,0 +1,73 @@
+---
+title: "Explore French Public Procurement Data — DECP Search"
+sidebarTitle: "Procurement Explorer"
+description: "Search any French public buyer by name, SIREN, or SIRET to see their full contract history, spending patterns, and sectors — live from data.gouv.fr."
+---
+
+The Public Procurement Explorer gives you immediate visibility into how any French public organisation spends its procurement budget — and which private companies win those contracts. It queries the official DECP (Données Essentielles de la Commande Publique) dataset directly, so the data you see reflects the most recent published records from data.gouv.fr, covering roughly 940,000 contracts. There is nothing to install, no account to create, and no cost.
+
+## How to use it
+
+<Steps>
+  <Step title="Open the tool">
+    Go to [outils.skult.ai/commande-publique](https://outils.skult.ai/commande-publique). The search bar accepts a free-text name, a SIREN number, a SIRET number, or a postcode.
+  </Step>
+  <Step title="Enter your search term">
+    Type the name of the public buyer you want to research (e.g. *Ville de Paris*, *CD Isère*) or a company name / SIRET if you want to see it as a contract awardee. You can also type a postcode or department number to surface all buyers active in that territory.
+  </Step>
+  <Step title="Review the contract history">
+    The tool returns the entity's full contract history: contract amounts, notification dates, sectors, and awardees. Each entry includes the contract object, the buyer's name, and the awarded amount in euros (HT).
+  </Step>
+  <Step title="Explore the visual statistics">
+    Switch to the statistics view to see amounts broken down by year, sector distribution, and the most active buyers in the searched territory. Use this to spot spending trends — for example, whether a municipality is increasing its IT services budget year-on-year.
+  </Step>
+  <Step title="Filter by territory">
+    Refine results by region, department, or commune to focus on your target geography. This is particularly useful when prospecting a new region and you want to rank buyers by procurement volume in your sector.
+  </Step>
+  <Step title="Use the data to qualify prospects">
+    Once you've identified a promising buyer, note their recent contract volumes, sectors, and current awardees. This intelligence helps you prioritise outreach and tailor your pitch to what the buyer actually buys — and from whom.
+  </Step>
+</Steps>
+
+## What you can do with procurement data
+
+<CardGroup cols={2}>
+  <Card title="Find buyers in your sector" icon="crosshairs">
+    Search by department or postcode and filter by sector to build a ranked list of all public buyers that have already purchased solutions similar to yours. These are warm prospects — they have an established budget line.
+  </Card>
+  <Card title="Analyse a competitor as an awardee" icon="trophy">
+    Enter a competitor's company name or SIRET to see exactly which public buyers they serve, in which sectors, and for how much. Identify accounts they hold that may be coming up for renewal.
+  </Card>
+  <Card title="Size a territory" icon="map">
+    Before entering a new region, use the territory filter to understand the total addressable procurement volume, the density of active buyers, and the dominant sectors — in seconds, without any spreadsheet work.
+  </Card>
+  <Card title="Prepare for a meeting" icon="briefcase">
+    Research a public buyer's full spending history before a discovery call. Arriving with knowledge of their past contracts, preferred suppliers, and spending trends signals a level of preparation that immediately differentiates you.
+  </Card>
+</CardGroup>
+
+<Info>
+  The Procurement Explorer and the [Competitor Detector](/tools/competitor-detector) draw from the same DECP dataset. The key difference: the Explorer is optimised for researching **buyers** and their spending profiles, while the Competitor Detector is built around researching **companies** and their win histories.
+</Info>
+
+## Frequently asked questions
+
+<Accordion title="What data is available in the explorer?">
+  The explorer surfaces data from the DECP (Données Essentielles de la Commande Publique), the official open dataset published on data.gouv.fr. It covers approximately 940,000 public contracts across all French public buyers — municipalities, departments, regions, hospitals, schools, and central government bodies. Each record includes the contract object, buyer name, awardee name, awarded amount (HT), notification date, contract duration, and CPV sector code where available.
+</Accordion>
+
+<Accordion title="Can I search by SIREN or SIRET?">
+  Yes. The search bar accepts a company or entity name, a SIREN (9-digit company identifier), or a SIRET (14-digit establishment identifier). Using a SIRET is the most precise way to disambiguate companies with similar names or large groups with multiple subsidiaries.
+</Accordion>
+
+<Accordion title="How up to date is the data?">
+  The explorer queries the DECP dataset in real time via the data.gouv.fr API. Data freshness depends on how quickly public buyers publish their contract award notices — the regulation requires publication within two months of contract signature. In practice, most large buyers publish within days; smaller municipalities may take longer.
+</Accordion>
+
+<Accordion title="Is the tool free?">
+  Yes, entirely. There is no account to create, no credit card required, and no usage limit on searches. The tool is available at [outils.skult.ai/commande-publique](https://outils.skult.ai/commande-publique).
+</Accordion>
+
+<Accordion title="What is the difference between this tool and the Competitor Detector?">
+  Both tools query DECP data, but they are optimised for different use cases. The Procurement Explorer is designed to research **buyers** — you look up a municipality or public institution to understand their full spending profile, sector breakdown, and historical awardees. The [Competitor Detector](/tools/competitor-detector) is designed to research **companies** — you look up a competitor to see every public contract they've ever won, with options to filter by region and export results to CSV.
+</Accordion>

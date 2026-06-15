@@ -1,0 +1,152 @@
+---
+title: "Configure AI agents to detect your target opportunities"
+sidebarTitle: "AI Agents"
+description: "AI agents scan 35,000+ local government sources to surface buying signals that match your sector, geography, and offer. Learn to configure and tune them."
+---
+
+An AI agent in Skult is a continuously running detection engine scoped to a single offer vertical or target geography. You define what the agent is looking for — your sector, your target zone, and the keywords that describe your offer — and Skult scans 35,000+ French local government sources on your behalf. When a deliberation, budget document, or council minutes contains a passage that matches your configuration, the agent creates a scored signal in your [Inbox](/platform/inbox).
+
+You can run multiple agents under one account, each calibrated for a different product line or territory. This means a software vendor can run one agent for SIRH and another for cybersécurité at the same time, without the signals bleeding into each other.
+
+---
+
+## How an AI agent works
+
+When you save an agent configuration, Skult continuously processes:
+
+- **Délibérations** from municipal and intercommunal councils
+- **Procès-verbaux (PV) de conseils** recording votes and discussions
+- **DOB** — Débats d'Orientation Budgétaire signalling upcoming spending priorities
+- **Budgets primitifs** adopted at the start of each fiscal year
+- **Plans pluriannuels d'investissement (PPI)** outlining multi-year capital projects
+
+The agent applies your sector description, keyword list, and geographic filter as a relevance layer on top of this raw document stream. Signals that pass the relevance threshold are scored from 0 to 10 and pushed to your Inbox, typically within 48 hours of the source document being published.
+
+<Note>
+  Skult monitors over 35,000 local government sources across France. Your agent does not miss signals because a collectivité uses a non-standard document format — coverage is built at the source level, not the keyword level.
+</Note>
+
+---
+
+## Configuration parameters
+
+<ParamField body="sector_description" type="string" required>
+  A plain-language description of your offer and the problem it solves for public sector buyers. Write this as you would explain your product to a non-technical decision-maker. Example: *"Logiciel de gestion des ressources humaines pour les collectivités territoriales, incluant la paie, la gestion du temps et la formation."*
+
+  The richer your description, the better the agent understands the boundary between relevant and irrelevant signals.
+</ParamField>
+
+<ParamField body="target_geography" type="string | string[]" required>
+  The geographic scope of the agent, specified as one or more French **régions** or **départements**. You can target a single département (e.g. `75 – Paris`) or an entire région (e.g. `Île-de-France`). Select **France entière** to monitor all territories.
+
+  Use separate agents for distinct territories if your sales team has regional responsibilities — this keeps each agent's Inbox clean and attributable.
+</ParamField>
+
+<ParamField body="keywords" type="string[]" required>
+  A list of terms that describe your offer, the buyer's pain point, or the procurement category. Keywords are matched against the full text of source documents.
+
+  Examples:
+  - `SIRH`, `logiciel RH`, `gestion de la paie`, `gestion du temps de travail`
+  - `cybersécurité`, `SOC`, `protection des données`, `NIS2`
+  - `rénovation énergétique`, `audit énergétique`, `CEE`, `DPE`
+
+  Include both the technical terminology your buyers use internally and the administrative vocabulary that appears in official deliberations.
+</ParamField>
+
+<ParamField body="agent_name" type="string">
+  A label for your agent, visible in the Skult interface. Use a name that identifies the vertical or territory at a glance, e.g. *"SIRH – Île-de-France"* or *"Énergie – Grand Est"*.
+</ParamField>
+
+---
+
+## Example agent configuration
+
+The following example shows a fully configured agent for a software company selling HR management tools to local governments in Île-de-France.
+
+| Parameter | Value |
+|---|---|
+| **Agent name** | Logiciels RH – Île-de-France |
+| **Sector description** | Logiciel SIRH pour collectivités : paie, gestion du temps, formation, dématérialisation RH |
+| **Target geography** | Île-de-France (75, 77, 78, 91, 92, 93, 94, 95) |
+| **Keywords** | SIRH, logiciel RH, gestion de la paie, gestion du temps de travail, dématérialisation RH, outil RH, progiciel RH |
+
+With this configuration, the agent surfaces signals such as:
+- A délibération from a commune de Seine-et-Marne authorising a budget line for a new HR platform
+- A DOB from an intercommunalité d'Essonne mentioning "modernisation des outils de gestion du personnel"
+- A PV de conseil from a mairie de Val-de-Marne approving a market study for HR software
+
+---
+
+## Multiple agents per account
+
+You can create as many agents as your subscription allows. Common patterns include:
+
+<CardGroup cols={2}>
+  <Card title="One agent per offer vertical" icon="layer-group">
+    Run separate agents for distinct product lines — SIRH, GED, cybersécurité — so signals stay segmented and each agent's score calibration remains tight.
+  </Card>
+  <Card title="One agent per territory" icon="map">
+    If your team is split by region, give each rep their own agent scoped to their territory. They see only their signals, and nothing gets missed at the boundary.
+  </Card>
+  <Card title="Combine both dimensions" icon="grid">
+    For larger teams, create agents at the intersection: *SIRH × Île-de-France*, *SIRH × Auvergne-Rhône-Alpes*. This gives each rep a focused, low-noise Inbox.
+  </Card>
+  <Card title="Pilot with a single agent" icon="flask">
+    If you are just starting, launch one agent for your primary offer in your strongest territory. Review the first week of signals to calibrate before expanding.
+  </Card>
+</CardGroup>
+
+---
+
+## Time to first signals
+
+<Steps>
+  <Step title="Save your agent configuration">
+    Complete all required parameters and click **Create agent**. Your agent is active immediately.
+  </Step>
+  <Step title="Skult indexes your configuration">
+    The platform applies your sector description, keywords, and geography filter against the incoming document stream. This indexing step takes a few minutes.
+  </Step>
+  <Step title="First signals appear within 48 hours">
+    Signals matching your configuration will appear in your Inbox within 48 hours of agent creation, as new documents are processed and existing recent documents are re-evaluated against your criteria.
+  </Step>
+  <Step title="Signal volume stabilises over the first week">
+    The first few days may surface a higher volume of historical signals. Signal flow then stabilises to reflect the natural pace of council activity in your target zone.
+  </Step>
+</Steps>
+
+<Info>
+  French councils typically meet monthly or bi-monthly. Signal volume is not constant — expect peaks after council session dates, which you can anticipate using the public calendars of your target collectivités.
+</Info>
+
+---
+
+## Tips for tuning keyword quality
+
+The quality of your signals is directly proportional to the quality of your keyword list. Use these principles when configuring or revising keywords.
+
+<AccordionGroup>
+  <Accordion title="Use administrative vocabulary, not marketing language">
+    Collectivités write in administrative French. The word "logiciel" appears far more often in deliberations than "solution" or "plateforme". Match the language of official documents, not your sales deck.
+  </Accordion>
+  <Accordion title="Include acronyms and their full forms">
+    Public sector documents alternate freely between acronyms and full labels. Include both: `SIRH` and `système d'information des ressources humaines`, `DSP` and `délégation de service public`.
+  </Accordion>
+  <Accordion title="Add procurement category codes if applicable">
+    For regulated procurement categories, add the relevant CPV code or classification term. Decision-makers sometimes reference these codes directly in preparatory deliberations.
+  </Accordion>
+  <Accordion title="Avoid overly generic terms">
+    Keywords like `numérique`, `informatique`, or `service` will match too broadly and flood your Inbox with low-score noise. Reserve broad terms for the sector description field, not the keyword list.
+  </Accordion>
+  <Accordion title="Iterate after your first week">
+    Review the first week of signals. If you are seeing too many irrelevant results, remove the keywords that produced them. If you are missing obvious opportunities, check whether you are using the right administrative terminology for that signal type.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Ask your best public sector customers what language appears in their internal documents when they discuss your product category. Their vocabulary is exactly what Skult will encounter in deliberations from similar collectivités.
+</Tip>
+
+<Warning>
+  Do not duplicate keywords across multiple agents targeting the same geography. Duplicate keywords cause the same signal to appear in multiple Inboxes, which creates confusion and wastes triage time. Keep each agent's keyword list distinct.
+</Warning>

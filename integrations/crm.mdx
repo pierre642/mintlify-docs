@@ -1,0 +1,98 @@
+---
+title: "Sync Skult Signals to Your CRM — Setup in Minutes"
+sidebarTitle: "CRM"
+description: "Push buying signals and verified decision-maker contacts to HubSpot, Salesforce, Pipedrive, and 6 other CRMs directly from your Skult inbox."
+---
+
+Skult connects to your CRM so that every buying signal and verified contact lands directly in your existing sales workflow — no copy-pasting, no missed opportunities. Native connectors handle authentication and field mapping for you, and you can start exporting in a few clicks from the Integrations section in [app.skult.ai](https://app.skult.ai).
+
+## Supported CRMs
+
+Skult offers native connectors for the following platforms. If you don't use a dedicated CRM, you can manage everything — signals, contacts, and pipeline status — directly inside Skult.
+
+| CRM | Notes |
+|---|---|
+| **HubSpot** | Native connector |
+| **Salesforce** | Native connector |
+| **Pipedrive** | Native connector |
+| **Attio** | Native connector |
+| **Zoho** | Native connector |
+| **Odoo** | Native connector |
+| **Sellsy** | Native connector |
+| **Agile CRM** | Native connector |
+| **Microsoft Dynamics** | Native connector |
+
+<Note>
+  Don't use a CRM? You can handle your entire prospecting workflow — pipeline stages, contact tracking, notes, and signal follow-up — without leaving Skult.
+</Note>
+
+## Connect your CRM
+
+<Steps>
+  <Step title="Open Integrations">
+    In [app.skult.ai](https://app.skult.ai), click **Integrations** in the left sidebar.
+  </Step>
+  <Step title="Select your CRM">
+    Choose your CRM from the list of available connectors. Each card shows the current connection status.
+  </Step>
+  <Step title="Authenticate">
+    Click **Connect** and complete the OAuth flow in the browser window that opens. Skult never stores your CRM password — authentication uses your CRM provider's standard OAuth 2.0 flow.
+  </Step>
+  <Step title="Confirm the connection">
+    Once authorised, the connector card updates to **Connected**. You can disconnect or re-authenticate at any time from the same screen.
+  </Step>
+</Steps>
+
+## What gets synced
+
+When you export from your inbox, Skult pushes the following data to your CRM:
+
+<CardGroup cols={2}>
+  <Card title="Contact information" icon="user">
+    - Full name
+    - Professional email address
+    - Phone number
+    - Job title and organisation
+  </Card>
+  <Card title="Signal data" icon="bell">
+    - Signal score
+    - Description and summary
+    - Source (deliberation, budget, meeting minutes)
+    - Detection date
+  </Card>
+  <Card title="Pipeline status" icon="chart-bar">
+    - Current stage in your Skult pipeline
+    - Priority tier (high / medium / low)
+    - Notes attached to the alert
+  </Card>
+  <Card title="Source traceability" icon="file-lines">
+    - Link back to the original public document
+    - Municipality and department
+    - Session date of the source document
+  </Card>
+</CardGroup>
+
+## Export from your inbox
+
+Your Skult inbox shows every detected buying signal as a card. Each card has a one-click export action that pushes both the signal data and the associated contact to your connected CRM.
+
+1. Open the **Inbox** from the left sidebar.
+2. Find the signal or contact card you want to export.
+3. Click the **Export to CRM** button on the card.
+4. Skult confirms the export with a success notification. The record appears in your CRM within seconds.
+
+<Tip>
+  You can export contacts independently of signals. Open a contact card and click **Export contact** to push only the contact record without the associated signal detail.
+</Tip>
+
+## Managing everything inside Skult
+
+If you don't use an external CRM, Skult's built-in pipeline covers every step of your prospecting workflow:
+
+- **Inbox** — review and score incoming signals
+- **Pipeline view** — move alerts through custom stages (To Process, In Progress, Won, Lost…)
+- **Contact profiles** — enriched decision-maker cards with contact details and signal history
+- **Notes** — attach dated notes to any alert directly from the alert detail panel
+- **Priority tiers** — flag alerts as high (tier 1), medium (tier 2), or low priority (tier 3)
+
+No CRM connection is required to use any of these features.

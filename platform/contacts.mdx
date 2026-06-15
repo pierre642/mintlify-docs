@@ -1,0 +1,160 @@
+---
+title: "Find and contact public sector decision-makers in Skult"
+sidebarTitle: "Contacts"
+description: "Skult signals include verified decision-maker contacts — email, phone, and LinkedIn — drawn from 10,000+ official public sector data sources."
+---
+
+Every buying signal in Skult is linked to the decision-makers at the collectivité who are most likely to own the procurement. Rather than spending hours cross-referencing trombinoscopes, LinkedIn profiles, and annuaires institutionnels, you get a verified contact record attached directly to the signal — ready to use the moment you decide to act.
+
+Skult builds its contact database exclusively from official public sources: municipal websites, délibérations, comptes-rendus de conseil, official government directories, and published organisational charts. All data is sourced, maintained, and served in full compliance with the RGPD.
+
+---
+
+## Who you will find in the contacts database
+
+Skult maps the key roles involved in public sector procurement decisions. Depending on the collectivité's size and the nature of the opportunity, you may find one or several of the following:
+
+<CardGroup cols={2}>
+  <Card title="DGS — Directeur Général des Services" icon="user-tie">
+    The top administrative officer of the collectivité. Typically the final internal authority on significant procurement decisions, especially in communes of 5,000+ inhabitants.
+  </Card>
+  <Card title="DSI — Directeur des Systèmes d'Information" icon="server">
+    The IT director. Primary contact for any technology, software, or infrastructure purchase. Often involved from the needs assessment phase onwards.
+  </Card>
+  <Card title="Responsable marchés publics" icon="file-contract">
+    The procurement manager. Owns the formal tender process once the project is launched. Engagement before the tender publication phase is critical — this is the contact who defines the specification.
+  </Card>
+  <Card title="Adjoints au maire / Vice-présidents" icon="landmark">
+    Elected officials with portfolio responsibility. An adjoint au maire délégué au numérique or a vice-président chargé des finances is often the political sponsor who authorises the budget line.
+  </Card>
+  <Card title="DRH — Directeur des Ressources Humaines" icon="users">
+    Key contact for SIRH, formation, and workforce management opportunities. Typically co-leads technology purchases with the DSI.
+  </Card>
+  <Card title="Directeur technique / Responsable patrimoine" icon="wrench">
+    Relevant for infrastructure, energy, and building-related opportunities. Owns the operational specification for renovation, maintenance, and equipment contracts.
+  </Card>
+</CardGroup>
+
+---
+
+## What each contact record contains
+
+<ResponseField name="full_name" type="string">
+  The contact's first and last name as it appears in official public sources.
+</ResponseField>
+
+<ResponseField name="title" type="string">
+  Their exact job title and function within the collectivité (e.g. *Directeur Général des Services*, *Adjoint au maire délégué au numérique et à la transition énergétique*).
+</ResponseField>
+
+<ResponseField name="organisation" type="string">
+  The name of the collectivité, with its type (commune, communauté de communes, département, région) and INSEE code for unambiguous identification.
+</ResponseField>
+
+<ResponseField name="verified_email" type="string">
+  A professional email address verified against the collectivité's official domain. Skult validates deliverability before including an address in the database.
+</ResponseField>
+
+<ResponseField name="phone" type="string">
+  Direct or switchboard phone number sourced from official directories. Availability varies by collectivité size and the contact's role.
+</ResponseField>
+
+<ResponseField name="linkedin_url" type="string">
+  The contact's LinkedIn profile URL, where publicly available, allowing you to research their background and send a connection request as part of your outreach sequence.
+</ResponseField>
+
+---
+
+## How contacts are attached to signals
+
+When a signal is generated for a collectivité, Skult automatically queries its contact database for that organisation and attaches the relevant decision-makers to the signal detail view. You see the contacts directly beneath the verbatim quote and suggested approach angle — no separate lookup required.
+
+<Steps>
+  <Step title="Signal detected in a collectivité">
+    An AI agent identifies a buying signal in a deliberation or budget document from, for example, the Communauté de Communes de la Vallée de l'Hérault.
+  </Step>
+  <Step title="Contact matching runs automatically">
+    Skult queries its database for verified contacts at that collectivité and filters for roles relevant to the signal type (e.g. DSI and DGS for a software signal, Directeur technique for an energy renovation signal).
+  </Step>
+  <Step title="Contacts appear in the signal detail view">
+    Open the signal in your [Inbox](/platform/inbox) and scroll to the **Contacts** section. Each matched contact is displayed as a card with all available data fields.
+  </Step>
+  <Step title="Take action directly">
+    Use the email address, phone number, or LinkedIn URL to initiate outreach without leaving the context of the signal. The verbatim quote and suggested approach angle are right above the contact — reference them immediately.
+  </Step>
+</Steps>
+
+---
+
+## Exporting contacts to your CRM
+
+Skult integrates directly with the CRM tools you already use. Export a contact — or all contacts from a signal — with a single click.
+
+<CardGroup cols={3}>
+  <Card title="HubSpot" icon="h">
+    Push contacts to HubSpot as new contacts or update existing records. Signals are attached as engagement notes.
+  </Card>
+  <Card title="Salesforce" icon="cloud">
+    Create leads or contacts in Salesforce with full field mapping. Associate the signal opportunity to an existing account.
+  </Card>
+  <Card title="Pipedrive" icon="chart-line">
+    Add contacts to Pipedrive and optionally create a linked deal in your pipeline at the stage of your choice.
+  </Card>
+  <Card title="Attio" icon="address-book">
+    Sync contacts and signal metadata to Attio records, preserving the Skult signal score and type as custom attributes.
+  </Card>
+  <Card title="Zoho CRM" icon="z">
+    Export to Zoho as leads or contacts, with signal details mapped to custom fields or activity notes.
+  </Card>
+  <Card title="Odoo & Sellsy" icon="briefcase">
+    Push to Odoo CRM or Sellsy with contact and opportunity data, keeping your Skult signals in sync with your full commercial pipeline.
+  </Card>
+</CardGroup>
+
+<Note>
+  CRM integrations are configured in your account settings. See [CRM Integrations](/integrations/crm) for step-by-step setup instructions. Once connected, the **Export to CRM** button appears on every contact card and every signal detail view.
+</Note>
+
+<Tip>
+  When exporting a contact to your CRM, include the signal's verbatim quote and opportunity description in the activity note. This gives your team — and future you — full context when following up months later in the B2G cycle.
+</Tip>
+
+---
+
+## Data freshness and database maintenance
+
+The public sector contact landscape changes continuously — officials are re-elected, roles are reorganised, and new DGS appointments follow council elections. Skult maintains data freshness through:
+
+- **Continuous crawling** of 10,000+ official public sector sources, including municipal websites, JOAFE publications, and official press releases announcing appointments
+- **Post-election refresh cycles** aligned with the French municipal and departmental electoral calendar
+- **Deliverability verification** for email addresses, with stale addresses removed or flagged automatically
+- **Community signals** from user interactions — when a contact is flagged as outdated, the record is queued for re-verification
+
+<Info>
+  Data freshness is shown on each contact card as a **last verified** date. If the date is more than six months old, verify the contact's current role on the collectivité's official website before investing in a full outreach sequence.
+</Info>
+
+---
+
+## RGPD compliance
+
+All contact data in Skult is collected, stored, and provided in compliance with the RGPD (General Data Protection Regulation) and its French implementation.
+
+<AccordionGroup>
+  <Accordion title="Source of data">
+    Every contact record is sourced from official public data: official municipal websites, legally published documents (délibérations, comptes-rendus de séance), the JOAFE (Journal Officiel des Associations et Fondations d'Entreprise), and official government personnel directories. No data is collected from private sources or social scraping without a legitimate basis.
+  </Accordion>
+  <Accordion title="Legitimate interest basis">
+    Contact data for public officials acting in their professional capacity is processed under the legitimate interest basis (Article 6(1)(f) RGPD), consistent with CNIL guidance on B2B prospecting. Skult does not process personal data beyond what is necessary for professional contact identification.
+  </Accordion>
+  <Accordion title="Data subject rights">
+    Public officials have the right to request correction or removal of their data from the Skult database. Requests are handled via Skult's dedicated data rights process and are processed within the legally required timeframe.
+  </Accordion>
+  <Accordion title="Your responsibilities as a user">
+    When you export contacts to your CRM or use them in outreach, you become a data controller for those records. Ensure your outreach practices comply with RGPD requirements for professional prospecting, including clear identification, an opt-out mechanism, and no processing for purposes incompatible with the original collection.
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Do not use Skult contact data for any purpose other than professional B2G sales outreach directed at the contact's official function. Using contact data for personal communications or sharing it with third parties outside your organisation is prohibited under the Skult Terms of Service and the RGPD.
+</Warning>

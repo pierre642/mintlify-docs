@@ -1,0 +1,131 @@
+---
+title: "Skult MCP Server: Connect AI Agents to Your Pipeline"
+sidebarTitle: "MCP"
+description: "Connect Claude, Cursor, VS Code, and other AI agents to Skult via MCP to read alerts, search contacts, and update your pipeline in plain language."
+---
+
+The Skult MCP server exposes your buying signals, enriched contacts, and pipeline data to any AI agent that supports the [Model Context Protocol](https://modelcontextprotocol.io). Once connected, your agent can list, filter, and update your Skult data in plain language — without leaving your development environment or chat interface.
+
+**MCP server URL:** `https://mcp.skult.ai`
+
+## Supported clients
+
+<CardGroup cols={3}>
+  <Card title="Claude Code" icon="terminal" />
+  <Card title="Claude Desktop" icon="desktop" />
+  <Card title="Cursor" icon="arrow-pointer" />
+  <Card title="Windsurf" icon="wind" />
+  <Card title="VS Code" icon="code" />
+  <Card title="ChatGPT" icon="message" />
+  <Card title="Codex" icon="robot" />
+  <Card title="Other MCP agents" icon="plug" />
+</CardGroup>
+
+Any client that supports the MCP HTTP transport is compatible with the Skult server.
+
+## Installation
+
+The example below uses **Claude Code**. The same MCP server URL (`https://mcp.skult.ai`) applies to all supported clients — refer to your client's documentation for its specific configuration syntax.
+
+<Steps>
+  <Step title="Add the Skult MCP server">
+    Run the following command in your terminal:
+
+    ```bash
+    claude mcp add --transport http skult https://mcp.skult.ai
+    ```
+  </Step>
+  <Step title="Authenticate with your Skult account">
+    Claude Code automatically opens a browser window on first launch. Enter your [app.skult.ai](https://app.skult.ai) credentials and click **Authorise access**. Authentication uses OAuth 2.0 — your password is never transmitted to the agent. The access token is stored locally on your machine by your AI client.
+  </Step>
+  <Step title="Verify the connection">
+    Run the following command to confirm the server is active:
+
+    ```bash
+    claude mcp list
+    ```
+
+    You should see `skult` listed with the status **✓ Connected**.
+  </Step>
+</Steps>
+
+## Available tools
+
+Once connected, your agent has access to 7 tools across two categories.
+
+### Read tools
+
+| Tool | Description |
+|---|---|
+| `get_alerts` | List your alerts with optional filters: status, city, and score. |
+| `get_alert_detail` | Retrieve the full detail of a single alert, including the verbatim extract, associated contacts, and notes. |
+| `get_pipeline_stats` | Get a global overview of your pipeline, broken down by status. |
+| `search_contacts` | Search your enriched contact directory by name, organisation, or role. |
+
+### Write tools
+
+| Tool | Description |
+|---|---|
+| `update_alert_status` | Change the status of an alert (e.g. To Process, In Progress, Won, Lost). |
+| `update_alert_tier` | Set the priority of an alert. `1` = high priority, `3` = low priority. |
+| `add_alert_note` | Append a dated note to a specific alert. |
+
+<Warning>
+  Write tools modify your live Skult data. Your AI agent will ask for your confirmation before executing any write action — this is the default behaviour of Claude and most major AI clients.
+</Warning>
+
+## Natural language examples
+
+Ask your agent anything — here are a few prompts to get you started:
+
+- *"What are my 5 most recent alerts?"*
+- *"Set the Liévin alert status to To Process"*
+- *"Add note 'call back tomorrow' to the Laon alert"*
+- *"How many alerts do I have in progress?"*
+
+You can combine filters and actions in a single instruction. For example: *"Show me all high-priority alerts in Normandy with a score above 80, then set the top one to In Progress."*
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The authentication window doesn't open">
+    Your MCP client may not support the HTTP transport or may block automatic browser launches. If the window doesn't open, look for a connection URL printed in the terminal and open it manually in your browser to complete the OAuth flow.
+  </Accordion>
+  <Accordion title="The tools don't appear after connecting">
+    Restart your AI agent after completing authentication. If the tools still don't appear, remove the server and add it again to force a fresh authentication:
+
+    ```bash
+    claude mcp remove skult
+    claude mcp add --transport http skult https://mcp.skult.ai
+    ```
+  </Accordion>
+  <Accordion title='"Invalid credentials" error during login'>
+    Make sure you are using the same email address and password you use to log in to [app.skult.ai](https://app.skult.ai). If you have forgotten your password, reset it from the Skult app login page and then retry the authentication step.
+  </Accordion>
+  <Accordion title="Can one agent access data for the whole team?">
+    No. Each user authenticates with their own Skult account. Data is isolated per organisation — an agent running under your account can only see your organisation's alerts and contacts.
+  </Accordion>
+</AccordionGroup>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Is my data secure?">
+    Yes. The Skult MCP server uses OAuth 2.0. Your password is never transmitted to the AI agent at any point. The access token is stored locally on your machine by your AI client and is used only to authenticate requests to `https://mcp.skult.ai`.
+  </Accordion>
+  <Accordion title="Can I use multiple AI agents at the same time?">
+    Yes. You can connect several clients simultaneously — for example, Claude Desktop and Cursor — using the same Skult account. Each client holds its own local token and operates independently.
+  </Accordion>
+  <Accordion title="Does the MCP integration work offline?">
+    No. The Skult MCP server is cloud-hosted and requires an active internet connection to access your alerts, contacts, and pipeline data.
+  </Accordion>
+  <Accordion title="What can my agent do with the write tools?">
+    The three write tools — `update_alert_status`, `update_alert_tier`, and `add_alert_note` — modify your data directly in Skult. By default, Claude and most AI agents will ask for your explicit confirmation before executing any write action, so you remain in control of every change.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+<Note>
+  Need help connecting your client? Reach out at [contact@skult.ai](mailto:contact@skult.ai) and include your client name and the error message you're seeing.
+</Note>
