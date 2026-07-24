@@ -1,0 +1,66 @@
+---
+title: "D'où viennent les alertes"
+sidebarTitle: "Sources des données"
+description: "Les documents publics que Skult collecte et analyse pour détecter vos opportunités : PV de conseils, délibérations, budgets et séances filmées."
+icon: "file-magnifying-glass"
+---
+
+Chaque alerte Skult provient d'un **document public officiel** produit par une collectivité. Cette page explique ce que nous collectons, où, et comment un document devient une alerte — pour que vous puissiez faire confiance à ce qui arrive dans votre boîte de réception, et le vérifier à la source.
+
+## Les documents analysés
+
+| Type de document | Ce qu'on y trouve |
+| --- | --- |
+| **Procès-verbaux de conseils** | Les débats et décisions des conseils municipaux, communautaires, départementaux et régionaux — la source la plus riche en signaux précoces. |
+| **Délibérations** | Les décisions formelles votées : lancements d'études, conventions, acquisitions, demandes de subvention. |
+| **Débats d'orientation budgétaire (DOB)** | Les priorités d'investissement de l'année à venir, souvent des mois avant tout appel d'offres. |
+| **Séances filmées** | De nombreuses collectivités diffusent leurs conseils en vidéo (YouTube, Facebook). Skult transcrit automatiquement ces séances et les analyse comme un document écrit — y compris quand aucun PV n'est encore publié. |
+
+<Tip>
+  Les séances filmées sont un vrai différenciateur : le PV écrit peut paraître des semaines après la séance, alors que la vidéo est souvent en ligne sous quelques jours. Skult capte ces signaux avant qu'ils ne soient lisibles ailleurs.
+</Tip>
+
+## Où nous collectons
+
+Les collectivités publient leurs documents sur des supports très hétérogènes. Skult maintient une **quinzaine de types de connecteurs** pour les couvrir :
+
+- les **sites officiels** des collectivités (pages « délibérations », « comptes rendus »…) ;
+- les **plateformes d'affichage légal et de publication réglementaire** utilisées par les collectivités ;
+- les **portails open data** publics ;
+- les **chaînes vidéo** des séances filmées (YouTube, Facebook) ;
+- les **plateformes de gestion des délibérations** des éditeurs spécialisés.
+
+Chaque collectivité surveillée est associée à sa source officielle, vérifiée et maintenue par l'équipe Skult.
+
+## Du document à l'alerte
+
+<Steps>
+  <Step title="Collecte">
+    Les nouvelles publications des collectivités de votre périmètre sont récupérées chaque semaine (voir [Couverture & fraîcheur](/donnees/couverture)).
+  </Step>
+  <Step title="Lecture intégrale par l'IA">
+    Chaque document est lu en entier — pas seulement par mots-clés — avec le contexte de votre activité (votre offre, vos cibles, vos exclusions).
+  </Step>
+  <Step title="Extraction des signaux">
+    L'IA extrait les opportunités pertinentes, les score de 0 à 10 et cite le **verbatim** exact du document.
+  </Step>
+  <Step title="Vérification possible à la source">
+    Chaque alerte contient le **lien vers le document d'origine** : vous pouvez toujours vérifier le contexte complet avant de contacter la collectivité.
+  </Step>
+</Steps>
+
+<Info>
+  Skult n'invente jamais un signal : chaque alerte est adossée à un extrait textuel vérifiable d'un document public. Si un verbatim vous semble sorti de son contexte, ouvrez la source — et signalez-le via [Retours & ajustements](/guides/retours) pour affiner la détection.
+</Info>
+
+## Et ensuite ?
+
+<CardGroup cols={2}>
+  <Card title="Couverture & fraîcheur" icon="map" href="/donnees/couverture">
+    Quelles collectivités sont surveillées, à quel rythme, avec quels délais.
+  </Card>
+
+  <Card title="Comprendre une alerte" icon="bell" href="/concepts/alertes">
+    Les champs d'une alerte et la grille de score.
+  </Card>
+</CardGroup>
