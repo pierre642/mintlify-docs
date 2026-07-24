@@ -62,12 +62,46 @@
         ]
       },
       {
+        "group": "Vos données",
+        "icon": "database",
+        "pages": [
+          "donnees/sources",
+          "donnees/couverture"
+        ]
+      },
+      {
+        "group": "Méthode commerciale",
+        "icon": "bullseye",
+        "pages": [
+          "methode/capter-l-amont",
+          "methode/de-l-alerte-au-rdv"
+        ]
+      },
+      {
+        "group": "Intégrations",
+        "icon": "plug",
+        "pages": [
+          "integrations/mcp",
+          "integrations/crm"
+        ]
+      },
+      {
+        "group": "Administration",
+        "icon": "user-gear",
+        "pages": [
+          "admin/equipe-et-roles",
+          "admin/ciblage"
+        ]
+      },
+      {
         "group": "Référence",
         "icon": "book",
         "expanded": false,
         "pages": [
           "reference/glossaire",
-          "reference/faq"
+          "reference/faq",
+          "reference/rgpd",
+          "reference/nouveautes"
         ]
       }
     ]
