@@ -1,131 +1,145 @@
 ---
-title: "Skult MCP Server: Connect AI Agents to Your Pipeline"
-sidebarTitle: "MCP"
-description: "Connect Claude, Cursor, VS Code, and other AI agents to Skult via MCP to read alerts, search contacts, and update your pipeline in plain language."
+title: "Serveur MCP Skult : connectez vos agents IA"
+sidebarTitle: "MCP (agents IA)"
+description: "Connectez Claude, Cursor, ChatGPT et d'autres agents IA à Skult via MCP pour lire vos alertes, chercher des contacts et mettre à jour votre pipeline en langage naturel."
+icon: "robot"
 ---
 
-The Skult MCP server exposes your buying signals, enriched contacts, and pipeline data to any AI agent that supports the [Model Context Protocol](https://modelcontextprotocol.io). Once connected, your agent can list, filter, and update your Skult data in plain language — without leaving your development environment or chat interface.
+Le serveur MCP de Skult expose vos alertes, vos contacts enrichis et votre pipeline à tout agent IA compatible avec le [Model Context Protocol](https://modelcontextprotocol.io). Une fois connecté, votre agent peut lister, filtrer et mettre à jour vos données Skult en langage naturel — sans quitter votre outil de travail.
 
-**MCP server URL:** `https://mcp.skult.ai`
+**URL du serveur MCP :** `https://mcp.skult.ai`
 
-## Supported clients
+## Clients compatibles
 
-<CardGroup cols={3}>
-  <Card title="Claude Code" icon="terminal" />
-  <Card title="Claude Desktop" icon="desktop" />
-  <Card title="Cursor" icon="arrow-pointer" />
-  <Card title="Windsurf" icon="wind" />
-  <Card title="VS Code" icon="code" />
-  <Card title="ChatGPT" icon="message" />
-  <Card title="Codex" icon="robot" />
-  <Card title="Other MCP agents" icon="plug" />
+<CardGroup cols={4}>
+  <Card title="Claude Desktop" icon="desktop">
+  </Card>
+
+  <Card title="Claude Code" icon="terminal">
+  </Card>
+
+  <Card title="Cursor" icon="arrow-pointer">
+  </Card>
+
+  <Card title="ChatGPT" icon="message">
+  </Card>
+
+  <Card title="VS Code" icon="code">
+  </Card>
+
+  <Card title="Windsurf" icon="wind">
+  </Card>
+
+  <Card title="Codex" icon="robot">
+  </Card>
+
+  <Card title="Autres agents MCP" icon="plug">
+  </Card>
 </CardGroup>
 
-Any client that supports the MCP HTTP transport is compatible with the Skult server.
+Tout client qui prend en charge le transport HTTP du protocole MCP est compatible.
 
 ## Installation
 
-The example below uses **Claude Code**. The same MCP server URL (`https://mcp.skult.ai`) applies to all supported clients — refer to your client's documentation for its specific configuration syntax.
+L'exemple ci-dessous utilise **Claude Code**. La même URL (`https://mcp.skult.ai`) s'applique à tous les clients — référez-vous à la documentation de votre client pour la syntaxe exacte.
 
 <Steps>
-  <Step title="Add the Skult MCP server">
-    Run the following command in your terminal:
+  <Step title="Ajoutez le serveur MCP Skult">
+    Dans votre terminal :
 
     ```bash
     claude mcp add --transport http skult https://mcp.skult.ai
     ```
   </Step>
-  <Step title="Authenticate with your Skult account">
-    Claude Code automatically opens a browser window on first launch. Enter your [app.skult.ai](https://app.skult.ai) credentials and click **Authorise access**. Authentication uses OAuth 2.0 — your password is never transmitted to the agent. The access token is stored locally on your machine by your AI client.
+  <Step title="Authentifiez-vous avec votre compte Skult">
+    Une fenêtre de navigateur s'ouvre au premier lancement. Connectez-vous avec vos identifiants [skult.app](https://skult.app) et cliquez sur **Autoriser l'accès**. L'authentification utilise OAuth 2.0 : votre mot de passe n'est jamais transmis à l'agent. Le jeton d'accès est stocké localement sur votre machine.
   </Step>
-  <Step title="Verify the connection">
-    Run the following command to confirm the server is active:
-
+  <Step title="Vérifiez la connexion">
     ```bash
     claude mcp list
     ```
 
-    You should see `skult` listed with the status **✓ Connected**.
+    Le serveur `skult` doit apparaître avec le statut **✓ Connected**.
   </Step>
 </Steps>
 
-## Available tools
+## Outils disponibles
 
-Once connected, your agent has access to 7 tools across two categories.
+Une fois connecté, votre agent dispose de 7 outils, en deux catégories.
 
-### Read tools
+### Lecture
 
-| Tool | Description |
-|---|---|
-| `get_alerts` | List your alerts with optional filters: status, city, and score. |
-| `get_alert_detail` | Retrieve the full detail of a single alert, including the verbatim extract, associated contacts, and notes. |
-| `get_pipeline_stats` | Get a global overview of your pipeline, broken down by status. |
-| `search_contacts` | Search your enriched contact directory by name, organisation, or role. |
+| Outil | Description |
+| --- | --- |
+| `get_alerts` | Liste vos alertes avec filtres optionnels : statut, ville, score. |
+| `get_alert_detail` | Détail complet d'une alerte : verbatim, contacts associés, notes. |
+| `get_pipeline_stats` | Vue d'ensemble de votre pipeline, ventilée par statut. |
+| `search_contacts` | Recherche dans vos contacts enrichis par nom, collectivité ou fonction. |
 
-### Write tools
+### Écriture
 
-| Tool | Description |
-|---|---|
-| `update_alert_status` | Change the status of an alert (e.g. To Process, In Progress, Won, Lost). |
-| `update_alert_tier` | Set the priority of an alert. `1` = high priority, `3` = low priority. |
-| `add_alert_note` | Append a dated note to a specific alert. |
+| Outil | Description |
+| --- | --- |
+| `update_alert_status` | Change le statut d'une alerte (par exemple **À traiter**, **En cours**, **Traité**). |
+| `update_alert_tier` | Définit la priorité d'une alerte : `1` = haute, `3` = basse. |
+| `add_alert_note` | Ajoute une note datée à une alerte. |
 
 <Warning>
-  Write tools modify your live Skult data. Your AI agent will ask for your confirmation before executing any write action — this is the default behaviour of Claude and most major AI clients.
+  Les outils d'écriture modifient vos données Skult en direct. Votre agent IA vous demande confirmation avant chaque écriture — c'est le comportement par défaut de Claude et de la plupart des clients.
 </Warning>
 
-## Natural language examples
+## Exemples en langage naturel
 
-Ask your agent anything — here are a few prompts to get you started:
+- _« Quelles sont mes 5 alertes les plus récentes ? »_
+- _« Passe l'alerte de Liévin au statut À traiter »_
+- _« Ajoute la note "rappeler demain" à l'alerte de Laon »_
+- _« Combien d'alertes ai-je en cours ? »_
 
-- *"What are my 5 most recent alerts?"*
-- *"Set the Liévin alert status to To Process"*
-- *"Add note 'call back tomorrow' to the Laon alert"*
-- *"How many alerts do I have in progress?"*
+Vous pouvez combiner filtres et actions : _« Montre-moi les alertes de Normandie avec un score supérieur à 7, puis passe la première en En cours. »_
 
-You can combine filters and actions in a single instruction. For example: *"Show me all high-priority alerts in Normandy with a score above 80, then set the top one to In Progress."*
-
-## Troubleshooting
+## Dépannage
 
 <AccordionGroup>
-  <Accordion title="The authentication window doesn't open">
-    Your MCP client may not support the HTTP transport or may block automatic browser launches. If the window doesn't open, look for a connection URL printed in the terminal and open it manually in your browser to complete the OAuth flow.
+  <Accordion title="La fenêtre d'authentification ne s'ouvre pas">
+    Votre client bloque peut-être l'ouverture automatique du navigateur. Cherchez l'URL de connexion affichée dans le terminal et ouvrez-la manuellement pour terminer le flux OAuth.
   </Accordion>
-  <Accordion title="The tools don't appear after connecting">
-    Restart your AI agent after completing authentication. If the tools still don't appear, remove the server and add it again to force a fresh authentication:
+
+  <Accordion title="Les outils n'apparaissent pas après connexion">
+    Redémarrez votre agent après l'authentification. Si le problème persiste, retirez puis rajoutez le serveur :
 
     ```bash
     claude mcp remove skult
     claude mcp add --transport http skult https://mcp.skult.ai
     ```
   </Accordion>
-  <Accordion title='"Invalid credentials" error during login'>
-    Make sure you are using the same email address and password you use to log in to [app.skult.ai](https://app.skult.ai). If you have forgotten your password, reset it from the Skult app login page and then retry the authentication step.
+
+  <Accordion title="Erreur « identifiants invalides »">
+    Utilisez exactement les identifiants de [skult.app](https://skult.app). Mot de passe oublié : réinitialisez-le depuis la page de connexion de l'application, puis relancez l'authentification.
   </Accordion>
-  <Accordion title="Can one agent access data for the whole team?">
-    No. Each user authenticates with their own Skult account. Data is isolated per organisation — an agent running under your account can only see your organisation's alerts and contacts.
+
+  <Accordion title="Un agent peut-il voir les données de toute l'équipe ?">
+    Chaque utilisateur s'authentifie avec son propre compte Skult. Les données sont isolées par organisation — un agent connecté avec votre compte ne voit que les alertes et contacts de votre organisation, avec les mêmes droits que vous dans l'application.
   </Accordion>
 </AccordionGroup>
 
-## FAQ
+## Questions fréquentes
 
 <AccordionGroup>
-  <Accordion title="Is my data secure?">
-    Yes. The Skult MCP server uses OAuth 2.0. Your password is never transmitted to the AI agent at any point. The access token is stored locally on your machine by your AI client and is used only to authenticate requests to `https://mcp.skult.ai`.
+  <Accordion title="Mes données sont-elles sécurisées ?">
+    Oui. Le serveur MCP Skult utilise OAuth 2.0 : votre mot de passe n'est jamais transmis à l'agent IA. Le jeton d'accès est stocké localement par votre client et sert uniquement à authentifier les requêtes vers `https://mcp.skult.ai`.
   </Accordion>
-  <Accordion title="Can I use multiple AI agents at the same time?">
-    Yes. You can connect several clients simultaneously — for example, Claude Desktop and Cursor — using the same Skult account. Each client holds its own local token and operates independently.
+
+  <Accordion title="Puis-je connecter plusieurs agents en même temps ?">
+    Oui — par exemple Claude Desktop et Cursor avec le même compte. Chaque client conserve son propre jeton et fonctionne indépendamment.
   </Accordion>
-  <Accordion title="Does the MCP integration work offline?">
-    No. The Skult MCP server is cloud-hosted and requires an active internet connection to access your alerts, contacts, and pipeline data.
-  </Accordion>
-  <Accordion title="What can my agent do with the write tools?">
-    The three write tools — `update_alert_status`, `update_alert_tier`, and `add_alert_note` — modify your data directly in Skult. By default, Claude and most AI agents will ask for your explicit confirmation before executing any write action, so you remain in control of every change.
+
+  <Accordion title="Le MCP fonctionne-t-il hors ligne ?">
+    Non. Le serveur est hébergé dans le cloud et nécessite une connexion internet.
   </Accordion>
 </AccordionGroup>
 
 ---
 
 <Note>
-  Need help connecting your client? Reach out at [contact@skult.ai](mailto:contact@skult.ai) and include your client name and the error message you're seeing.
+  Besoin d'aide pour connecter votre client ? Écrivez à [contact@skult.ai](mailto:contact@skult.ai) en précisant le client utilisé et le message d'erreur rencontré.
 </Note>
