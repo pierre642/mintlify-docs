@@ -81,8 +81,7 @@
         "group": "Intégrations",
         "icon": "plug",
         "pages": [
-          "integrations/mcp",
-          "integrations/crm"
+          "integrations/mcp"
         ]
       },
       {
