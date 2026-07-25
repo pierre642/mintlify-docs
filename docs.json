@@ -114,8 +114,8 @@
     "links": [],
     "primary": {
       "type": "button",
-      "label": "Get Started",
-      "href": "https://app.skult.ai"
+      "label": "Ouvrir Skult",
+      "href": "https://skult.app"
     }
   },
   "footer": {
