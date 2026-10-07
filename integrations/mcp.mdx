@@ -1,11 +1,11 @@
 ---
 title: "Serveur MCP Skult : connectez vos agents IA"
 sidebarTitle: "MCP (agents IA)"
-description: "Connectez Claude, Cursor, ChatGPT et d'autres agents IA à Skult via MCP pour lire vos alertes, chercher des contacts et mettre à jour votre pipeline en langage naturel."
+description: "Connectez Claude, Cursor, ChatGPT et d'autres agents IA à Skult via MCP pour lire vos alertes, chercher et enrichir vos contacts et mettre à jour votre pipeline en langage naturel."
 icon: "robot"
 ---
 
-Le serveur MCP de Skult expose vos alertes, vos contacts enrichis et votre pipeline à tout agent IA compatible avec le [Model Context Protocol](https://modelcontextprotocol.io). Une fois connecté, votre agent peut lister, filtrer et mettre à jour vos données Skult en langage naturel — sans quitter votre outil de travail.
+Le serveur MCP de Skult expose vos alertes, vos contacts enrichis et votre pipeline à tout agent IA compatible avec le [Model Context Protocol](https://modelcontextprotocol.io). Une fois connecté, votre agent peut lister, filtrer, mettre à jour vos données Skult et enrichir vos contacts en langage naturel — sans quitter votre outil de travail.
 
 **URL du serveur MCP :** `https://mcp.skult.ai`
 
@@ -65,16 +65,16 @@ L'exemple ci-dessous utilise **Claude Code**. La même URL (`https://mcp.skult.a
 
 ## Outils disponibles
 
-Une fois connecté, votre agent dispose de 7 outils, en deux catégories.
+Une fois connecté, votre agent dispose de 9 outils, en trois catégories.
 
 ### Lecture
 
 | Outil | Description |
 | --- | --- |
 | `get_alerts` | Liste vos alertes avec filtres optionnels : statut, ville, score. |
-| `get_alert_detail` | Détail complet d'une alerte : verbatim, contacts associés, notes. |
+| `get_alert_detail` | Détail complet d'une alerte : verbatim, contacts associés (avec leurs coordonnées et l'état de leur enrichissement), notes. |
 | `get_pipeline_stats` | Vue d'ensemble de votre pipeline, ventilée par statut. |
-| `search_contacts` | Recherche dans vos contacts enrichis par nom, collectivité ou fonction. |
+| `search_contacts` | Recherche dans vos contacts par nom ou par ville de la collectivité. |
 
 ### Écriture
 
@@ -84,9 +84,37 @@ Une fois connecté, votre agent dispose de 7 outils, en deux catégories.
 | `update_alert_tier` | Définit la priorité d'une alerte : `1` = haute, `3` = basse. |
 | `add_alert_note` | Ajoute une note datée à une alerte. |
 
+### Enrichissement
+
+| Outil | Description |
+| - | - |
+| `enrich_contact` | Recherche l'e-mail et/ou le téléphone d'un contact, comme les boutons **Enrichir email** et **Enrichir tél.** de l'application, et met le contact à jour. |
+| `enrich_alert_contacts` | Enrichit en une fois les contacts de plusieurs alertes (jusqu'à 50 alertes et 20 recherches par demande). Affiche d'abord un plan, puis lance après votre confirmation. |
+
 <Warning>
-  Les outils d'écriture modifient vos données Skult en direct. Votre agent IA vous demande confirmation avant chaque écriture — c'est le comportement par défaut de Claude et de la plupart des clients.
+  Les outils d'écriture et d'enrichissement modifient vos données Skult en direct. Votre agent IA vous demande confirmation avant chaque écriture — c'est le comportement par défaut de Claude et de la plupart des clients. Pour un enrichissement en lot, l'outil impose en plus un plan préalable à valider.
 </Warning>
+
+## Enrichir vos contacts depuis votre agent
+
+L'enrichissement depuis votre agent fonctionne exactement comme les boutons de l'application : mêmes sources, et la coordonnée trouvée est enregistrée sur le contact, visible aussitôt dans Skult.
+
+<Tabs>
+  <Tab title="Un contact">
+    Demandez par exemple _« Trouve l'e-mail et le téléphone du DGS de l'alerte de Laon »_. Votre agent repère le contact sur l'alerte, lance la recherche et vous donne le résultat, en général en moins d'une minute.
+
+    Si la recherche prend plus longtemps, l'agent vous indique qu'elle est **en cours** : elle continue en arrière-plan, et le résultat apparaît sur le contact quelques minutes plus tard. Demandez simplement à revoir l'alerte.
+  </Tab>
+  <Tab title="Plusieurs alertes">
+    Demandez par exemple _« Enrichis les contacts de mes 5 meilleures alertes »_. L'agent vous présente d'abord un **plan** : les contacts concernés, le nombre de recherches et la durée estimée. Rien n'est lancé avant votre confirmation.
+
+    Une fois confirmé, l'enrichissement tourne en arrière-plan (comptez quelques minutes pour une dizaine de contacts). Les coordonnées apparaissent au fur et à mesure sur les alertes.
+  </Tab>
+</Tabs>
+
+<Note>
+  Un contact dont l'e-mail ou le téléphone est déjà renseigné, ou déjà recherché sans succès, n'est pas relancé, sauf si vous le demandez explicitement. Lorsqu'une même personne figure sur plusieurs alertes, une seule recherche est faite et la coordonnée trouvée est appliquée à toutes ses fiches, comme dans l'application.
+</Note>
 
 ## Exemples en langage naturel
 
@@ -94,6 +122,8 @@ Une fois connecté, votre agent dispose de 7 outils, en deux catégories.
 - _« Passe l'alerte de Liévin au statut À traiter »_
 - _« Ajoute la note "rappeler demain" à l'alerte de Laon »_
 - _« Combien d'alertes ai-je en cours ? »_
+- _« Trouve l'e-mail du directeur des services techniques de l'alerte de Liévin »_
+- _« Enrichis les contacts de mes alertes de score supérieur à 8 »_
 
 Vous pouvez combiner filtres et actions : _« Montre-moi les alertes de Normandie avec un score supérieur à 7, puis passe la première en En cours. »_
 
@@ -111,6 +141,14 @@ Vous pouvez combiner filtres et actions : _« Montre-moi les alertes de Normandi
     claude mcp remove skult
     claude mcp add --transport http skult https://mcp.skult.ai
     ```
+  </Accordion>
+
+  <Accordion title="L'enrichissement reste « en cours »">
+    Certaines recherches prennent plusieurs minutes. Elles continuent en arrière-plan même si votre agent a déjà répondu : redemandez le détail de l'alerte un peu plus tard. Si un contact reste sans coordonnée et que l'agent ne le signale plus « en cours », vous pouvez relancer la recherche.
+  </Accordion>
+
+  <Accordion title="Les outils d'enrichissement n'apparaissent pas">
+    Ils ont été ajoutés en octobre 2026. Si votre agent était déjà connecté, retirez puis rajoutez le serveur Skult (ou redémarrez votre client) pour qu'il recharge la liste des outils.
   </Accordion>
 
   <Accordion title="Erreur « identifiants invalides »">
