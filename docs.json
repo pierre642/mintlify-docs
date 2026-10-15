@@ -4,9 +4,9 @@
   "name": "Skult",
   "description": "Documentation produit Skult : guide d'utilisation de la plateforme de détection d'opportunités commerciales dans les documents publics des collectivités.",
   "colors": {
-    "primary": "#2417e6",
-    "light": "#06245c",
-    "dark": "#7c7c7c"
+    "primary": "#3d5b3a",
+    "light": "#78a573",
+    "dark": "#3d5b3a"
   },
   "favicon": "https://media.brand.dev/9d021362-423c-448c-8c2d-1887a1a47133.png",
   "icons": {
