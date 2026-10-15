@@ -9,7 +9,7 @@ icon: "circle-question"
 
 <AccordionGroup>
   <Accordion title="Que veut dire le score d'une alerte ?">
-    Le score (0 à 10) reflète la pertinence de l'alerte pour votre activité : précision du besoin, maturité du projet, adéquation à votre offre et présence d'un contact. Le détail est expliqué dans [Comprendre une alerte](/concepts/alertes).
+    La note, sur 10, reflète la pertinence de l'alerte pour votre activité : précision du besoin, maturité du projet, adéquation à votre offre. Les critères exacts sont propres à votre ciblage. Le détail est expliqué dans [Comprendre une alerte](/concepts/alertes).
   </Accordion>
 
   <Accordion title="Je reçois peu d'alertes, ou des alertes hors sujet. Que faire ?">
@@ -17,7 +17,7 @@ icon: "circle-question"
   </Accordion>
 
   <Accordion title="Comment exclure un type d'alerte ?">
-    Créez un retour dans [Retours & ajustements](/guides/retours) avec la catégorie **Alertes à exclure**, en précisant un exemple. L'équipe Skult ajuste la détection en conséquence.
+    Créez un retour dans [Retours & ajustements](/guides/retours) avec le type **Alertes à exclure**, en précisant un exemple. L'équipe Skult ajuste la détection en conséquence.
   </Accordion>
 </AccordionGroup>
 
@@ -25,35 +25,67 @@ icon: "circle-question"
 
 <AccordionGroup>
   <Accordion title="Pourquoi aucun contact n'a été trouvé pour une alerte ?">
-    La recherche automatique n'aboutit pas toujours (interlocuteur peu présent en ligne, collectivité de petite taille). Vous pouvez relancer la recherche avec **Réessayer**, ou ajouter un contact manuellement. Voir [Contacts & enrichissement](/concepts/contacts).
+    La recherche automatique n'aboutit pas toujours (interlocuteur peu présent en ligne, collectivité de petite taille). La carte affiche alors **Aucun contact pertinent trouvé**. Si vous connaissez l'interlocuteur, ajoutez-le avec **Ajouter un contact** : saisissez son nom, puis son e-mail ou son téléphone. Il apparaît avec le badge **Saisi à la main**. Voir [Contacts & enrichissement](/concepts/contacts).
   </Accordion>
 
   <Accordion title="Pourquoi l'e-mail ou le téléphone n'est pas trouvé ?">
-    L'enrichissement dépend des données disponibles publiquement. Si une coordonnée reste introuvable, c'est qu'elle n'a pas pu être identifiée de manière fiable.
+    L'enrichissement dépend des données disponibles. Si une coordonnée n'a pas pu être identifiée de manière fiable, la mention **Non trouvé** s'affiche à sa place.
   </Accordion>
 
   <Accordion title="Les contacts sont-ils conformes au RGPD ?">
-    Oui. Les contacts proviennent de sources professionnelles publiques : il s'agit de coordonnées professionnelles de personnes exerçant une fonction publique, destinées à une prise de contact commerciale légitime. Le détail complet (sources, base légale, droits des personnes) est dans [RGPD & conformité](/reference/rgpd).
+    Oui. Les contacts proviennent de sources professionnelles publiques : il s'agit de personnes exerçant une fonction publique, contactées dans un cadre professionnel légitime. Le détail complet (sources, base légale, droits des personnes) est dans [RGPD & conformité](/reference/rgpd).
   </Accordion>
 </AccordionGroup>
 
 ## Compte & équipe
 
 <AccordionGroup>
+  <Accordion title="Mot de passe oublié : que faire ?">
+    Sur la page de connexion de [www.skult.app](https://www.skult.app), cliquez sur **Mot de passe oublié ?**, saisissez votre adresse e-mail, puis cliquez sur **Envoyer le lien**. Ouvrez le lien reçu par e-mail et choisissez un nouveau mot de passe. Ce mot de passe sert aussi à connecter votre agent IA via le [serveur MCP](/integrations/mcp).
+  </Accordion>
+
   <Accordion title="Qui peut personnaliser les statuts ou voir l'activité de l'équipe ?">
-    Les profils **administrateur** ont un accès complet, y compris la personnalisation du pipeline, l'invitation de membres et la vue [Activité de l'équipe](/guides/activite-equipe). Les profils **commercial** ont un accès centré sur le traitement des alertes.
+    Chaque membre, administrateur ou commercial, personnalise sa propre vue du pipeline dans **Paramètres**, rubrique **Mon pipeline** : renommer, masquer ou réordonner les colonnes. Ses réglages ne changent pas ceux de ses collègues. Voir [Paramètres](/guides/parametres).
+
+    Les administrateurs disposent en plus du groupe **Admin** du menu : **Activité équipe** et **Inviter un utilisateur**. Voir [Activité de l'équipe](/guides/activite-equipe).
+  </Accordion>
+
+  <Accordion title="Quelles alertes voit un commercial ?">
+    Un administrateur voit toutes les alertes de l'organisation. Un commercial voit les alertes qui lui sont attribuées, ainsi que celles des régions ouvertes pour lui. Ces régions se règlent avec l'équipe Skult. Voir [Équipe & rôles](/admin/equipe-et-roles).
   </Accordion>
 
   <Accordion title="Mes changements sont-ils visibles par mon équipe ?">
-    Oui. Les statuts, notes et contacts sont partagés au sein de votre organisation et se mettent à jour en temps réel pour tous les membres.
+    Oui, pour les collègues qui voient la même alerte. Les nouvelles alertes, les changements de statut et les contacts trouvés s'affichent sans recharger la page. Les notes ajoutées par un collègue apparaissent quand vous rouvrez l'alerte.
   </Accordion>
 
   <Accordion title="Puis-je exporter mes données ?">
-    Oui. La Boîte de réception, le Pipeline et la Vue d'ensemble proposent un bouton **Exporter** au format CSV.
+    Oui, depuis deux écrans. Dans la **Boîte de réception** et le **Pipeline**, le menu **Exporter** propose trois formats :
+
+    - **Export PSV (pipe |)** et **Export CSV classique** : vos alertes, avec une ligne par contact.
+    - **Exporter les contacts (Excel, ;)** : une ligne par personne ayant un e-mail ou un téléphone, sans doublon. Les contacts des alertes au statut **NRP**, **Mauvais contact** ou **Hors scope** sont exclus.
+
+    La Boîte de réception exporte toutes ses alertes qui correspondent à votre recherche, et vous demande confirmation au-delà de 1 000 alertes. Le Pipeline exporte les alertes affichées, selon le filtre de priorité et la recherche.
+
+    Les administrateurs exportent aussi l'**Activité équipe** avec le bouton **Export CSV**. La **Vue d'ensemble** et **Comptes** n'ont pas d'export.
+  </Accordion>
+
+  <Accordion title="Que voit la personne à qui j'envoie un lien de partage ?">
+    Le bouton de partage d'une alerte (info-bulle **Partager cette alerte**) copie un lien public. La personne qui l'ouvre n'a pas besoin de compte Skult. Elle voit une **Fiche partagée** avec :
+
+    - la collectivité, sa population, son SIRET, la date de l'alerte et son score ;
+    - le titre, le besoin, la date de séance, l'opportunité, le verbatim, l'interprétation, l'angle d'approche et la carte ;
+    - les contacts, avec leur fonction, leur LinkedIn, leur e-mail et leur téléphone ;
+    - toutes les notes de l'alerte, avec leur auteur et leur date.
+
+    Le lien est permanent et l'alerte n'a qu'un seul lien : chaque partage redonne le même. Cliquer sur une alerte dans **Dernières alertes** de la **Vue d'ensemble**, ou dans une fiche **Comptes**, ouvre aussi cette fiche partagée. Pour désactiver un lien, écrivez à [contact@skult.ai](mailto:contact@skult.ai).
+
+    <Warning>
+      Relisez les notes de l'alerte avant de partager le lien : elles sont visibles par toute personne qui le reçoit.
+    </Warning>
   </Accordion>
 
   <Accordion title="Comment envoyer mes alertes vers mon CRM ?">
-    L'envoi vers le CRM peut être activé pour votre organisation. Une fois activé, un bouton **Envoyer au CRM** apparaît sur les alertes. Pour l'activer, contactez l'équipe Skult via [Retours & ajustements](/guides/retours) en précisant le CRM que vous utilisez.
+    Cliquez sur la carte **Brancher vos alertes à votre CRM**, en bas du menu latéral : elle ouvre un agenda pour prendre rendez-vous avec l'équipe Skult. Une fois l'envoi activé pour votre organisation, un bouton **Envoyer au CRM** apparaît sur les alertes.
   </Accordion>
 </AccordionGroup>
 
@@ -65,7 +97,7 @@ icon: "circle-question"
   </Accordion>
 
   <Accordion title="À quelle fréquence les alertes arrivent-elles ?">
-    La détection est **hebdomadaire** : les nouvelles publications de votre périmètre sont analysées chaque week-end et vos nouvelles alertes arrivent en début de semaine. Voir [Couverture & fraîcheur](/donnees/couverture).
+    La détection est **hebdomadaire**. Les nouvelles publications de votre périmètre sont collectées chaque vendredi soir, puis analysées dans la foulée. Vos nouvelles alertes arrivent dans la nuit et s'affichent sans recharger la page : elles vous attendent dès le lundi matin. Voir [Couverture & fraîcheur](/donnees/couverture).
   </Accordion>
 
   <Accordion title="Une collectivité importante pour moi semble manquer. Que faire ?">

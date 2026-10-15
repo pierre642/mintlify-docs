@@ -1,7 +1,7 @@
 ---
 title: "Couverture & fraîcheur"
 sidebarTitle: "Couverture & fraîcheur"
-description: "Les collectivités surveillées par Skult, le rythme de détection hebdomadaire et les délais à connaître."
+description: "Les collectivités surveillées par Skult, le rythme de collecte, les délais à connaître et les cas où la fiche d'une collectivité n'affiche pas de chiffres."
 icon: "map"
 ---
 
@@ -17,36 +17,53 @@ Skult surveille l'ensemble des échelons de décision des collectivités frança
 | **Conseils départementaux** | Collèges, routes, action sociale, très gros budgets d'investissement. |
 | **Conseils régionaux** | Lycées, transports régionaux, aménagement du territoire, fonds européens. |
 
-Votre périmètre exact — zones géographiques, types de collectivités, seuils de population — est défini avec l'équipe Skult selon votre marché (voir [Votre ciblage](/admin/ciblage)). Vous ne recevez que ce qui vous concerne.
+Votre périmètre exact (zones géographiques, types de collectivités, seuils de population) est défini avec l'équipe Skult selon votre marché (voir [Votre ciblage](/admin/ciblage)). Vous ne recevez que ce qui vous concerne.
 
 ## Le rythme de détection
 
 <Steps>
-  <Step title="Analyse hebdomadaire">
-    Chaque semaine, les nouvelles publications des collectivités de votre périmètre sont collectées et analysées. Le passage a lieu le week-end : **vos nouvelles alertes vous attendent en début de semaine**.
+  <Step title="Collecte chaque vendredi soir">
+    Chaque semaine, la collecte des nouvelles publications démarre le vendredi soir. Les documents de votre périmètre sont analysés dans la foulée, pendant le week-end : **vos nouvelles alertes vous attendent en début de semaine**.
   </Step>
   <Step title="Recherche de contacts immédiate">
     Dès qu'une alerte est créée, la recherche automatique de contacts démarre (voir [Contacts & enrichissement](/concepts/contacts)).
   </Step>
 </Steps>
 
+Les **données publiques** de la fiche collectivité (comptes, élus, projets Fonds vert) suivent un autre rythme : elles sont mises à jour **une fois par mois**, le 5 (voir [Sources des données](/donnees/sources)).
+
 ## Les délais à connaître
 
 La fraîcheur d'une alerte dépend surtout de la **vitesse de publication de la collectivité**, pas de Skult :
 
 - un procès-verbal écrit est généralement publié **quelques jours à quelques semaines** après la séance (il doit souvent être approuvé au conseil suivant) ;
-- les **séances filmées** sont souvent en ligne sous quelques jours — Skult les transcrit pour capter le signal plus tôt ;
+- les **séances filmées** sont souvent en ligne sous quelques jours : Skult les transcrit pour capter le signal plus tôt ;
 - la **date de séance** affichée sur chaque alerte vous indique toujours quand la décision a réellement été débattue.
 
 <Note>
   Les documents de plus d'un an sont volontairement ignorés : Skult ne vous remonte que des signaux actionnables, pas des archives.
 </Note>
 
+## Quand la fiche n'affiche pas de chiffres
+
+La fiche d'un [compte](/guides/comptes) peut afficher l'un de ces messages à la place des chiffres :
+
+| Message | Ce qu'il signifie |
+| --- | --- |
+| **Collectivité non identifiée avec certitude : chiffres non affichés.** | Skult n'a pas pu rattacher le compte à une collectivité unique (homonymes, identifiant manquant). Plutôt que de risquer les chiffres d'une autre collectivité, la fiche n'en affiche aucun. |
+| **Pas de comptes publiés pour cette collectivité.** | Aucun exercice n'est publié pour elle dans les comptes officiels. |
+| **Données financières indisponibles pour le moment.** | Le chargement a échoué. Cliquez sur **Réessayer**. |
+| **Exécutif non publié.** | L'exécutif n'est pas connu, par exemple pendant une présidence vacante. |
+| **Aucun projet Fonds vert publié pour cette collectivité.** | La collectivité n'est bénéficiaire d'aucun projet publié. |
+| **Pas de comparaison pour les syndicats** | Pour un syndicat, la fiche affiche les montants seuls, sans montant par habitant ni médiane, et sans exécutif. |
+| **Moins de 5 collectivités de même type et de même taille : pas de médiane comparable.** | La strate est trop petite pour une comparaison fiable. |
+| **Une seule année de comptes publiée (…) : pas d'évolution à montrer.** | Un seul exercice est disponible : pas de graphique d'évolution. |
+
 ## Ce que la couverture n'est pas
 
 Par transparence :
 
-- **Toutes les collectivités ne publient pas en ligne** — les plus petites communes n'ont parfois aucune publication numérique exploitable. La couverture progresse en continu, et l'équipe Skult ajoute des sources chaque semaine.
+- **Toutes les collectivités ne publient pas en ligne** : les plus petites communes n'ont parfois aucune publication numérique exploitable. La couverture progresse en continu, et l'équipe Skult ajoute des sources chaque semaine.
 - **Une séance filmée sans sous-titres disponibles** peut être traitée avec quelques jours de décalage, le temps que la transcription soit possible.
 - Si une collectivité importante pour vous semble absente, signalez-la via [Retours & ajustements](/guides/retours) : son ajout est étudié en priorité.
 
@@ -54,7 +71,7 @@ Par transparence :
 
 <CardGroup cols={2}>
   <Card title="Sources des données" icon="file-magnifying-glass" href="/donnees/sources">
-    Les types de documents analysés et le chemin du document à l'alerte.
+    Les documents analysés, le chemin du document à l'alerte et les données de la fiche.
   </Card>
 
   <Card title="Votre ciblage" icon="crosshairs" href="/admin/ciblage">

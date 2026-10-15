@@ -1,41 +1,65 @@
 ---
 title: "Vue d'ensemble"
 sidebarTitle: "Vue d'ensemble"
-description: "Suivez votre activité d'un coup d'œil : volume d'alertes, score moyen, taux de traitement et d'enrichissement."
+description: "Suivez votre activité d'un coup d'œil : alertes de la semaine, score moyen, taux traité, contacts trouvés et dernières alertes."
 icon: "chart-line"
 ---
 
-La **Vue d'ensemble** offre un tableau de bord chiffré de votre activité sur Skult. C'est le premier écran pour prendre le pouls de votre pipeline avant de plonger dans la [Boîte de réception](/guides/boite-de-reception).
+La **Vue d'ensemble** est l'écran qui s'affiche à la connexion. Elle résume en chiffres vos alertes, avant de passer à la [Boîte de réception](/guides/boite-de-reception). Elle est accessible à tous les membres, administrateurs comme commerciaux.
+
+<Note>
+  Les chiffres portent sur les alertes que vous voyez. Un **administrateur** voit toutes les alertes de l'organisation. Un **commercial** voit les alertes qui lui sont attribuées et celles de ses zones : deux membres peuvent donc voir des chiffres différents. Les alertes archivées ne sont jamais comptées. Voir [Équipe & rôles](/admin/equipe-et-roles).
+</Note>
 
 ## Les indicateurs clés
 
 <CardGroup cols={2}>
-  <Card title="Volume d'alertes" icon="bell">
-    Le nombre d'alertes reçues sur les dernières périodes (7 et 30 jours).
+  <Card title="Alertes (7j)" icon="bell">
+    Le nombre d'alertes reçues ces 7 derniers jours.
   </Card>
 
   <Card title="Score moyen" icon="gauge">
-    La pertinence moyenne des alertes reçues.
+    La note moyenne de toutes vos alertes, sur 10.
   </Card>
 
-  <Card title="Taux de traitement" icon="circle-check">
-    La part d'alertes qui ont été prises en charge plutôt que laissées au statut Nouveau.
+  <Card title="Taux traité" icon="circle-check">
+    La part de vos alertes arrivées au statut **Traité**, depuis le début.
   </Card>
 
-  <Card title="Taux d'enrichissement" icon="address-book">
-    La part d'alertes pour lesquelles un contact a été trouvé ou enrichi.
+  <Card title="Contacts trouvés" icon="address-book">
+    La part de vos alertes qui ont au moins un contact identifié (nom, e-mail, téléphone ou LinkedIn).
   </Card>
 </CardGroup>
 
+Sous **Alertes (7j)** et **Score moyen**, la mention **vs semaine dernière** donne la variation en pourcentage : en vert si le chiffre monte, en rouge s'il baisse.
+
+- Pour **Alertes (7j)**, elle compare les 7 derniers jours aux 7 jours précédents.
+- Pour **Score moyen**, elle compare la note moyenne des alertes reçues ces 7 derniers jours à celle des 7 jours précédents.
+
+**Taux traité** et **Contacts trouvés** sont des cumuls : ils n'ont pas de variation.
+
 ## Les graphiques
 
-- **Activité dans le temps** : l'évolution du nombre d'alertes détectées semaine après semaine.
-- **Répartition par statut** : la distribution de vos alertes entre les différents statuts, pour visualiser l'état de votre pipeline.
+- **Activité** : les alertes détectées par semaine, sur les 5 dernières semaines. Chaque barre couvre 7 jours glissants, la dernière correspondant aux 7 derniers jours. Elles sont libellées **Sem.** suivi du numéro de semaine.
+- **Répartition par statut** : le nombre d'alertes par statut, selon votre pipeline. Vous retrouvez vos statuts visibles, dans votre ordre et avec vos libellés. Les statuts masqués et les statuts sans alerte n'apparaissent pas. Pour personnaliser votre pipeline, voir [Paramètres](/guides/parametres).
 
-## Exporter les données
+## Dernières alertes
 
-Un bouton **Exporter** vous permet de télécharger les indicateurs au format CSV, pour les réutiliser dans un tableur ou un reporting.
+Le tableau **Dernières alertes** liste les 8 alertes les plus récentes, avec quatre colonnes :
+
+| Colonne | Contenu |
+| --- | --- |
+| **Collectivité** | La collectivité à l'origine de l'alerte. |
+| **Signal** | Le besoin détecté. |
+| **Statut** | Le statut de l'alerte, avec le libellé de votre pipeline. |
+| **Score** | La note sur 10 : en vert à partir de 7, en orange de 4 à 6, en gris en dessous. |
+
+<Warning>
+  Un clic sur une ligne ouvre, dans un nouvel onglet, le **lien de partage public** de l'alerte. Ce lien est créé à ce moment s'il n'existait pas encore. Toute personne qui dispose du lien peut consulter l'alerte sans se connecter. Pour traiter l'alerte (statut, note, contacts), passez par la [Boîte de réception](/guides/boite-de-reception) ou le [Pipeline](/guides/pipeline).
+</Warning>
+
+La Vue d'ensemble ne propose pas d'export. Pour exporter vos alertes, utilisez la Boîte de réception ou le Pipeline.
 
 <Tip>
-  Consultez le Tableau de bord en début de semaine pour repérer une baisse de volume ou de score, puis ouvrez la Boîte de réception pour traiter les alertes prioritaires.
+  Consultez la Vue d'ensemble en début de semaine pour repérer une baisse de volume ou de score, puis ouvrez la Boîte de réception pour traiter les alertes prioritaires.
 </Tip>

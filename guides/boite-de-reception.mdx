@@ -1,101 +1,109 @@
 ---
 title: "Boîte de réception"
 sidebarTitle: "Boîte de réception"
-description: "Le guide complet pour lire, qualifier, contacter et faire avancer vos alertes (votre espace de travail principal)."
+description: "Lire, trier, partager et faire avancer vos nouvelles alertes."
 icon: "inbox"
 ---
 
-La **Boîte de réception** est votre espace de travail principal : c'est ici que vous lisez vos alertes, les qualifiez, joignez les bons interlocuteurs et les faites avancer dans votre processus commercial. Par défaut, elle affiche les alertes au statut **Nouveau**, triées par pertinence.
+La **Boîte de réception** contient vos alertes au statut **Nouveau**, c'est-à-dire celles que personne n'a encore traitées. Dès que vous changez le statut d'une alerte, elle quitte la boîte et continue son parcours dans le [Pipeline](/guides/pipeline).
+
+Le nombre affiché à côté du titre, et dans le menu latéral, est le nombre d'alertes **Nouveau**.
+
+<Info>
+  Si vous êtes commercial, la boîte ne montre que les alertes qui vous sont attribuées et celles de vos zones. Voir [Équipe & rôles](/admin/equipe-et-roles).
+</Info>
 
 ## La liste des alertes
 
-Chaque alerte apparaît sous forme de carte affichant l'essentiel : titre, collectivité et ville, score de pertinence, besoin et angle d'approche. Pour comprendre chaque élément, voir [Comprendre une alerte](/concepts/alertes).
+Chaque carte affiche la ville, la région, la population, la date de détection, le titre, le besoin de la collectivité et la note sur 10. Le détail des champs est dans [Comprendre une alerte](/concepts/alertes).
 
-### Rechercher et filtrer
+- **Rechercher** : le champ **Rechercher (titre, ville)...** garde les alertes dont le titre ou la ville contient votre texte. Le compteur suit la recherche.
+- **Trier** : le menu de tri propose **Trier : Date** (par défaut, détections les plus récentes en premier), **Trier : Note ↓** et **Trier : Note ↑**. Au rechargement de la page, le tri revient sur **Date**.
+- **Charger la suite** : la liste affiche 50 alertes et charge les suivantes quand vous descendez. Le bouton **Charger 50 de plus** fait la même chose.
+- **Temps réel** : une nouvelle alerte apparaît sans recharger la page. Une alerte dont un collègue change le statut disparaît de votre boîte.
 
-<AccordionGroup>
-  <Accordion title="Recherche">
-    Retrouvez une alerte par mots-clés (titre, ville).
-  </Accordion>
+Cliquez sur une carte pour la déplier. Vous y trouvez l'interprétation, l'analyse, l'angle d'approche, la localisation, les contacts, les notes et le lien **Document source**. **Replier** referme la carte.
 
-  <Accordion title="Filtrer par statut">
-    Affichez uniquement les alertes d'un statut donné. Un réflexe utile : filtrer sur **Nouveau** chaque matin pour traiter les alertes fraîches.
-  </Accordion>
+## Agir sur une alerte
 
-  <Accordion title="Filtrer par score">
-    Définissez un score minimum pour vous concentrer sur les opportunités les plus pertinentes.
-  </Accordion>
+Les actions se trouvent en haut à droite de la carte.
 
-  <Accordion title="Filtrer par période">
-    Restreignez la liste à une plage de dates de détection.
-  </Accordion>
-</AccordionGroup>
+| Action | Où cliquer | Qui |
+| --- | --- | --- |
+| Changer le statut | La pastille de statut (par exemple **Nouveau**) | Tous |
+| Attribuer l'alerte | La pastille **Non assigné** (ou le nom du membre) | Administrateurs |
+| Partager | L'icône **Partager cette alerte** | Tous |
+| Envoyer au CRM | L'icône éclair **Envoyer au CRM** | Tous, si l'envoi est activé |
+| Archiver | L'icône corbeille **Supprimer l'alerte** | Tous |
 
-## Le détail d'une alerte
+- **Statuts** : le menu reprend les statuts de votre pipeline, tels que vous les avez nommés ou masqués dans les [Paramètres](/guides/parametres). Voir [Statuts & workflow](/concepts/statuts).
+- **Priorité (tier)** : elle se règle depuis le [Pipeline](/guides/pipeline), avec **+ Tier**.
+- **Archiver** : après confirmation, l'alerte disparaît de la Boîte de réception, du Pipeline et des Comptes. L'application ne permet pas de la récupérer ; en cas d'erreur, contactez l'équipe Skult.
+- **Envoyer au CRM** : un clic transmet l'alerte et ses contacts à votre outil. L'icône devient une coche (**Envoyé au CRM !**) ou une croix (**Échec envoi CRM**). Pas d'icône : l'envoi n'est pas activé pour votre organisation, contactez l'équipe Skult.
 
-Cliquez sur une carte pour ouvrir son détail. Vous y trouvez le besoin de la collectivité, l'**opportunité**, le **verbatim** (extrait exact du document), l'interprétation, l'angle d'approche suggéré, le lien vers la **source** officielle, les **contacts** et le fil de **notes**.
+## Les notes
 
-## Les actions sur une alerte
+Dans la section **Notes** de la carte dépliée, cliquez sur **+ Ajouter**, saisissez votre texte, puis **Ajouter** (ou Ctrl/Cmd + Entrée). Chaque note affiche son auteur, sa date et son heure. Elle est visible par les membres qui voient l'alerte. Vous pouvez supprimer vos propres notes avec la croix qui apparaît au survol.
 
-<CardGroup cols={2}>
-  <Card title="Changer le statut" icon="list-check">
-    Faites avancer l'alerte (Nouveau, À traiter, En cours, Rappeler, Traité…). Voir [Statuts & workflow](/concepts/statuts).
-  </Card>
-
-  <Card title="Définir la priorité" icon="flag">
-    Attribuez un niveau Tier 1, 2 ou 3 pour hiérarchiser vos opportunités.
-  </Card>
-
-  <Card title="Enrichir les contacts" icon="address-book">
-    Complétez l'e-mail ou le téléphone d'un contact avec **Enrichir email** / **Enrichir tél.**. Voir [Contacts & enrichissement](/concepts/contacts).
-  </Card>
-
-  <Card title="Ajouter une note" icon="pen">
-    Consignez vos actions et prochaines étapes ; chaque note est datée et partagée avec l'équipe.
-  </Card>
-
-  <Card title="Attribuer l'alerte" icon="user-plus">
-    Assignez l'alerte à un membre de l'équipe pour clarifier qui s'en occupe.
-  </Card>
-
-  <Card title="Archiver" icon="box-archive">
-    Retirez de la liste une alerte que vous ne souhaitez plus voir.
-  </Card>
-</CardGroup>
+Les notes ajoutées par un collègue s'affichent quand vous rouvrez la carte ou rechargez la page.
 
 <Tip>
-  Consignez chaque tentative de contact dans une **note** (canal, interlocuteur, résultat). Sur des cycles longs, cet historique est précieux pour l'équipe.
+  Consignez chaque tentative de contact dans une note (canal, interlocuteur, résultat). Sur des cycles longs, cet historique est précieux pour l'équipe.
 </Tip>
+
+## Partager une alerte
+
+Pour envoyer une alerte à quelqu'un qui n'a pas de compte Skult (un collègue d'une autre équipe, un partenaire) :
+
+<Steps>
+  <Step title="Copiez le lien">
+    Cliquez sur l'icône **Partager cette alerte**. Le lien est copié et le message **Lien copié dans le presse-papier !** s'affiche.
+  </Step>
+  <Step title="Envoyez-le">
+    Collez le lien dans votre e-mail ou votre messagerie. Le destinataire ouvre une **Fiche partagée**, sans se connecter.
+  </Step>
+</Steps>
+
+La fiche partagée montre le titre, le besoin, la note, la collectivité, le détail de l'alerte, les contacts avec leur e-mail et leur téléphone, et les notes.
+
+Le lien est permanent : il n'expire pas, et partager de nouveau la même alerte redonne le même lien. Il ne peut pas être désactivé depuis l'application. Pour désactiver un lien, contactez l'équipe Skult.
+
+<Warning>
+  Toute personne qui a le lien voit les notes de l'alerte, y compris celles ajoutées après le partage, ainsi que les coordonnées des contacts. Avant de partager, vérifiez que les notes ne contiennent rien d'interne (prix, stratégie, avis sur un interlocuteur). Voir [Données personnelles & RGPD](/reference/rgpd).
+</Warning>
+
+## Actions groupées
+
+Cochez les cartes à traiter, ou la case **Tout sélectionner** en haut de la liste (elle porte sur les alertes déjà chargées). Une barre apparaît en bas de l'écran :
+
+- **Changer le statut** applique un statut à toute la sélection ;
+- **Archiver** archive la sélection, après une confirmation qui liste les alertes concernées.
+
+La barre se masque tant qu'une carte est dépliée. La sélection est vidée si vous modifiez la recherche ou le tri.
+
+## Exporter
+
+Le menu **Exporter** porte sur toute la boîte, filtrée par votre recherche, et pas seulement sur les alertes chargées à l'écran. Au-delà de 1 000 alertes, une confirmation vous est demandée.
+
+- **Export CSV classique** : une ligne par contact (une seule ligne si l'alerte n'a pas de contact), avec les textes de l'alerte et ses notes. Séparateur virgule.
+- **Export PSV (pipe |)** : le même contenu, avec le séparateur « | » et les retours à la ligne remplacés. Pratique pour les textes longs.
+- **Exporter les contacts (Excel, ;)** : une ligne par personne ayant un e-mail ou un téléphone, sans doublon. Le fichier s'ouvre en colonnes dans Excel.
+
+Les fichiers s'appellent `alertes_AAAA-MM-JJ.csv` et `contacts_AAAA-MM-JJ.csv`.
 
 ## Traiter une alerte de bout en bout
 
 <Steps>
   <Step title="Lisez et qualifiez">
-    Ouvrez l'alerte, lisez le verbatim et l'opportunité, vérifiez que c'est pertinent.
+    Dépliez la carte, lisez l'interprétation et le verbatim.
   </Step>
   <Step title="Récupérez le contact">
-    Utilisez les contacts trouvés automatiquement, et enrichissez l'e-mail ou le téléphone si nécessaire.
+    Utilisez les contacts trouvés, complétez leurs coordonnées avec **Enrichir** (e-mail ou téléphone) ou cliquez sur **Ajouter un contact**. Voir [Contacts & enrichissement](/concepts/contacts).
   </Step>
   <Step title="Contactez et notez">
-    Engagez la prise de contact, puis ajoutez une note décrivant l'action et la suite à donner.
+    Prenez contact, puis notez l'action et la suite à donner.
   </Step>
   <Step title="Faites avancer le statut">
-    Passez l'alerte à **À traiter**, **En cours**, puis vers sa conclusion.
+    Passez l'alerte à **A traiter** ou **En cours** : elle quitte la boîte et se suit dans le [Pipeline](/guides/pipeline).
   </Step>
 </Steps>
-
-## Actions groupées
-
-Depuis la liste, vous pouvez sélectionner plusieurs alertes pour **changer leur statut** ou les **archiver** en une seule fois, ce qui est pratique pour faire le tri rapidement.
-
-## Exporter
-
-Le bouton **Exporter** télécharge les alertes au format CSV (en tenant compte des filtres actifs).
-
-## Envoyer vers votre CRM
-
-Si votre organisation a activé l'envoi vers le CRM, un bouton **Envoyer au CRM** apparaît sur l'alerte et transmet ses informations à votre outil. Une confirmation **Envoyé au CRM !** s'affiche en cas de succès.
-
-<Note>
-  Cette option dépend de la configuration de votre organisation. Si vous ne voyez pas le bouton, c'est que l'envoi vers le CRM n'est pas activé pour votre compte.
-</Note>

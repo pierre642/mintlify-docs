@@ -5,3 +5,9 @@
 # Draft content
 drafts/
 *.draft.mdx
+
+# Copies de travail du site www.skult.ai (blog, pages légales) : ne pas publier
+sources/
+
+# Consignes pour les agents de rédaction
+AGENTS.md

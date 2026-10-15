@@ -1,36 +1,81 @@
 ---
 title: "Paramètres"
 sidebarTitle: "Paramètres"
-description: "Gérez votre profil et personnalisez les statuts de votre pipeline (renommer, masquer, réorganiser)."
+description: "Votre profil (administrateurs) et votre pipeline personnel : renommer, masquer et réordonner vos colonnes."
 icon: "gear"
 ---
 
-L'écran **Paramètres** regroupe votre profil personnel et, pour les responsables, la personnalisation du pipeline.
+Pour ouvrir les Paramètres, cliquez sur le **bouton à votre nom** (avec une roue dentée), en bas du menu latéral. Les Paramètres s'ouvrent en plein écran :
 
-## Votre profil
+- la colonne de gauche liste les sections auxquelles vous avez accès ;
+- en haut, le nom de votre organisation suivi de la section ouverte ;
+- **‹ Retour à l'app** vous ramène à l'écran d'où vous venez.
 
-Vous pouvez y mettre à jour vos informations personnelles et vos préférences d'affichage :
+| Section | Groupe | Accès |
+| --- | --- | --- |
+| **Profil** | **Réglages utilisateur** | Administrateurs |
+| **Gestion pipeline** | **Mon pipeline** | Tous les membres |
 
-- Nom et adresse e-mail
-- Langue et fuseau horaire
-- Jour de début de semaine
+Un commercial arrive directement sur **Gestion pipeline**.
 
-## Personnaliser le pipeline
+## Profil (administrateurs)
 
-Les profils **administrateur** peuvent adapter les statuts du pipeline à leur façon de travailler. La personnalisation s'applique à toute l'organisation.
+<Note>
+  La section **Profil** est réservée aux administrateurs. Commercial, vous voulez corriger votre nom ? Contactez l'équipe Skult.
+</Note>
+
+- **Photo de profil** : **Télécharger une nouvelle image** (PNG, JPEG ou GIF de moins de 10 Mo) ou **Supprimer**.
+- **Détails personnels** : **Prénom**, **Nom** et **Adresse e-mail principale** (bouton **Modifier**).
+- **Préférences de temps** : **Fuseau horaire préféré** (Europe/Paris par défaut) et **Commencer la semaine le** (Lundi ou Dimanche).
+
+Cliquez sur **Enregistrer** pour valider.
+
+<Warning>
+  Modifier l'**Adresse e-mail principale** ne change pas l'adresse avec laquelle vous vous connectez. Pour changer d'adresse de connexion, contactez l'équipe Skult.
+</Warning>
+
+En bas de la section, le bloc **Légal & confidentialité** donne accès au document **Politique de protection des données**.
+
+## Votre pipeline (tous les membres)
+
+**Mon pipeline › Gestion pipeline** vous permet d'adapter **votre propre** pipeline : vous pouvez renommer, masquer et réordonner vos colonnes. Vos collègues ne voient pas ces changements.
+
+Les statuts restent communs à toute l'équipe. Une colonne renommée garde le rôle de son statut d'origine dans les chiffres.
 
 <Steps>
-  <Step title="Ouvrez la section Pipeline">
-    Dans les Paramètres, rendez-vous sur l'éditeur de statuts.
+  <Step title="Ouvrez Gestion pipeline">
+    La carte **Mon pipeline (statuts)** liste les 8 statuts dans votre ordre.
   </Step>
-  <Step title="Ajustez les statuts">
-    **Renommez** un statut, **masquez** ceux que vous n'utilisez pas, ou **réorganisez** leur ordre.
+  <Step title="Ajustez vos colonnes">
+    Modifiez un libellé dans son champ, déplacez un statut avec les flèches ▲ ▼, cliquez sur **Masquer** (ou **Afficher**).
   </Step>
   <Step title="Enregistrez">
-    Vos changements se répercutent dans la Boîte de réception et la vue [Pipeline](/guides/pipeline).
+    Cliquez sur **Enregistrer le pipeline**. Le message **Pipeline mis à jour.** confirme l'enregistrement.
   </Step>
 </Steps>
 
+### Règles de l'éditeur
+
+- **Nouveau** est le statut d'entrée (cadenas, mention **entrée**) : c'est là qu'arrivent les alertes. Vous ne pouvez ni le renommer, ni le déplacer, ni le masquer.
+- Vous ne pouvez pas masquer un statut qui contient des alertes : **Ce statut contient des alertes — déplacez-les avant de le masquer.**
+- Un libellé ne peut pas être vide et ne dépasse pas 40 caractères.
+- Vous ne pouvez pas ajouter de statut. Voir [Statuts & workflow](/concepts/statuts) pour les 8 statuts.
+- Sous chaque ligne, des repères : le nombre de vos alertes dans ce statut (**al.**), le **statut d'origine** d'une colonne renommée, et le rôle de **Traité** (taux traité de la Vue d'ensemble) et de **Hors scope** (exclu des Comptes, sert d'exemple pour ajuster la détection).
+
+### Où s'appliquent vos changements
+
+Vos libellés, votre ordre et vos statuts masqués s'appliquent partout où vous voyez des statuts :
+
+- les pastilles de statut des cartes et le menu de changement de statut ;
+- les colonnes du [Pipeline](/guides/pipeline) ;
+- la répartition par statut de la [Vue d'ensemble](/guides/tableau-de-bord).
+
+Les exports gardent les noms d'origine des statuts.
+
 <Note>
-  Un bouton permet de **réinitialiser** le pipeline aux statuts proposés par défaut à tout moment. Voir [Statuts & workflow](/concepts/statuts) pour la liste des statuts par défaut.
+  Un statut masqué disparaît de vos colonnes et du menu de statut. Si une alerte est ensuite placée dans ce statut (par un collègue, par exemple), elle n'apparaît plus dans votre Pipeline. Réaffichez le statut pour la retrouver.
 </Note>
+
+### Réinitialiser
+
+Le lien **Réinitialiser** apparaît en haut à droite de la carte dès que votre pipeline est personnalisé. Il vous ramène au pipeline de base de votre organisation et affiche **Pipeline réinitialisé.**

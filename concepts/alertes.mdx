@@ -1,42 +1,59 @@
 ---
 title: "Comprendre une alerte"
 sidebarTitle: "Comprendre une alerte"
-description: "Ce que contient une alerte Skult et comment lire son score de pertinence."
+description: "Ce que contient une alerte Skult, ce que montre son détail et comment lire sa note de pertinence."
 icon: "bell"
 ---
 
-Une **alerte** est un signal d'opportunité commerciale extrait d'un document public d'une collectivité. C'est l'unité de travail centrale dans Skult : chaque alerte représente une occasion potentielle de vendre votre offre à une collectivité.
+Une **alerte** est un signal d'opportunité commerciale extrait d'un document public d'une collectivité. C'est l'unité de travail centrale dans Skult : chaque alerte représente une occasion de proposer votre offre à une collectivité.
 
-## Ce que contient une alerte
+## La carte d'une alerte
+
+Repliée, la carte affiche l'essentiel :
 
 | Élément | Description |
 | --- | --- |
-| **Titre** | L'intitulé de l'opportunité, généré à partir du document. |
-| **Collectivité & ville** | La collectivité concernée et sa localisation. |
-| **Score de pertinence** | Une note de 0 à 10 indiquant à quel point l'alerte correspond à votre activité. |
-| **Besoin** | Ce que la collectivité cherche à faire. |
-| **Opportunité** | La façon dont votre offre peut y répondre. |
-| **Verbatim** | L'extrait exact du document officiel, pour vérifier le contexte. |
-| **Angle d'approche** | Une suggestion de message d'accroche, à personnaliser. |
-| **Date de séance** | La date du conseil qui a voté ou débattu le sujet. |
-| **Source** | Le lien vers le document public d'origine. |
-| **Contacts** | Les interlocuteurs identifiés au sein de la collectivité (voir [Contacts & enrichissement](/concepts/contacts)). |
+| **Ville** | La collectivité concernée. |
+| **Région** | La région de la collectivité. |
+| **Population** | Le nombre d'habitants (« hab. »), quand il est connu. |
+| **SIRET** | L'identifiant de la collectivité, quand il est connu. |
+| **Date** | La date de détection de l'alerte. |
+| **Titre** | L'intitulé de l'opportunité, rédigé à partir du document. |
+| **Besoin** | Ce que la collectivité cherche à faire, sous le titre. |
+| **Note** | La note de pertinence, affichée sur 10 (par exemple « 8/10 »). |
+| **Statut** | La pastille de statut (par exemple **Nouveau**). Voir [Statuts & workflow](/concepts/statuts). |
+
+## Le détail d'une alerte
+
+Cliquez sur la carte pour la déplier. Le détail est organisé en sections que vous pouvez replier une à une :
+
+| Section | Ce qu'elle contient |
+| --- | --- |
+| **Interprétation** | Pourquoi l'alerte a reçu cette note : ce qui a déclenché la détection et en quoi c'est actionnable pour vous. Affichée quand elle est disponible. |
+| **Analyse** | La **Date de séance** (date du conseil qui a voté ou débattu le sujet), l'**Opportunité** (la façon dont votre offre peut répondre) et le **Verbatim** (l'extrait exact du document). |
+| **Angle d'approche** | Une suggestion d'accroche, à personnaliser. |
+| **Localisation** | La carte de la collectivité, quand sa position est connue. |
+
+À côté, vous trouvez les **Contacts** (voir [Contacts & enrichissement](/concepts/contacts)), les **Notes** de l'équipe et le lien **Document source**, qui ouvre le document public d'origine.
 
 <Tip>
-  Lisez toujours le **verbatim** avant de contacter une collectivité : il vous permet de citer le document exact dans votre message et de montrer que vous comprenez leur contexte.
+  Lisez toujours le **verbatim** avant de contacter une collectivité : il vous permet de citer le document exact dans votre message et de montrer que vous comprenez son contexte.
 </Tip>
 
-## Le score de pertinence
+## La note de pertinence
 
-Chaque alerte est notée de **0 à 10**. Plus le score est élevé, plus l'opportunité est précise, mûre et alignée avec votre offre. Le score combine plusieurs critères :
+Chaque alerte reçoit une note de **1 à 10**. Plus elle est élevée, plus l'opportunité est précise, mûre et alignée avec votre offre.
+
+La grille de notation est rédigée pour votre activité lors de la mise en route : ses critères varient d'un client à l'autre. Les plus courants :
 
 | Critère | Ce qu'il évalue |
 | --- | --- |
-| **Précision du besoin** | Le document est-il vague ou précis (montant, échéance, périmètre) ? |
-| **Preuve décisionnelle** | Y a-t-il une étude, un diagnostic ou un cadrage qui amorce le projet ? |
+| **Clarté du besoin** | Le document est-il vague ou précis (montant, échéance, périmètre) ? |
+| **Maturité, preuve de décision** | Y a-t-il un vote, un budget, une étude ou un prestataire recherché ? |
 | **Adéquation à votre offre** | Le projet et la collectivité correspondent-ils à votre cible ? |
-| **Maturité / urgence** | Le besoin est-il imminent ou simplement évoqué ? |
-| **Contact identifié** | Un interlocuteur est-il mentionné dans le document ? |
+| **Urgence, calendrier** | Une échéance ou une date de lancement est-elle mentionnée ? |
+
+Selon votre activité, d'autres critères peuvent s'ajouter, par exemple la possibilité d'intervenir en amont du projet ou la présence d'un interlocuteur identifié. Pour faire évoluer votre grille, voir [Votre ciblage](/admin/ciblage).
 
 À titre indicatif :
 
@@ -54,9 +71,11 @@ Chaque alerte est notée de **0 à 10**. Plus le score est élevé, plus l'oppor
   </Card>
 </CardGroup>
 
+Dans la [Boîte de réception](/guides/boite-de-reception), le tri **Trier : Note ↓** place les meilleures notes en premier.
+
 ## Et ensuite ?
 
-Une fois l'alerte comprise, vous la faites avancer dans votre processus commercial grâce aux **statuts**, et vous joignez le bon interlocuteur grâce aux **contacts**.
+Une fois l'alerte comprise, vous la faites avancer grâce aux **statuts**, et vous joignez le bon interlocuteur grâce aux **contacts**.
 
 <CardGroup cols={2}>
   <Card title="Statuts & workflow" icon="list-check" href="/concepts/statuts">

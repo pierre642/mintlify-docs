@@ -1,58 +1,82 @@
 ---
 title: "Statuts & workflow"
 sidebarTitle: "Statuts & workflow"
-description: "Le parcours d'une alerte dans Skult, de la détection à la conclusion, et la personnalisation des statuts."
+description: "Les 8 statuts d'une alerte, comment les changer, le niveau de priorité et la personnalisation de votre pipeline."
 icon: "list-check"
 ---
 
-Chaque alerte porte un **statut** qui reflète où elle en est dans votre processus commercial. Faire avancer les statuts vous permet de suivre vos opportunités et d'organiser votre [pipeline](/guides/pipeline).
+Chaque alerte porte un **statut** qui indique où elle en est dans votre démarche commerciale. Le statut est commun à toute l'équipe : quand vous le changez, les collègues qui voient l'alerte le voient aussi, en temps réel.
 
 ## Le parcours type d'une alerte
 
 <Steps>
   <Step title="Nouveau">
-    L'alerte vient d'être détectée et n'a pas encore été examinée.
+    L'alerte vient d'arriver et n'a pas encore été examinée. C'est le seul statut affiché dans la Boîte de réception.
   </Step>
-  <Step title="À traiter">
+  <Step title="A traiter">
     Vous avez qualifié l'alerte et décidé d'agir.
   </Step>
   <Step title="En cours">
-    La prise de contact ou la qualification est lancée.
+    La prise de contact est lancée.
   </Step>
   <Step title="Rappeler">
-    À relancer plus tard (interlocuteur à recontacter).
+    Une relance est à faire : l'interlocuteur est à recontacter.
   </Step>
   <Step title="Traité">
-    L'opportunité est conclue.
+    Le traitement de l'alerte est terminé. Il compte dans le **Taux traité** de la [Vue d'ensemble](/guides/tableau-de-bord).
   </Step>
 </Steps>
 
-Certaines alertes sortent du parcours sans aboutir. Elles reçoivent alors un statut de clôture :
+## Les statuts de clôture
 
-| Statut de clôture | Signification |
+Certaines alertes s'arrêtent sans aboutir. Elles reçoivent alors un statut de clôture :
+
+| Statut | Quand l'utiliser |
 | --- | --- |
-| **NRP** | « Ne répond pas » : aucune réponse de l'interlocuteur. |
-| **Mauvais contact** | L'interlocuteur trouvé n'était pas le bon. |
-| **Hors scope** | L'alerte s'avère finalement non pertinente. |
+| **NRP** | « Ne répond pas » : l'interlocuteur n'a pas répondu à vos relances et vous arrêtez. |
+| **Mauvais contact** | L'interlocuteur n'était pas le bon. |
+| **Hors scope** | L'alerte n'est finalement pas pertinente pour vous. |
+
+**Traité**, **NRP**, **Mauvais contact** et **Hors scope** sont les quatre issues possibles d'une alerte. **A traiter**, **En cours** et **Rappeler** sont les étapes en cours.
+
+<Note>
+  Les alertes en **NRP**, **Mauvais contact** ou **Hors scope** sont écartées de l'export des contacts. Les alertes **Hors scope** n'apparaissent pas dans les [Comptes](/guides/comptes).
+</Note>
 
 <Tip>
-  Clôturez rapidement les alertes non pertinentes (**Hors scope**) : cela garde votre Boîte de réception concentrée sur ce qui compte. Si une alerte est régulièrement hors sujet, signalez-le via [Retours & ajustements](/guides/retours) pour affiner la détection.
+  Classez rapidement les alertes non pertinentes en **Hors scope** : elles servent d'exemples pour ajuster votre détection. Si un même type d'alerte revient souvent hors sujet, signalez-le via [Retours & ajustements](/guides/retours).
 </Tip>
+
+## Changer le statut
+
+Administrateurs et commerciaux ont trois façons de changer un statut :
+
+- **Dans le [Pipeline](/guides/pipeline)** : glissez la carte vers la colonne du nouveau statut.
+- **Sur la carte d'une alerte** : cliquez sur la pastille de statut, en haut de la carte, puis choisissez le nouveau statut.
+- **En masse, dans la [Boîte de réception](/guides/boite-de-reception)** : cochez les alertes, puis cliquez sur **Changer le statut**.
+
+Le changement est enregistré immédiatement.
+
+<Info>
+  La Boîte de réception ne montre que les alertes **Nouveau**. Dès que vous changez le statut d'une alerte, elle quitte la Boîte et vous la retrouvez dans le Pipeline. Pour la faire revenir dans la Boîte, repassez-la à **Nouveau**.
+</Info>
 
 ## Le niveau de priorité (tier)
 
-Indépendamment du statut, vous pouvez attribuer un **niveau de priorité** à une alerte pour aider l'équipe à se concentrer sur les opportunités les plus importantes :
+Indépendamment du statut, vous pouvez classer une alerte en **T1**, **T2** ou **T3**, du plus prioritaire au moins prioritaire. Une alerte T1 peut se trouver à n'importe quelle étape du parcours.
 
-- **Tier 1** : priorité haute
-- **Tier 2** : priorité moyenne
-- **Tier 3** : priorité basse
+Le tier se règle et se filtre uniquement dans le [Pipeline](/guides/pipeline#prioriser-avec-le-tier) : cliquez sur **+ Tier** sur la carte, puis sur la pastille pour changer de niveau.
 
-Le niveau de priorité est indépendant du statut : une alerte Tier 1 peut être à n'importe quelle étape du parcours.
+## Personnaliser vos statuts
 
-## Personnaliser les statuts
+Chaque membre, administrateur ou commercial, peut adapter **son** pipeline depuis les [Paramètres](/guides/parametres), rubrique **Gestion pipeline** : renommer un statut, le masquer ou changer l'ordre des colonnes. Vos collègues ne voient pas ces changements.
 
-Les statuts ci-dessus sont ceux proposés par défaut. Les profils **administrateur** peuvent adapter le pipeline à leur organisation depuis les **Paramètres** : renommer un statut, en masquer ou réorganiser leur ordre.
+Les règles :
 
-<Note>
-  La personnalisation s'applique à toute l'organisation. Voir le guide [Paramètres](/guides/parametres) pour la marche à suivre.
-</Note>
+- Les statuts restent communs à l'équipe. Une colonne renommée garde le rôle de son statut d'origine dans les chiffres et dans les exports.
+- **Nouveau** est verrouillé : il ne peut être ni renommé, ni masqué, ni déplacé. C'est là qu'arrivent les nouvelles alertes.
+- Un statut qui contient des alertes ne peut pas être masqué : déplacez d'abord ses alertes.
+- La liste compte toujours les 8 statuts : vous ne pouvez pas en ajouter.
+- Un libellé fait 40 caractères au maximum.
+
+Vos libellés s'appliquent aux colonnes du Pipeline, aux menus de statut et au graphique **Répartition par statut** de la Vue d'ensemble. Un statut masqué disparaît aussi de vos menus de statut. Les exports gardent les noms d'origine.
