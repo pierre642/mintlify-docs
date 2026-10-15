@@ -5,24 +5,68 @@ description: "Les dernières évolutions de Skult : nouvelles fonctionnalités, 
 icon: "sparkles"
 ---
 
-Skult évolue chaque semaine. Cette page recense les principales nouveautés visibles dans votre application.
+Skult évolue chaque semaine. Cette page recense les principales nouveautés visibles dans votre application, de la plus récente à la plus ancienne.
 
-<Update label="Octobre 2026" description="Agents IA">
+<Update label="Octobre 2026" description="Temps réel, fiche collectivité, agents IA">
+  ## La documentation à portée de clic
+
+  Le lien **Documentation**, en bas du menu latéral entre la carte CRM et votre nom, ouvre ce guide dans un nouvel onglet. Il porte le badge **Nouveau** jusqu'à votre premier clic.
+
+  ## Boîte de réception sur mobile
+
+  La **Boîte de réception** s'adapte désormais aux petits écrans, téléphone compris : la recherche occupe toute la ligne et les menus passent dessous. Les autres écrans suivront.
+
+  ## Brancher vos alertes à votre CRM
+
+  La carte **Brancher vos alertes à votre CRM**, en bas du menu latéral, ouvre un agenda pour caler la mise en place avec l'équipe Skult. Une fois l'envoi activé, le bouton **Envoyer au CRM** apparaît sur vos alertes.
+
+  ## Messages d'enrichissement plus clairs
+
+  Quand l'enrichissement est momentanément indisponible, le contact n'est plus marqué **Non trouvé**. Un message vous invite à réessayer plus tard.
+
+  ## Une application plus rapide, en direct
+
+  Les nouvelles alertes, les changements de statut et les contacts trouvés s'affichent sans recharger la page. La **Boîte de réception** charge vos alertes par 50 au fil du défilement (**Charger 50 de plus**), chaque écran a sa propre adresse pour vos favoris, et les organisations de plus de 1 000 alertes retrouvent tout leur historique.
+
+  ## Fiche collectivité enrichie
+
+  Dans **Comptes**, chaque fiche gagne un bloc et un onglet **Finances & gouvernance** : comptes de la collectivité, exécutif élu et projets Fonds vert obtenus, mis à jour chaque mois. Le **Résumé** de la fiche s'appuie aussi sur ces données. [Voir le guide →](/guides/comptes)
+
+  ## Nouvelle interface
+
+  Le menu latéral est repensé, la typographie et les icônes sont harmonisées, et le vert Skult devient la couleur d'action. Les écrans partagent désormais un en-tête commun.
+
+  ## Un pipeline à soi
+
+  Chaque membre, commercial compris, règle sa propre vue du pipeline dans **Paramètres**, rubrique **Mon pipeline** : renommer, masquer et réordonner les colonnes. Ses réglages ne changent pas ceux de ses collègues. [Voir le guide →](/guides/parametres)
+
   ## Enrichissement des contacts depuis votre agent IA
 
   Le serveur MCP Skult sait désormais **enrichir vos contacts** : demandez à Claude, Cursor ou tout agent connecté de trouver l'e-mail et le téléphone d'un contact, ou d'enrichir les contacts de plusieurs alertes en une fois (avec un plan à valider avant lancement). Les coordonnées trouvées sont enregistrées dans Skult, comme avec les boutons **Enrichir** de l'application. [Voir le guide →](/integrations/mcp#enrichir-vos-contacts-depuis-votre-agent)
 </Update>
 
+<Update label="Septembre 2026" description="Contacts, exports & équipe">
+  ## Ajouter un contact à la main
+
+  Le bouton **Ajouter un contact** de la carte enregistre un interlocuteur que vous connaissez déjà : son nom, puis son e-mail ou son téléphone. Il apparaît avec le badge **Saisi à la main**, et Skult vous prévient s'il existe déjà sur l'alerte.
+
+  ## Export des contacts pour Excel
+
+  Le menu **Exporter** de la Boîte de réception et du Pipeline propose **Exporter les contacts (Excel, ;)** : une ligne par personne, téléphones au format +33 et colonne « Assigné à ». Les contacts des alertes au statut **NRP**, **Mauvais contact** ou **Hors scope** en sont exclus.
+
+  ## Activité équipe plus fidèle
+
+  La vue **Activité équipe** mesure l'usage réel de l'application : visites, alertes consultées, changements de statut et notes, avec les colonnes **Visites** et **Alertes consultées**. Réservée aux administrateurs, elle s'exporte en CSV. [Voir le guide →](/guides/activite-equipe)
+
+  ## Visibilité par région pour les commerciaux
+
+  En plus des alertes qui lui sont attribuées, un commercial peut suivre toutes les alertes d'une ou plusieurs régions. Ce réglage se fait avec l'équipe Skult.
+</Update>
+
 <Update label="Juillet 2026" description="Vue Comptes & géographie">
   ## Alertes enrichies : département et région
 
-  Chaque alerte porte désormais son **département** et sa **région**, y compris l'historique. La vue **Comptes** gagne une colonne Région triable — pratique pour les équipes organisées par territoire.
-</Update>
-
-<Update label="Été 2026" description="Agents IA">
-  ## Serveur MCP Skult
-
-  Connectez Claude, Cursor, ChatGPT et tout agent compatible MCP à vos données Skult : lecture des alertes, recherche de contacts, mise à jour du pipeline en langage naturel. [Guide d'installation →](/integrations/mcp)
+  Chaque alerte porte désormais son **département** et sa **région**, y compris l'historique. La vue **Comptes** gagne une colonne Région triable et un filtre Région à choix multiple : pratique pour les équipes organisées par territoire.
 </Update>
 
 <Update label="Juin 2026" description="Travail en équipe">
@@ -31,8 +75,14 @@ Skult évolue chaque semaine. Cette page recense les principales nouveautés vis
   Les administrateurs peuvent **attribuer chaque alerte** à un membre de l'équipe, avec une vue [Activité de l'équipe](/guides/activite-equipe) pour suivre le traitement. Les **statuts du pipeline** deviennent personnalisables : renommez, masquez et réorganisez les colonnes selon votre processus ([Paramètres](/guides/parametres)).
 </Update>
 
+<Update label="Mai 2026" description="Agents IA">
+  ## Serveur MCP Skult
+
+  Connectez Claude, Cursor, ChatGPT et tout agent compatible MCP à vos données Skult : lecture des alertes, recherche de contacts, mise à jour du pipeline en langage naturel. [Guide d'installation →](/integrations/mcp)
+</Update>
+
 <Update label="Printemps 2026" description="Sorties de données">
   ## Export CSV
 
-  Exportez la Boîte de réception, le Pipeline ou la Vue d'ensemble en **CSV** en un clic, pour retravailler vos alertes et contacts dans l'outil de votre choix.
+  Exportez la Boîte de réception ou le Pipeline en **CSV** en un clic, pour retravailler vos alertes et contacts dans l'outil de votre choix.
 </Update>

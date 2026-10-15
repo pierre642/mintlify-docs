@@ -1,55 +1,96 @@
 ---
 title: "Équipe & rôles"
 sidebarTitle: "Équipe & rôles"
-description: "Les deux rôles Skult (administrateur et commercial), l'invitation des membres et l'attribution des alertes."
+description: "Les deux rôles Skult (administrateur et commercial), ce que chacun voit, l'invitation des membres et l'attribution des alertes."
 icon: "users-gear"
 ---
 
-Skult est conçu pour le travail en équipe : les alertes, contacts, notes et statuts sont **partagés au sein de votre organisation** et se mettent à jour en temps réel pour tous les membres.
+Skult est conçu pour le travail en équipe. Les changements de statut et les contacts se mettent à jour en temps réel. Une note ajoutée par un collègue apparaît quand vous rouvrez la carte de l'alerte.
 
-## Les deux rôles
+Ce que vous voyez dépend de votre rôle : **administrateur** ou **commercial**.
+
+## Ce que voit un commercial
+
+Le périmètre d'un commercial est toujours cloisonné. Il voit :
+
+- les alertes qui lui sont **attribuées** ;
+- si des **zones** lui sont ouvertes (une ou plusieurs régions), toutes les alertes de ces régions, à partir de la date fixée à l'ouverture de la zone.
+
+Les zones se règlent avec l'équipe Skult. Une alerte non attribuée et hors de toute zone n'est visible que des administrateurs.
+
+Ce périmètre vaut partout : Vue d'ensemble, Boîte de réception, Pipeline, Comptes et exports.
+
+<Info>
+  Un commercial qui vient d'être invité ne voit aucune alerte tant qu'aucune ne lui est attribuée et qu'aucune zone ne lui est ouverte.
+</Info>
+
+## Matrice des droits
 
 |  | Administrateur | Commercial |
 | --- | --- | --- |
-| Traiter les alertes (statuts, notes, contacts) | ✓ | ✓ |
-| Voir la [Vue d'ensemble](/guides/tableau-de-bord) et les [Comptes](/guides/comptes) | ✓ | ✓ |
-| Attribuer les alertes aux membres | ✓ | — |
-| Voir l'[Activité de l'équipe](/guides/activite-equipe) | ✓ | — |
-| Personnaliser les statuts du pipeline ([Paramètres](/guides/parametres)) | ✓ | — |
-| Inviter de nouveaux membres | ✓ | — |
-
-<Info>
-  Un **commercial** dispose d'un espace centré sur le traitement : ses alertes, ses contacts, son pipeline. Selon la configuration de votre organisation, les alertes peuvent être **cloisonnées par commercial** (chacun ne voit que les alertes qui lui sont attribuées — utile pour des équipes organisées par territoire).
-</Info>
+| Alertes visibles | Toutes celles de l'organisation | Celles qui lui sont attribuées et celles de ses zones |
+| Traiter une alerte (statut, notes, contacts, enrichissement, archivage) | ✓ | ✓ sur ses alertes |
+| Supprimer une note | Les siennes | Les siennes |
+| Partager une alerte, l'envoyer au CRM (si activé) | ✓ | ✓ |
+| [Vue d'ensemble](/guides/tableau-de-bord), Boîte de réception, Pipeline, [Comptes](/guides/comptes), exports | ✓ toute l'organisation | ✓ son périmètre |
+| [Retours & ajustements](/guides/retours) | ✓ | ✓ |
+| Attribuer une alerte | ✓ | — |
+| [Activité de l'équipe](/guides/activite-equipe) | ✓ | — |
+| Inviter un utilisateur | ✓ | — |
+| [Paramètres](/guides/parametres) › **Profil** | ✓ | — |
+| [Paramètres](/guides/parametres) › **Gestion pipeline** (votre pipeline personnel) | ✓ | ✓ |
+| Changer un rôle, retirer un membre, régler le ciblage, activer le CRM | Équipe Skult | Équipe Skult |
 
 ## Inviter un membre
 
-Un administrateur peut inviter un nouveau membre directement depuis l'application :
+Seul un administrateur peut inviter un nouveau membre.
 
 <Steps>
   <Step title="Ouvrez l'invitation">
-    Depuis la section d'administration, cliquez sur **Inviter un utilisateur**.
+    Dans le menu latéral, groupe **Admin**, cliquez sur **Inviter un utilisateur**.
   </Step>
   <Step title="Renseignez le membre">
-    Son nom, son adresse e-mail et son rôle (**commercial** ou **administrateur**).
+    Saisissez son adresse e-mail et, si vous le souhaitez, son nom (**Nom complet (optionnel)**). Choisissez son rôle : **Commercial (voit ses alertes assignées)**, proposé par défaut, ou **Admin (accès complet)**.
   </Step>
-  <Step title="Transmettez le lien d'invitation">
-    Skult génère un **lien d'invitation** à copier et à envoyer au membre. En l'ouvrant, il crée son mot de passe et rejoint directement votre organisation.
+  <Step title="Générez et transmettez le lien">
+    Cliquez sur **Générer le lien d'invitation**, copiez le lien et envoyez-le vous-même au membre. Skult n'envoie pas d'e-mail.
+  </Step>
+  <Step title="Le membre active son compte">
+    En ouvrant le lien, il choisit un mot de passe de 8 caractères minimum, le confirme et clique sur **Activer mon compte**. Il arrive dans l'application, rattaché à votre organisation.
   </Step>
 </Steps>
 
+<AccordionGroup>
+  <Accordion title="Messages possibles à l'invitation">
+    - **Cet email est déjà membre de votre organisation.** La personne a déjà un compte actif chez vous.
+    - **Cet email a déjà un compte Skult ailleurs.** Une adresse ne peut appartenir qu'à une seule organisation.
+    - **Adresse email invalide.** Vérifiez la saisie.
+  </Accordion>
+
+  <Accordion title="Le membre n'a pas activé son compte">
+    Invitez-le de nouveau avec la même adresse. Skult génère un nouveau lien et l'ancien n'est plus valide. Si le membre ouvre un lien périmé, il voit **Lien d'invitation invalide ou expiré** : générez-lui un nouveau lien.
+  </Accordion>
+</AccordionGroup>
+
 ## Attribuer les alertes
 
-Depuis le détail d'une alerte, un administrateur peut l'**attribuer** à un membre de l'équipe. L'attribution :
+Les administrateurs attribuent une alerte avec la **pastille d'attribution**, en tête de chaque carte, dans la Boîte de réception et dans le Pipeline. La pastille affiche **Non assigné** ou le nom du membre. Le menu liste les membres de l'équipe (les administrateurs portent la mention **(admin)**). **Non assigné** retire l'attribution.
 
-- désigne clairement un responsable du suivi (visible sur la carte de l'alerte) ;
-- alimente la vue [Activité de l'équipe](/guides/activite-equipe) (alertes attribuées et traitées par membre et par période) ;
-- structure une organisation par territoire : chaque commercial reçoit les alertes de sa zone.
+L'attribution :
+
+- rend l'alerte visible du commercial choisi, et la lui retire si vous la réattribuez (sauf si elle est dans l'une de ses zones) ;
+- alimente la colonne **Alertes assignées** de l'[Activité de l'équipe](/guides/activite-equipe).
+
+Un commercial ne voit pas la pastille d'attribution.
 
 <Tip>
-  Si votre équipe est organisée par régions ou départements, signalez-le lors de votre mise en route : l'attribution peut être **automatisée** en fonction de la zone géographique de chaque alerte.
+  Votre équipe est organisée par régions ou départements ? Signalez-le à l'équipe Skult : l'attribution peut être **automatisée** selon la zone géographique de chaque alerte.
 </Tip>
 
+## Changer un rôle ou retirer un membre
+
+Aucun écran ne permet de changer le rôle d'un membre ou de retirer un accès. Contactez l'équipe Skult à [contact@skult.ai](mailto:contact@skult.ai).
+
 <Note>
-  Selon votre offre, le nombre de sièges inclus peut varier — l'ajout d'un siège supplémentaire est possible à tout moment. Parlez-en à votre contact Skult.
+  Selon votre offre, le nombre de sièges inclus peut varier. Vous pouvez ajouter un siège à tout moment : parlez-en à votre contact Skult.
 </Note>

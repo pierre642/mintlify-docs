@@ -1,44 +1,94 @@
 ---
 title: "Comptes"
 sidebarTitle: "Comptes"
-description: "Vos collectivités vues comme des comptes : alertes regroupées, contacts, profil et résumé IA par collectivité."
+description: "Vos collectivités vues comme des comptes : alertes, contacts, finances, élus et résumé IA réunis sur une fiche."
 icon: "building"
 ---
 
-La vue **Comptes** retourne la perspective : au lieu de traiter les alertes une par une, vous regardez chaque **collectivité comme un compte** — avec l'ensemble de ses alertes, de ses contacts et de son historique au même endroit. C'est la vue idéale pour préparer un échange ou piloter vos comptes stratégiques.
+La vue **Comptes** regroupe vos alertes par collectivité. Chaque collectivité devient un **compte**, avec une fiche qui réunit ses alertes, ses contacts, ses finances et un résumé IA : l'outil idéal pour préparer un appel.
+
+<Info>
+  Administrateurs et commerciaux y ont accès. Un commercial voit les comptes issus des alertes qui lui sont visibles : celles qui lui sont attribuées et celles de sa zone (voir [Équipe & rôles](/admin/equipe-et-roles)).
+</Info>
 
 ## La liste de vos comptes
 
-Chaque collectivité ayant généré au moins une alerte apparaît dans un tableau avec :
+Une collectivité apparaît dès qu'elle a au moins une alerte, **hors alertes au statut Hors scope et alertes archivées**. L'en-tête indique le nombre de collectivités.
 
 | Colonne | Contenu |
 | --- | --- |
-| **Collectivité** | Nom et logo de la collectivité. |
+| **Collectivité** | Logo, nom et code postal. |
 | **Région** | Sa région administrative. |
-| **Population** | Le nombre d'habitants — utile pour jauger la taille du compte. |
-| **Alertes** | Le nombre d'alertes détectées pour cette collectivité. |
-| **Dernière alerte** | La date du signal le plus récent. |
-| **Contacts** | Les interlocuteurs identifiés. |
+| **Population** | Le nombre d'habitants. |
+| **Alertes** | Le nombre d'alertes du compte. |
+| **Dernière alerte** | La date de détection de l'alerte la plus récente. |
+| **Contacts** | Jusqu'à quatre pastilles, puis « +N ». Le survol affiche le nom, la fonction et l'e-mail. |
 
-<Tip>
-  Toutes les colonnes (sauf Contacts) sont **triables** : triez par nombre d'alertes pour repérer vos collectivités les plus actives, ou par dernière alerte pour voir où ça bouge en ce moment. Vous pouvez aussi **masquer des colonnes** et rechercher une collectivité par son nom.
-</Tip>
+Les comptes sont triés par défaut par nombre d'alertes décroissant. Pour retrouver un compte :
 
-## La fiche d'un compte
+- **Rechercher une collectivité...** filtre par nom ;
+- **Région** filtre sur une ou plusieurs régions, chacune avec son nombre de comptes (« Bretagne (48) ») ; les comptes sans région sont regroupés sous « — » ;
+- **Colonnes** masque ou réaffiche des colonnes ;
+- un clic sur un en-tête trie par ordre croissant, un deuxième par ordre décroissant, un troisième rétablit l'ordre par défaut. Seule la colonne **Contacts** n'est pas triable.
 
-En ouvrant une collectivité, vous retrouvez :
+<Note>
+  La vue Comptes ne propose pas d'export. Utilisez **Exporter** dans la [Boîte de réception](/guides/boite-de-reception) ou le [Pipeline](/guides/pipeline).
+</Note>
 
-- son **profil** : localisation, population, site web et page LinkedIn quand ils sont disponibles ;
-- **toutes ses alertes**, quel que soit leur statut — l'historique complet des signaux détectés ;
-- ses **contacts** identifiés et enrichis, réutilisables d'une alerte à l'autre.
+## La fiche d'une collectivité
 
-## Le résumé IA du compte
+Cliquez sur une ligne pour ouvrir la fiche. L'en-tête indique le département, la population, le code postal, la région, le site web et la page **LinkedIn** quand ils sont connus. Le lien **Comptes** ramène à la liste.
 
-Pour chaque compte, Skult peut générer un **résumé de situation** : une synthèse de ce que la collectivité a en cours, construite à partir de vos alertes et de sources web publiques. Chaque affirmation du résumé est reliée à sa **source** (une alerte ou une page web) que vous pouvez ouvrir d'un clic.
+| Onglet | Contenu |
+| --- | --- |
+| **Résumé** | Le bloc **Finances & gouvernance**, puis le résumé IA. |
+| **Contacts (N)** | Les contacts de toutes les alertes du compte, sans doublons. Un clic sur un e-mail ou un téléphone le copie ; **Email** et **Tél.** lancent l'[enrichissement](/concepts/contacts). |
+| **Alertes (N)** | Les alertes du compte : **Date** (de détection), **Titre**, **Score**, **Statut**. |
+| **Finances & gouvernance** | Le détail des chiffres, des projets Fonds vert et de la gouvernance. |
 
-<Info>
-  C'est l'outil de préparation d'appel par excellence : en une minute, vous avez le contexte complet de la collectivité — ses projets détectés, leur chronologie et les personnes à contacter — avant de décrocher votre téléphone.
-</Info>
+<Warning>
+  Un clic sur une alerte de la fiche l'ouvre dans un nouvel onglet, sur son **lien de partage**. Ce lien est public : toute personne qui le reçoit peut lire l'alerte sans compte Skult. S'il n'existe pas encore, Skult le crée à ce moment-là.
+</Warning>
+
+## Le bloc Finances & gouvernance
+
+En tête du **Résumé**, ce bloc présente les **données publiques officielles** de la collectivité pour le dernier exercice publié (**Comptes 2024**, par exemple). **Voir le détail** ouvre l'onglet complet.
+
+| Indicateur | Ce qu'il mesure |
+| --- | --- |
+| **Budget** | Dépenses totales de l'année, hors remboursement de la dette. |
+| **Investissement** | Dépenses d'équipement, avec un mini-histogramme des années disponibles. |
+| **Dette** | Capital restant à rembourser au 31 décembre. |
+| **Capacité de désendettement** | Années nécessaires pour rembourser la dette avec l'épargne brute. Seuil d'alerte habituel : 12 ans. **Non calculable** si l'épargne brute est nulle ou négative. |
+
+Chaque chiffre est comparé à la **médiane** des collectivités de même type et de même taille (par habitant pour les montants) : ▲ au-dessus, ▼ en dessous, et une jauge neutre avec la médiane au centre. L'icône ⓘ donne la définition.
+
+Le bloc affiche aussi :
+
+- l'**exécutif**, par exemple « Maire : Prénom Nom · en fonction depuis mars 2026 », avec la pastille **nouveau mandat** si la prise de fonction a moins de 12 mois ;
+- **Fonds vert obtenu** : les trois projets les plus récents dont la collectivité est bénéficiaire, avec montant et année, puis **Voir les N projets**.
+
+Quand les chiffres manquent, un message l'explique, par exemple **Collectivité non identifiée avec certitude : chiffres non affichés.** Tous les cas sont détaillés dans [Couverture & fraîcheur](/donnees/couverture).
+
+## L'onglet Finances & gouvernance
+
+- **Évolution** : cinq graphiques (**Budget**, **Investissement**, **Dette**, **Épargne brute**, **Capacité de désendettement**), montants par habitant, avec la **médiane de la strate** en pointillés.
+- **Dépenses et recettes** : un tableau par poste (fonctionnement, investissement, recettes, dette), comparé à la médiane.
+- **Fonds vert obtenu (N projets)** : un clic sur un projet affiche sa démarche et son résumé.
+- **Gouvernance** : l'exécutif, l'**Intercommunalité** d'une commune ou les **Communes membres** d'une intercommunalité. Si l'une d'elles fait partie de vos comptes, son nom ouvre sa fiche.
+
+Pour un syndicat, la fiche affiche les montants sans comparaison.
+
+## Le résumé IA
+
+Le résumé se génère **automatiquement** à l'ouverture de la fiche (**Analyse IA en cours…**). Il s'appuie sur les dix alertes les plus récentes du compte, sur les données publiques de la fiche et, si elle est activée pour votre organisation, sur une recherche web limitée aux douze derniers mois.
+
+- **Ce qui est récent** : 2 à 4 faits saillants, tirés surtout de vos alertes.
+- **Vue d'ensemble** : 2 à 3 points sur le contexte de la collectivité (budget, priorités, projets structurants). Cette partie se replie.
+
+Sous chaque point apparaissent ses sources, quand il en a. Une **alerte** s'ouvre sur son lien de partage, une **page web** s'ouvre dans un nouvel onglet, une **donnée officielle** (« Comptes 2024 (données officielles) », « Fonds vert, projets subventionnés ») est une simple mention, non cliquable. Le résumé ne liste pas les contacts : ils sont dans l'onglet **Contacts**.
+
+Le résumé reste en mémoire sur votre navigateur et se recalcule à l'ouverture de la fiche dès qu'une nouvelle alerte arrive sur le compte. **Régénérer** en produit un nouveau à tout moment. En cas d'échec : **Résumé indisponible — consultez les alertes pour le détail.**
 
 ## Et ensuite ?
 
@@ -47,7 +97,7 @@ Pour chaque compte, Skult peut générer un **résumé de situation** : une synt
     La méthode pour transformer ce contexte en conversation.
   </Card>
 
-  <Card title="Contacts & enrichissement" icon="address-book" href="/concepts/contacts">
-    Comment joindre les bons interlocuteurs du compte.
+  <Card title="D'où viennent vos données" icon="file-magnifying-glass" href="/donnees/sources">
+    Les documents analysés et les données publiques de la fiche.
   </Card>
 </CardGroup>

@@ -114,8 +114,8 @@
     "links": [],
     "primary": {
       "type": "button",
-      "label": "Get Started",
-      "href": "https://app.skult.ai"
+      "label": "Ouvrir Skult",
+      "href": "https://www.skult.app"
     }
   },
   "footer": {
@@ -162,6 +162,21 @@
     {
       "source": "/resources/b2g-glossary",
       "destination": "/reference/glossaire",
+      "permanent": true
+    },
+    {
+      "source": "/tools",
+      "destination": "/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/tools/:slug*",
+      "destination": "/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/integrations/crm",
+      "destination": "/reference/faq",
       "permanent": true
     },
     {

@@ -1,37 +1,76 @@
 ---
 title: "Activité de l'équipe"
 sidebarTitle: "Activité de l'équipe"
-description: "Suivez l'activité de votre équipe : membres actifs, alertes attribuées et traitées par période (accès administrateur)."
+description: "Suivez l'usage de Skult par votre équipe : visites, alertes assignées, consultées et actionnées par membre, sur 7, 30 ou 90 jours (administrateurs)."
 icon: "users"
 ---
 
-La vue **Activité de l'équipe** permet aux responsables de suivre l'engagement de leur équipe sur Skult sur une période donnée.
+L'écran **Activité de l'équipe** permet aux administrateurs de suivre l'usage de Skult par chaque membre de l'organisation.
 
 <Note>
-  Cet écran est réservé aux profils **administrateur**. Les profils commercial n'y ont pas accès.
+  Cet écran est réservé aux **administrateurs**. Il s'ouvre depuis l'entrée **Activité équipe** du groupe **Admin**, dans le menu latéral. Les commerciaux ne voient pas cette entrée, et l'adresse de l'écran les renvoie vers la Vue d'ensemble.
 </Note>
 
-## Choisir la période
+## Période et filtres
 
-Vous pouvez analyser l'activité sur **7**, **30** ou **90 derniers jours**. Les indicateurs se mettent à jour en fonction de la période choisie, avec une comparaison à la période précédente.
+- **Période** : **7 derniers jours** (par défaut), **30 derniers jours** ou **90 derniers jours**.
+- **Rôle** : **Tous les rôles**, **Commerciaux** ou **Admins**.
+- **Rechercher un membre** : filtre le tableau par nom.
 
-## Ce que vous voyez
+## Le bandeau « Alertes actionnées »
 
-Pour chaque membre de l'équipe :
+En haut de l'écran, le grand chiffre **Alertes actionnées** compte les alertes qui ont reçu au moins un changement de statut ou une note sur la période. Une simple ouverture ne compte pas. À droite, la mention « X / Y alertes » rapporte ce chiffre au total de vos alertes, et la barre de progression le traduit visuellement.
 
-| Indicateur | Description |
+Une alerte travaillée par plusieurs membres compte une seule fois dans le bandeau, mais une fois par membre dans le tableau. La somme de la colonne peut donc dépasser le chiffre du bandeau.
+
+## Les tuiles
+
+| Tuile | Ce qu'elle indique |
 | --- | --- |
-| **Sessions** | Le nombre de jours d'activité sur la période. |
-| **Alertes attribuées** | Le nombre d'alertes assignées au membre. |
-| **Alertes traitées** | Le nombre d'alertes que le membre a fait avancer. |
+| **Nombre d'alertes total** | Toutes les alertes de l'organisation, hors archivées, à l'instant présent. |
+| **Utilisateurs actifs** | Les membres actifs sur la période, suivis de « / N membres ». Un membre est actif s'il a utilisé Skult, changé un statut ou ajouté une note. |
 
-Un récapitulatif global indique également le nombre de **membres actifs** et son évolution par rapport à la période précédente.
+**Utilisateurs actifs** est le seul indicateur comparé à la période précédente de même durée. Cette variation n'apparaît que si la période précédente est entièrement couverte par la mesure, en place depuis le 31 août 2026, et qu'elle comptait au moins un membre actif.
 
-## Filtrer et exporter
+## Le tableau « Détail par membre »
 
-- **Filtre par rôle** et **recherche** par nom pour cibler un membre.
-- Bouton **Exporter** pour télécharger les données d'activité.
+Chaque ligne affiche le nom du membre et son rôle (**Admin** ou **Commercial**). Les membres sont classés par alertes actionnées, puis par alertes consultées.
+
+| Colonne | Définition |
+| --- | --- |
+| **Activité (7j)** | Une case par jour sur les 7 derniers jours (heure de Paris). Elle est verte si le membre a utilisé Skult ce jour-là. Le nombre de jours actifs suit, par exemple « 4j ». |
+| **Visites** | Le nombre de retours sur Skult pendant la période. Deux visites sont séparées par au moins 15 minutes sans activité. |
+| **Alertes assignées** | Les alertes actuellement attribuées au membre. |
+| **Alertes consultées** | Les alertes dont le membre a ouvert le détail pendant la période. |
+| **Alertes actionnées** | Les alertes dont le membre a changé le statut, ou sur lesquelles il a ajouté une note, pendant la période. |
+
+### Ce qui suit la période, et ce qui n'en dépend pas
+
+- **Suivent la période choisie** : le bandeau **Alertes actionnées**, **Utilisateurs actifs**, **Visites**, **Alertes consultées** et **Alertes actionnées**.
+- **Ne dépendent pas de la période** : **Nombre d'alertes total** et **Alertes assignées**, qui montrent l'état actuel, ainsi qu'**Activité (7j)**, qui couvre toujours les 7 derniers jours.
+
+## Exporter
+
+Le bouton **Export CSV**, en haut à droite, télécharge un fichier `activite-equipe-AAAA-MM-JJ.csv`. Ses colonnes sont **Utilisateur**, **Rôle**, **Activité (7j)** (en nombre de jours), **Visites**, **Alertes assignées**, **Alertes consultées** et **Alertes actionnées**.
+
+L'export reprend la période choisie, mais **tous les membres** de l'organisation : le filtre de rôle et la recherche ne s'y appliquent pas.
+
+## Ce qui est mesuré
+
+Pour alimenter cet écran, Skult enregistre, pour chaque membre :
+
+- l'**ouverture de l'application** et chaque retour sur l'onglet Skult, au plus une fois toutes les 5 minutes ;
+- un **signal régulier**, toutes les 5 minutes, tant que l'onglet Skult est visible à l'écran. Il s'arrête quand l'onglet est masqué ;
+- l'**ouverture du détail d'une alerte**, une fois par alerte et par session ;
+- l'**ouverture d'une fiche de compte**, une fois par fiche et par session ;
+- les **changements de statut** et les **notes**, déjà enregistrés avec leur auteur.
+
+Chaque enregistrement contient le membre, la date et l'heure, et, le cas échéant, l'alerte ou la fiche concernée. Skult ne mesure ni le temps passé par page, ni les clics, ni ce que vous saisissez.
+
+<Warning>
+  Ces données ne sont visibles que des **administrateurs** de votre organisation. Un commercial ne voit ni les chiffres de ses collègues, ni les siens. La mesure ne peut pas être désactivée par un membre. Pour toute question de conformité, voir [RGPD & conformité](/reference/rgpd).
+</Warning>
 
 <Tip>
-  Servez-vous de la comparaison entre périodes pour repérer un essoufflement et rééquilibrer la charge entre commerciaux.
+  Comparez **Alertes consultées** et **Alertes actionnées** : beaucoup d'alertes consultées et peu d'actionnées signalent souvent des alertes lues mais pas encore traitées.
 </Tip>

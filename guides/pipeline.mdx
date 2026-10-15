@@ -1,36 +1,77 @@
 ---
 title: "Pipeline"
 sidebarTitle: "Pipeline"
-description: "Organisez vos alertes par statut dans une vue Kanban et faites-les avancer par glisser-déposer."
+description: "Suivez vos alertes par statut dans une vue Kanban : glisser-déposer, niveau de priorité, recherche et export."
 icon: "table-columns"
 ---
 
-La vue **Pipeline** présente vos alertes sous forme de **colonnes par statut**, à la manière d'un Kanban. C'est la vue idéale pour visualiser l'état global de votre activité commerciale et faire progresser vos opportunités.
+La vue **Pipeline** présente vos alertes en **colonnes par statut**, à la manière d'un Kanban. Elle montre d'un coup d'œil ce qui avance et ce qui stagne.
+
+<Info>
+  Le Pipeline affiche les alertes non archivées que vous pouvez voir. Un administrateur voit toutes les alertes de l'organisation. Un commercial voit les alertes de ses zones et celles qui lui sont attribuées (voir [Équipe & rôles](/admin/equipe-et-roles)).
+</Info>
 
 ## Lire le pipeline
 
-Chaque colonne correspond à un statut (Nouveau, À traiter, En cours, Rappeler, Traité…) et affiche le **nombre d'alertes** qu'elle contient. Vous voyez ainsi d'un coup d'œil combien d'opportunités sont en cours, en attente ou conclues.
+Chaque colonne correspond à un statut et affiche le **nombre d'alertes** qu'elle contient. Par défaut, vous voyez les 8 statuts : Nouveau, A traiter, En cours, Rappeler, Traité, NRP, Mauvais contact et Hors scope (voir [Statuts & workflow](/concepts/statuts)).
 
-<Note>
-  Les colonnes reflètent les statuts configurés pour votre organisation. Voir [Statuts & workflow](/concepts/statuts) et [Paramètres](/guides/parametres) pour les personnaliser.
-</Note>
+Chaque carte résume l'alerte :
+
+- la ville et la région ;
+- le niveau de priorité (**T1**, **T2** ou **T3**), repris par la couleur du bord gauche de la carte ;
+- le titre de l'alerte ;
+- le nom du contact trouvé, le nombre de contacts, ou **Aucun contact**.
+
+Cliquez sur une carte pour ouvrir l'alerte complète : besoin, verbatim, contacts, notes, statut et partage. Vous y retrouvez les mêmes actions que dans la [Boîte de réception](/guides/boite-de-reception).
 
 ## Faire avancer une alerte
 
 <Steps>
-  <Step title="Repérez l'alerte">
-    Trouvez la carte dans sa colonne actuelle.
+  <Step title="Repérez la carte">
+    Trouvez l'alerte dans sa colonne actuelle, au besoin avec la recherche.
   </Step>
   <Step title="Glissez-la vers la bonne colonne">
-    Faites glisser la carte dans la colonne du nouveau statut. Le changement est enregistré immédiatement.
+    Déposez la carte dans la colonne du nouveau statut. Le changement est enregistré immédiatement, et vos collègues le voient en temps réel.
   </Step>
 </Steps>
 
-## Rechercher et exporter
-
-- Une **recherche** permet de retrouver rapidement une alerte dans le pipeline.
-- Le bouton **Exporter** télécharge l'ensemble du pipeline au format CSV.
+Si l'enregistrement échoue, le message **Statut non enregistré** s'affiche et la carte reprend sa place.
 
 <Tip>
-  Utilisez le Pipeline pour vos points d'équipe : il rend visible en un instant ce qui avance et ce qui stagne.
+  Sur un écran tactile, ouvrez la carte et changez le statut avec la pastille de statut, en haut de l'alerte.
+</Tip>
+
+## Prioriser avec le tier
+
+Le niveau de priorité (tier) se règle uniquement dans le Pipeline, directement sur la carte :
+
+- cliquez sur **+ Tier** pour classer l'alerte en **T1** ;
+- cliquez ensuite sur la pastille pour passer à **T2**, puis à **T3**, puis pour la retirer.
+
+En haut de l'écran, les boutons **Tous**, **T1**, **T2** et **T3** filtrent les cartes affichées. Les compteurs des colonnes suivent le filtre.
+
+## Rechercher
+
+Le champ **Rechercher dans le pipeline...** retrouve une alerte par son titre, sa ville, le besoin de la collectivité, l'opportunité ou le contact cible. La recherche se combine avec le filtre de tier.
+
+## Exporter
+
+Le bouton **Exporter** ouvre un menu à trois entrées :
+
+- **Export PSV (pipe |)** : les alertes, avec une ligne par contact, séparées par une barre verticale.
+- **Export CSV classique** : les mêmes données, séparées par des virgules.
+- **Exporter les contacts (Excel, ;)**, suivi du nombre de contacts : un fichier qui s'ouvre directement dans Excel, avec une ligne par personne ayant un e-mail ou un téléphone, sans doublon.
+
+L'export porte sur les alertes **affichées** : le filtre de tier et la recherche s'appliquent. La colonne de statut reprend le nom d'origine des statuts, même si vous avez renommé vos colonnes. L'export des contacts écarte les alertes en **NRP**, **Mauvais contact** et **Hors scope**.
+
+## Adapter vos colonnes
+
+Les colonnes suivent **votre** pipeline. Chaque membre, administrateur ou commercial, peut renommer, masquer ou réordonner ses colonnes dans les [Paramètres](/guides/parametres), sans effet sur ses collègues. Les statuts, eux, restent communs à toute l'équipe.
+
+<Note>
+  Une colonne masquée disparaît de votre Pipeline, avec les alertes qui y sont placées. Les règles de personnalisation sont détaillées dans [Statuts & workflow](/concepts/statuts#personnaliser-vos-statuts).
+</Note>
+
+<Tip>
+  Utilisez le Pipeline pour vos points d'équipe : filtré sur **T1**, il montre en un instant les priorités qui avancent et celles qui stagnent.
 </Tip>

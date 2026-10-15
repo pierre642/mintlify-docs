@@ -5,13 +5,16 @@ description: "Connectez Claude, Cursor, ChatGPT et d'autres agents IA à Skult v
 icon: "robot"
 ---
 
-Le serveur MCP de Skult expose vos alertes, vos contacts enrichis et votre pipeline à tout agent IA compatible avec le [Model Context Protocol](https://modelcontextprotocol.io). Une fois connecté, votre agent peut lister, filtrer, mettre à jour vos données Skult et enrichir vos contacts en langage naturel — sans quitter votre outil de travail.
+Le serveur MCP de Skult relie votre agent IA à votre espace Skult, grâce au [Model Context Protocol](https://modelcontextprotocol.io). Une fois connecté, votre agent lit vos alertes et vos contacts, met à jour votre pipeline et enrichit vos contacts en langage naturel, sans quitter votre outil de travail.
 
 **URL du serveur MCP :** `https://mcp.skult.ai`
 
 ## Clients compatibles
 
 <CardGroup cols={4}>
+  <Card title="Claude (web et mobile)" icon="globe">
+  </Card>
+
   <Card title="Claude Desktop" icon="desktop">
   </Card>
 
@@ -37,11 +40,11 @@ Le serveur MCP de Skult expose vos alertes, vos contacts enrichis et votre pipel
   </Card>
 </CardGroup>
 
-Tout client qui prend en charge le transport HTTP du protocole MCP est compatible.
+Tout client qui prend en charge le transport HTTP du protocole MCP et l'authentification OAuth est compatible. Aucune clé API n'est nécessaire : vous vous connectez avec votre compte Skult.
 
 ## Installation
 
-L'exemple ci-dessous utilise **Claude Code**. La même URL (`https://mcp.skult.ai`) s'applique à tous les clients — référez-vous à la documentation de votre client pour la syntaxe exacte.
+L'exemple ci-dessous utilise **Claude Code**. La même URL (`https://mcp.skult.ai`) s'applique à tous les clients. Sur claude.ai, ajoutez-la comme connecteur personnalisé. Pour les autres clients, référez-vous à leur documentation.
 
 <Steps>
   <Step title="Ajoutez le serveur MCP Skult">
@@ -51,8 +54,10 @@ L'exemple ci-dessous utilise **Claude Code**. La même URL (`https://mcp.skult.a
     claude mcp add --transport http skult https://mcp.skult.ai
     ```
   </Step>
-  <Step title="Authentifiez-vous avec votre compte Skult">
-    Une fenêtre de navigateur s'ouvre au premier lancement. Connectez-vous avec vos identifiants [skult.app](https://skult.app) et cliquez sur **Autoriser l'accès**. L'authentification utilise OAuth 2.0 : votre mot de passe n'est jamais transmis à l'agent. Le jeton d'accès est stocké localement sur votre machine.
+  <Step title="Connectez-vous avec votre compte Skult">
+    Au premier lancement, votre navigateur ouvre une page de connexion Skult. Saisissez l'adresse e-mail et le mot de passe que vous utilisez sur [www.skult.app](https://www.skult.app), puis cliquez sur **Se connecter**. Vous êtes renvoyé directement vers votre client : il n'y a pas d'autre écran à valider.
+
+    Votre mot de passe n'est jamais transmis à l'agent. Votre client conserve seulement un jeton d'accès.
   </Step>
   <Step title="Vérifiez la connexion">
     ```bash
@@ -63,6 +68,10 @@ L'exemple ci-dessous utilise **Claude Code**. La même URL (`https://mcp.skult.a
   </Step>
 </Steps>
 
+## Ce que votre agent voit
+
+Votre agent accède aux alertes et aux contacts de votre organisation, y compris les alertes qui ne vous sont pas attribuées dans l'application. Les alertes archivées ne sont pas prises en compte. Les données des autres organisations restent inaccessibles.
+
 ## Outils disponibles
 
 Une fois connecté, votre agent dispose de 9 outils, en trois catégories.
@@ -71,33 +80,40 @@ Une fois connecté, votre agent dispose de 9 outils, en trois catégories.
 
 | Outil | Description |
 | --- | --- |
-| `get_alerts` | Liste vos alertes avec filtres optionnels : statut, ville, score. |
-| `get_alert_detail` | Détail complet d'une alerte : verbatim, contacts associés (avec leurs coordonnées et l'état de leur enrichissement), notes. |
-| `get_pipeline_stats` | Vue d'ensemble de votre pipeline, ventilée par statut. |
-| `search_contacts` | Recherche dans vos contacts par nom ou par ville de la collectivité. |
+| `get_alerts` | Liste vos alertes, des plus récentes aux plus anciennes : 10 par défaut, 30 au maximum par demande. Filtres possibles : statut, ville (nom partiel accepté) et score minimum. |
+| `get_alert_detail` | Détail complet d'une alerte : besoin, opportunité, verbatim, interprétation, angle d'approche, contacts associés (avec leurs coordonnées et l'état de leur enrichissement) et notes. |
+| `get_pipeline_stats` | Nombre d'alertes de votre organisation par statut. |
+| `search_contacts` | Recherche dans vos contacts par nom ou par ville de la collectivité (20 résultats au maximum). |
 
 ### Écriture
 
 | Outil | Description |
 | --- | --- |
-| `update_alert_status` | Change le statut d'une alerte (par exemple **À traiter**, **En cours**, **Traité**). |
-| `update_alert_tier` | Définit la priorité d'une alerte : `1` = haute, `3` = basse. |
+| `update_alert_status` | Change le statut d'une alerte (par exemple **A traiter**, **En cours**, **Traité**). |
+| `update_alert_tier` | Définit la priorité d'une alerte : `1` = haute, `2` = moyenne, `3` = basse. |
 | `add_alert_note` | Ajoute une note datée à une alerte. |
 
 ### Enrichissement
 
 | Outil | Description |
 | - | - |
-| `enrich_contact` | Recherche l'e-mail et/ou le téléphone d'un contact, comme les boutons **Enrichir email** et **Enrichir tél.** de l'application, et met le contact à jour. |
+| `enrich_contact` | Recherche l'e-mail et/ou le téléphone d'un contact, comme les boutons **Enrichir** (e-mail et téléphone) de l'application, et met le contact à jour. |
 | `enrich_alert_contacts` | Enrichit en une fois les contacts de plusieurs alertes (jusqu'à 50 alertes et 20 recherches par demande). Affiche d'abord un plan, puis lance après votre confirmation. |
 
+### Bon à savoir
+
+- **Noms de statut** : l'agent utilise les noms d'origine, avec leur orthographe exacte : **Nouveau**, **A traiter** (sans accent), **En cours**, **Rappeler**, **Traité**, **NRP**, **Mauvais contact**, **Hors scope**. Si vous avez renommé des colonnes dans **Mon pipeline**, désignez le statut par son nom d'origine.
+- **Notes** : une note ajoutée par l'agent apparaît dans Skult signée « MCP », et non à votre nom.
+- **Activité équipe** : les changements de statut faits depuis votre agent ne sont pas comptés dans la vue **Activité équipe**.
+- **Filtres** : l'agent filtre vos alertes par ville, statut et score. Il ne filtre pas par région ni par département : citez des villes.
+
 <Warning>
-  Les outils d'écriture et d'enrichissement modifient vos données Skult en direct. Votre agent IA vous demande confirmation avant chaque écriture — c'est le comportement par défaut de Claude et de la plupart des clients. Pour un enrichissement en lot, l'outil impose en plus un plan préalable à valider.
+  Les outils d'écriture et d'enrichissement modifient vos données Skult en direct, et votre équipe voit le résultat aussitôt. La plupart des clients, dont Claude, vous demandent confirmation avant d'utiliser un outil. Pour plusieurs alertes, l'enrichissement présente d'abord un plan : rien n'est lancé sans votre accord.
 </Warning>
 
 ## Enrichir vos contacts depuis votre agent
 
-L'enrichissement depuis votre agent fonctionne exactement comme les boutons de l'application : mêmes sources, et la coordonnée trouvée est enregistrée sur le contact, visible aussitôt dans Skult.
+L'enrichissement depuis votre agent fonctionne comme les boutons de l'application : mêmes sources, et la coordonnée trouvée est enregistrée sur le contact, visible aussitôt dans Skult.
 
 <Tabs>
   <Tab title="Un contact">
@@ -108,39 +124,47 @@ L'enrichissement depuis votre agent fonctionne exactement comme les boutons de l
   <Tab title="Plusieurs alertes">
     Demandez par exemple _« Enrichis les contacts de mes 5 meilleures alertes »_. L'agent vous présente d'abord un **plan** : les contacts concernés, le nombre de recherches et la durée estimée. Rien n'est lancé avant votre confirmation.
 
-    Une fois confirmé, l'enrichissement tourne en arrière-plan (comptez quelques minutes pour une dizaine de contacts). Les coordonnées apparaissent au fur et à mesure sur les alertes.
+    Chaque coordonnée compte pour une recherche : l'e-mail et le téléphone d'un même contact en font deux. Une fois confirmé, l'enrichissement tourne en arrière-plan (comptez quelques minutes pour une dizaine de contacts). Les coordonnées apparaissent au fur et à mesure sur les alertes.
   </Tab>
 </Tabs>
 
 <Note>
-  Un contact dont l'e-mail ou le téléphone est déjà renseigné, ou déjà recherché sans succès, n'est pas relancé, sauf si vous le demandez explicitement. Lorsqu'une même personne figure sur plusieurs alertes, une seule recherche est faite et la coordonnée trouvée est appliquée à toutes ses fiches, comme dans l'application.
+  Seules les coordonnées manquantes sont recherchées. Une coordonnée déjà renseignée n'est pas relancée, y compris un e-mail générique (l'adresse d'un service plutôt que celle de la personne). Une coordonnée déjà recherchée sans succès (**Non trouvé**) ne l'est pas non plus.
+
+  Pour un contact précis, vous pouvez demander explicitement à l'agent de relancer la recherche. Pour plusieurs alertes à la fois, ces coordonnées ne sont jamais relancées.
+
+  Une même personne (même profil LinkedIn) présente sur plusieurs alertes n'est recherchée qu'une fois : la coordonnée trouvée est reportée sur toutes ses fiches, comme dans l'application.
 </Note>
 
 ## Exemples en langage naturel
 
 - _« Quelles sont mes 5 alertes les plus récentes ? »_
-- _« Passe l'alerte de Liévin au statut À traiter »_
+- _« Passe l'alerte de Liévin au statut A traiter »_
 - _« Ajoute la note "rappeler demain" à l'alerte de Laon »_
-- _« Combien d'alertes ai-je en cours ? »_
+- _« Combien d'alertes sont en cours ? »_
 - _« Trouve l'e-mail du directeur des services techniques de l'alerte de Liévin »_
 - _« Enrichis les contacts de mes alertes de score supérieur à 8 »_
 
-Vous pouvez combiner filtres et actions : _« Montre-moi les alertes de Normandie avec un score supérieur à 7, puis passe la première en En cours. »_
+Vous pouvez combiner filtres et actions : _« Montre-moi les alertes de Rouen avec un score supérieur à 7, puis passe la première en En cours. »_
 
 ## Dépannage
 
 <AccordionGroup>
-  <Accordion title="La fenêtre d'authentification ne s'ouvre pas">
-    Votre client bloque peut-être l'ouverture automatique du navigateur. Cherchez l'URL de connexion affichée dans le terminal et ouvrez-la manuellement pour terminer le flux OAuth.
+  <Accordion title="La page de connexion ne s'ouvre pas">
+    Votre client bloque peut-être l'ouverture automatique du navigateur. Cherchez l'URL de connexion affichée dans le terminal et ouvrez-la manuellement pour terminer la connexion.
   </Accordion>
 
   <Accordion title="Les outils n'apparaissent pas après connexion">
-    Redémarrez votre agent après l'authentification. Si le problème persiste, retirez puis rajoutez le serveur :
+    Redémarrez votre agent après la connexion. Si le problème persiste, retirez puis rajoutez le serveur :
 
     ```bash
     claude mcp remove skult
     claude mcp add --transport http skult https://mcp.skult.ai
     ```
+  </Accordion>
+
+  <Accordion title="L'agent signale que la connexion à Skult a expiré">
+    Votre session peut expirer, par exemple après une mise à jour du service Skult. Utilisez l'option de reconnexion de votre client, ou retirez puis rajoutez le serveur, et connectez-vous à nouveau avec votre compte Skult.
   </Accordion>
 
   <Accordion title="L'enrichissement reste « en cours »">
@@ -151,12 +175,12 @@ Vous pouvez combiner filtres et actions : _« Montre-moi les alertes de Normandi
     Ils ont été ajoutés en octobre 2026. Si votre agent était déjà connecté, retirez puis rajoutez le serveur Skult (ou redémarrez votre client) pour qu'il recharge la liste des outils.
   </Accordion>
 
-  <Accordion title="Erreur « identifiants invalides »">
-    Utilisez exactement les identifiants de [skult.app](https://skult.app). Mot de passe oublié : réinitialisez-le depuis la page de connexion de l'application, puis relancez l'authentification.
+  <Accordion title="Erreur « Email ou mot de passe incorrect. »">
+    Utilisez exactement les identifiants de [www.skult.app](https://www.skult.app). Mot de passe oublié : cliquez sur **Mot de passe oublié ?** sur la page de connexion de l'application, choisissez un nouveau mot de passe, puis relancez la connexion de votre agent.
   </Accordion>
 
   <Accordion title="Un agent peut-il voir les données de toute l'équipe ?">
-    Chaque utilisateur s'authentifie avec son propre compte Skult. Les données sont isolées par organisation — un agent connecté avec votre compte ne voit que les alertes et contacts de votre organisation, avec les mêmes droits que vous dans l'application.
+    Oui. Chaque utilisateur se connecte avec son propre compte Skult, et l'agent accède aux alertes et aux contacts de votre organisation, y compris les alertes qui ne vous sont pas attribuées dans l'application. Les données des autres organisations restent inaccessibles.
   </Accordion>
 </AccordionGroup>
 
@@ -164,11 +188,11 @@ Vous pouvez combiner filtres et actions : _« Montre-moi les alertes de Normandi
 
 <AccordionGroup>
   <Accordion title="Mes données sont-elles sécurisées ?">
-    Oui. Le serveur MCP Skult utilise OAuth 2.0 : votre mot de passe n'est jamais transmis à l'agent IA. Le jeton d'accès est stocké localement par votre client et sert uniquement à authentifier les requêtes vers `https://mcp.skult.ai`.
+    Oui. Le serveur MCP Skult utilise OAuth 2.0 : votre mot de passe n'est jamais transmis à l'agent IA. Le jeton d'accès est conservé par votre client et sert uniquement à authentifier les requêtes vers `https://mcp.skult.ai`.
   </Accordion>
 
   <Accordion title="Puis-je connecter plusieurs agents en même temps ?">
-    Oui — par exemple Claude Desktop et Cursor avec le même compte. Chaque client conserve son propre jeton et fonctionne indépendamment.
+    Oui, par exemple Claude Desktop et Cursor avec le même compte. Chaque client conserve son propre jeton et fonctionne indépendamment.
   </Accordion>
 
   <Accordion title="Le MCP fonctionne-t-il hors ligne ?">

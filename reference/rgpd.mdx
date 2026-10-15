@@ -5,19 +5,48 @@ description: "D'où viennent les coordonnées des contacts, sur quelle base lég
 icon: "shield-check"
 ---
 
-Skult fournit des coordonnées de décideurs publics dans un cadre professionnel. Cette page résume nos principes de conformité — pour vos équipes comme pour votre DPO.
+Skult fournit des coordonnées de décideurs publics dans un cadre professionnel. Cette page résume nos principes de conformité, pour vos équipes comme pour votre DPO.
 
 ## Quelles données, d'où viennent-elles
 
 | Donnée | Source |
 | --- | --- |
-| **Signaux d'opportunité** | Documents publics officiels des collectivités (PV, délibérations, séances publiques) — aucune donnée personnelle sensible, uniquement des décisions publiques. |
+| **Signaux d'opportunité** | Documents publics officiels des collectivités (PV, délibérations, séances publiques) : des décisions et des débats publics, sans donnée personnelle sensible. |
 | **Identité et fonction des contacts** | Sources professionnelles accessibles publiquement : documents officiels des collectivités, annuaires publics, réseaux professionnels. |
-| **Coordonnées professionnelles (e-mail, téléphone)** | Fournisseurs spécialisés de données B2B et sources publiques — uniquement des coordonnées **professionnelles**, jamais personnelles. |
+| **E-mail des contacts** | Fournisseurs spécialisés de données B2B et sources publiques. Seule une adresse **professionnelle** est retenue. |
+| **Téléphone des contacts** | Fournisseurs spécialisés de données B2B et sources publiques. Skult retient le numéro le plus probable de la personne, sans garantie qu'il s'agisse d'une ligne professionnelle. |
+| **Contacts saisis à la main** | Ajoutés par vos équipes avec **Ajouter un contact**, avec le badge **Saisi à la main**. Votre organisation est responsable de ces informations. |
+| **Élus affichés dans Comptes** | Exécutif de chaque collectivité (nom, prénom, fonction, dates de début de mandat et de fonction), issu de données publiques officielles. |
+| **Activité des utilisateurs** | Usage de l'application par les membres de votre organisation. Voir la section **Mesure d'activité des utilisateurs** ci-dessous. |
+
+## Ce que contient une fiche contact
+
+Chaque fiche contact est rattachée à une alerte et appartient à une seule organisation cliente. Elle peut contenir :
+
+- le prénom, le nom et la fonction ;
+- l'e-mail, le téléphone et le profil LinkedIn ;
+- la source du contact (recherche automatique ou saisie à la main) ;
+- l'état de l'enrichissement : coordonnée **Non trouvé**, ou e-mail générique (l'adresse d'un service plutôt que celle de la personne) ;
+- une vérification « toujours en poste », quand elle est disponible ;
+- le membre de votre équipe qui a enrichi ou saisi le contact ;
+- les dates de création et de dernière mise à jour.
+
+Supprimer un contact dans l'application le retire de vos écrans. Pour un effacement définitif, écrivez à [contact@skult.ai](mailto:contact@skult.ai).
+
+## Mesure d'activité des utilisateurs
+
+Pour alimenter la vue [Activité de l'équipe](/guides/activite-equipe), Skult enregistre l'usage de l'application par chaque membre de votre organisation :
+
+- les chargements de l'application (au plus un toutes les 5 minutes par onglet) ;
+- un signal de présence toutes les 5 minutes, tant que l'onglet Skult est visible ;
+- l'ouverture du détail d'une alerte ;
+- l'ouverture d'une fiche **Comptes**.
+
+La vue s'appuie aussi sur les changements de statut et les notes de chacun. Ces mesures sont visibles uniquement par les administrateurs de votre organisation. Elles ne se désactivent pas depuis l'application.
 
 ## Le cadre juridique
 
-- Les contacts fournis sont des **professionnels exerçant une fonction publique**, contactés à raison de leur fonction — pas des particuliers.
+- Les contacts fournis sont des **professionnels exerçant une fonction publique**, contactés à raison de leur fonction, pas des particuliers.
 - Le traitement repose sur l'**intérêt légitime** (prospection B2B auprès de professionnels, encadrée par le RGPD et la doctrine CNIL) : les coordonnées sont en rapport direct avec la fonction exercée, et la sollicitation est liée à cette fonction.
 - Chaque coordonnée est rattachée à un **contexte précis et légitime** : un projet public, documenté par la collectivité elle-même.
 
@@ -27,14 +56,23 @@ Skult fournit des coordonnées de décideurs publics dans un cadre professionnel
 
 ## Droits des personnes concernées
 
-Toute personne figurant dans les données Skult peut exercer ses droits (accès, rectification, opposition, effacement) en écrivant à [contact@skult.ai](mailto:contact@skult.ai). Les demandes sont traitées dans les délais réglementaires, et les suppressions sont propagées à l'ensemble des organisations clientes concernées.
+Toute personne figurant dans les données Skult peut exercer ses droits (accès, rectification, opposition, effacement) en écrivant à [contact@skult.ai](mailto:contact@skult.ai). Les demandes sont traitées dans les délais réglementaires.
 
 ## Sécurité et cloisonnement
 
-- Chaque organisation cliente est **strictement cloisonnée** : vos alertes, contacts, notes et statuts ne sont visibles que par les membres de votre organisation.
-- Les accès sont individuels et authentifiés ; les intégrations (CRM, MCP) utilisent OAuth 2.0 sans jamais exposer vos mots de passe.
-- Les données sont hébergées dans l'Union européenne.
+- Chaque organisation cliente est **cloisonnée** : vos alertes, contacts, notes et statuts ne sont visibles que par les membres de votre organisation, à une exception près, le lien de partage (voir ci-dessous).
+- Dans l'application, un commercial voit les alertes qui lui sont attribuées et celles des régions ouvertes pour lui. Un administrateur voit toutes les alertes de l'organisation. Via le [serveur MCP](/integrations/mcp), un agent IA accède aux alertes et aux contacts de toute votre organisation.
+- Les accès sont individuels et authentifiés. Le serveur MCP utilise OAuth 2.0 : votre mot de passe n'est jamais transmis à l'agent IA.
+- Vos données sont stockées dans l'Union européenne.
+
+### Lien de partage
+
+Partager une alerte crée un lien **public et permanent**. Toute personne qui reçoit ce lien voit, sans compte Skult, l'alerte, ses contacts (e-mail, téléphone, LinkedIn) et toutes ses notes. La page n'est pas référencée par les moteurs de recherche. Pour désactiver un lien, écrivez à l'équipe Skult à [contact@skult.ai](mailto:contact@skult.ai).
+
+### Envoi vers votre CRM
+
+Lorsque l'envoi vers le CRM est activé pour votre organisation, chaque clic sur **Envoyer au CRM** transmet l'alerte, ses contacts et ses notes à l'adresse de réception configurée pour votre organisation.
 
 <Note>
-  Pour une question de conformité spécifique (DPA, registre de traitement, question de votre DPO), contactez [contact@skult.ai](mailto:contact@skult.ai) — nous y répondons directement.
+  Pour une question de conformité spécifique (DPA, registre de traitement, question de votre DPO), contactez [contact@skult.ai](mailto:contact@skult.ai) : nous y répondons directement.
 </Note>

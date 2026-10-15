@@ -1,56 +1,98 @@
 ---
 title: "Contacts & enrichissement"
 sidebarTitle: "Contacts & enrichissement"
-description: "Comment Skult trouve automatiquement les bons interlocuteurs et complète leurs coordonnées (e-mail, téléphone)."
+description: "Comment Skult trouve les interlocuteurs d'une alerte, et comment compléter, ajouter ou retirer un contact."
 icon: "address-book"
 ---
 
-Pour chaque alerte, Skult cherche à identifier les **bons interlocuteurs** au sein de la collectivité, puis à compléter leurs coordonnées. Vous gagnez ainsi le temps habituellement passé à chercher « qui contacter ».
+Pour chaque alerte, Skult cherche les **bons interlocuteurs** au sein de la collectivité, puis vous aide à obtenir leurs coordonnées. Vous gagnez ainsi le temps habituellement passé à chercher « qui contacter ».
+
+Les contacts se trouvent dans la section **Contacts** de la carte dépliée.
 
 ## La recherche automatique de contacts
 
-Dès qu'une alerte est créée, Skult lance automatiquement une recherche des interlocuteurs pertinents pour votre activité (par exemple DGS, directeur d'un service, élu en charge du sujet). Les contacts trouvés apparaissent au fil de l'eau sur l'alerte.
+Dès qu'une alerte est créée, Skult recherche les interlocuteurs pertinents pour votre activité (par exemple DGS, directeur d'un service, élu en charge du sujet). Les contacts trouvés apparaissent sur l'alerte au fil de l'eau, sans recharger la page.
 
-Selon l'avancement, l'alerte affiche l'un de ces états :
+Selon l'avancement, la section **Contacts** affiche :
 
-| État | Ce que ça signifie |
+| Ce que vous voyez | Ce que ça signifie |
 | --- | --- |
-| **Recherche en cours** | Skult recherche les contacts. Patientez quelques instants. |
-| **Contacts trouvés** | Un ou plusieurs interlocuteurs sont disponibles sur l'alerte. |
-| **Aucun contact trouvé** | La recherche n'a rien donné ; vous pouvez ajouter un contact manuellement. |
-| **Erreur** | La recherche a échoué ; un bouton **Réessayer** permet de la relancer. |
+| **Recherche de contacts en cours…** | La recherche tourne. Les contacts s'afficheront d'eux-mêmes. |
+| **Contacts (2)**, puis les fiches | Des interlocuteurs ont été trouvés (ici, deux). |
+| **Aucun contact pertinent trouvé** | La recherche est terminée, sans résultat. |
+| **Erreur lors de la recherche de contacts** | La recherche a échoué. |
+| **Cible : …** | Aucune recherche n'a été faite. Skult indique le profil d'interlocuteur à viser, repéré dans le document. |
 
-<Info>
-  Si la recherche automatique n'a pas été lancée, un bouton **Trouver le contact** vous permet de la déclencher manuellement depuis l'alerte.
-</Info>
+La recherche ne se relance pas depuis l'application. Si elle n'a rien donné, ajoutez le contact vous-même avec **Ajouter un contact** (voir plus bas).
 
-## Enrichir un contact (e-mail & téléphone)
+<Note>
+  Quand Skult ne trouve pas de coordonnée personnelle, il peut reprendre celles de la mairie (accueil, standard), y compris sur la fiche d'une personne nommée. Si aucun interlocuteur n'est identifié, une fiche « Mairie de … » peut être ajoutée à sa place. Vérifiez l'adresse avant d'écrire.
+</Note>
 
-Un contact identifié n'a pas toujours son e-mail ou son téléphone renseigné d'emblée. Deux boutons permettent de les rechercher à la demande :
+## Lire une fiche contact
+
+Chaque fiche affiche le nom, la fonction, une icône vers le profil LinkedIn quand il est connu, puis l'e-mail et le téléphone.
+
+- Cliquez sur l'e-mail ou le téléphone pour le **copier** (message **Email copié !** ou **Téléphone copié !**).
+- Le badge **Saisi à la main** signale un contact ajouté par un membre de votre équipe.
+
+## Enrichir un contact (e-mail et téléphone)
+
+Un contact trouvé n'a pas toujours son e-mail ou son téléphone. Dans ce cas, sa fiche propose de les rechercher :
 
 <Steps>
-  <Step title="Ouvrez l'alerte">
+  <Step title="Dépliez l'alerte">
     Affichez le détail de l'alerte pour voir ses contacts.
   </Step>
-  <Step title="Lancez l'enrichissement">
-    Cliquez sur **Enrichir email** ou **Enrichir tél.** sur le contact concerné.
+  <Step title="Lancez la recherche">
+    Sur le contact concerné, cliquez sur **Enrichir** à côté de l'icône e-mail ou de l'icône téléphone. Le bouton affiche **Recherche...** pendant quelques instants.
   </Step>
   <Step title="Récupérez la coordonnée">
-    Une fois trouvée, la coordonnée s'affiche sur le contact. La recherche peut prendre quelques instants.
+    La coordonnée trouvée s'affiche sur la fiche. Elle peut être une adresse de service plutôt que l'adresse nominative. Si la recherche échoue, la fiche indique **Non trouvé**.
   </Step>
 </Steps>
 
 <Note>
-  Lorsqu'une coordonnée est trouvée, elle est automatiquement appliquée aux autres contacts identiques (même personne) au sein de votre organisation : vous n'avez pas à relancer la recherche partout.
+  Le résultat est appliqué aux fiches de la même personne sur les autres alertes de votre organisation, qu'une coordonnée soit trouvée ou non : inutile de relancer la recherche ailleurs.
 </Note>
 
+Ces boutons n'apparaissent pas sur un contact saisi à la main sans profil LinkedIn.
+
 <Tip>
-  Vous pouvez aussi lancer ces recherches depuis votre agent IA (Claude, Cursor…), pour un contact ou pour les contacts de plusieurs alertes à la fois : voir [Serveur MCP Skult](/integrations/mcp#enrichir-vos-contacts-depuis-votre-agent).
+  Vous pouvez aussi lancer ces recherches depuis votre agent IA (Claude, Cursor…), pour un contact ou pour les contacts de plusieurs alertes à la fois : voir [Serveur MCP Skult](/integrations/mcp).
 </Tip>
+
+## Ajouter un contact
+
+Si vous connaissez déjà le bon interlocuteur, ou si la recherche n'a rien donné :
+
+<Steps>
+  <Step title="Ouvrez le formulaire">
+    Sous les contacts, cliquez sur **Ajouter un contact**. Le bouton n'apparaît pas pendant une recherche en cours.
+  </Step>
+  <Step title="Remplissez la fiche">
+    Saisissez le nom (**Prénom Nom**, obligatoire), la **Fonction**, l'**Email**, le **Téléphone** et l'**URL LinkedIn** (facultative). Il faut au moins un e-mail ou un téléphone.
+  </Step>
+  <Step title="Enregistrez">
+    Cliquez sur **Enregistrer**. Le contact apparaît avec le badge **Saisi à la main**.
+  </Step>
+</Steps>
+
+Si l'e-mail ou le téléphone correspond à un contact déjà présent sur l'alerte, le message **Ce contact existe déjà sur cette alerte** s'affiche. Vous pouvez alors **Annuler** ou cliquer sur **Enregistrer quand même**.
+
+Un contact ne se modifie pas : pour corriger une fiche, supprimez-la puis ajoutez le contact de nouveau.
+
+## Retirer un contact
+
+Survolez la fiche, cliquez sur la corbeille (**Supprimer**), puis confirmez. Le contact disparaît de l'alerte.
+
+## Exporter les contacts
+
+Le menu **Exporter** de la [Boîte de réception](/guides/boite-de-reception) et du [Pipeline](/guides/pipeline) propose **Exporter les contacts (Excel, ;)** : une ligne par personne ayant un e-mail ou un téléphone, sans doublon.
 
 ## Provenance des données
 
-Les contacts sont identifiés à partir de sources professionnelles publiques (profils LinkedIn, annuaires et publications officiels). Il s'agit de coordonnées **professionnelles** de personnes exerçant une fonction publique, destinées à une prise de contact commerciale légitime.
+Les contacts sont identifiés à partir de sources professionnelles publiques (profils LinkedIn, annuaires et publications officiels). Skult recherche des coordonnées **professionnelles** de personnes qui exercent une fonction publique, pour une prise de contact commerciale légitime. Un téléphone trouvé n'est toutefois pas garanti professionnel : vérifiez-le avant usage. Voir [Données personnelles & RGPD](/reference/rgpd).
 
 ## Et ensuite ?
 
@@ -60,6 +102,6 @@ Les contacts sont identifiés à partir de sources professionnelles publiques (p
   </Card>
 
   <Card title="Comprendre une alerte" icon="bell" href="/concepts/alertes">
-    Ce que contient une alerte et son score.
+    Ce que contient une alerte et sa note.
   </Card>
 </CardGroup>
